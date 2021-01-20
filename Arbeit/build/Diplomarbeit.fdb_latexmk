@@ -1,0 +1,20 @@
+# Fdb version 3
+["pdflatex"] 1611158015 "Diplomarbeit.tex" "build/Diplomarbeit.pdf" "Diplomarbeit" 1611158016
+  "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls" 1601675358 20145 aad8c3dd3bc36e260347b84002182bc2 ""
+  "/usr/local/texlive/2020/texmf-dist/tex/latex/base/size10.clo" 1601675358 8449 a72d5d4e612221b46000c3d71724e0ef ""
+  "/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1610315378 24157 3d92be7d5afb895841a9597378bac15c ""
+  "/usr/local/texlive/2020/texmf-dist/web2c/texmf.cnf" 1598393674 39451 15a3ebee027466ecb89701aa91dfebaf ""
+  "/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1611150268 5154538 db42a3e0143de0e4116f50168259aa9f ""
+  "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1611150394 2569155 a4b9ce63d6696c2321d9aa2afa75e0b4 ""
+  "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
+  "Diplomarbeit.tex" 1611158014 137 c216f737cdf946e4881d1c2afa7fe4ed ""
+  "build/Diplomarbeit.aux" 1611158016 123 1e15cd12fed04fedd966215eb6f9f4f5 "pdflatex"
+  (generated)
+  "build/Diplomarbeit.pdf"
+  "build/Diplomarbeit.log"
+  "build/Diplomarbeit.aux"

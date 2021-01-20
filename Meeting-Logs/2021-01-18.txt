@@ -1,0 +1,11 @@
+Fragen:
+- Literatur / Typescript sehr rar
+- Architekturen mit Metriken bewerten?
+- 2. Betreuer
+
+fokussieren? 
+ => Verbesserung auf Erweiterbarkeit und Testbarkeit
+ => Buildartifakte
+
+ => Performance ausklammern?
+ 
