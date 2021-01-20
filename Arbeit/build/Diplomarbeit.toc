@@ -1,0 +1,14 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {ngerman}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Thema:}{1}{paragraph*.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Zeitraum:}{1}{paragraph*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Glossar}{1}{chapter*.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Unternehmensvorstellung}{2}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Der Freedesign-Editor}{4}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

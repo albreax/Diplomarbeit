@@ -1,6 +1,18 @@
 % !TeX root = ./Diplomarbeit.tex
-\documentclass{article}
+\input{config}
 \begin{document}
-    \section{Foo}
-    Das ist ein Test Document
+    \input{chapter/Deckblatt.tex}
+    \pagenumbering{roman}
+    \tableofcontents
+    \clearpage
+    \pagenumbering{arabic}
+
+    \input{chapter/Glossar}
+    \input{chapter/Unitedprint}
+    \input{chapter/Freedesign}
+
+    \printbibliography[title={Quellenverzeichnis}]
+    \listoffigures
+    
+
 \end{document}

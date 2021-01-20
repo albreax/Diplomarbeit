@@ -1,0 +1,104 @@
+% config.tex
+
+\author{Albrecht Naumann}
+\title{Diplomarbeit}
+
+\documentclass [
+    a4paper,
+    12pt,
+    oneside
+] {scrreprt}
+
+
+%
+% Language
+%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % europäische Zeichen
+
+
+%
+% Document Format
+%
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Ränder
+\geometry{includeheadfoot, top=2cm, bottom=2cm,left=3.5cm, right=3.5cm}
+%Zeilenabstand
+\renewcommand{\baselinestretch}{1.5}\normalsize
+% Arial
+\renewcommand{\familydefault}{\sfdefault}
+
+
+% Titelformat
+% \usepackage{titlesec}
+% \titleformat{\chapter}[block]
+%   {\normalfont\LARGE\bfseries}{\thechapter.}{.5em}{\LARGE}
+% \titlespacing*{\chapter}{0pt}{0pt}{1em}
+% \titleformat*{\section}{\large\bfseries}
+% \titlespacing*{\section}{0pt}{1em}{1em}
+% \titleformat*{\subsection}{\normalfont\bfseries}
+
+
+% global stuff
+%
+\usepackage{url}
+\usepackage[ampersand]{easylist}
+\usepackage[utf8]{inputenc}
+%
+% references
+%
+\usepackage[babel, german=guillemets]{csquotes}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{literatur.bib}
+
+%
+% item list
+%
+% \usepackage[babel, german=guillemets]{csquotes}
+\usepackage{listings}
+\usepackage{paralist}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\cdot$}
+\renewcommand{\labelitemiv}{$\ast$}
+
+\usepackage{chngcntr} % => \counterwithin{figure}{chapter}
+\counterwithin{figure}{chapter}
+\usepackage[ngerman]{babel}
+\addto\captionsngerman{
+  %\renewcommand{\figurename}{Abb.}
+  \renewcommand{\tablename}{Tab.}
+  \renewcommand{\lstlistingname}{Abb.}
+}
+\renewcommand{\lstlistlistingname}{Abbildungsverzeichnis}%  List of Listings -> Abb.
+
+% sonstiges
+\usepackage{framed}
+\usepackage{tabularx}
+\usepackage{mathabx}
+\usepackage[table]{xcolor}
+%
+% PDF output
+%
+\usepackage[
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdfauthor={Albrecht Naumann},     % author
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    hidelinks
+    % linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    % citecolor=green,        % color of links to bibliography
+    % filecolor=magenta,      % color of file links
+    % urlcolor=cyan           % color of external links
+]{hyperref}
