@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.20)  20 JAN 2021 18:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.20)  20 JAN 2021 21:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1018,21 +1018,21 @@ Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count442
-)) (./chapter/Deckblatt.tex [1
+)) (build/Diplomarbeit.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 8.
+ [1
 
 
-
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (build/Diplomarbeit.toc)
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write5
 \openout5 = `Diplomarbeit.toc'.
 
- [1
-
-] (./chapter/Glossar.tex) (./chapter/Unitedprint.texpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2 \chapter
-            {Unternehmensvorstellung} [1
+ [2] (./chapter/Glossar.tex) (./chapter/EinfÃ¼hrung.tex [1
 
 
 ]
@@ -1052,22 +1052,38 @@ Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              a package that still implements the
 (scrreprt)              deprecated \float@addtolist interface.
 
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 6.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) (./chapter/Freedesign.tex [2
+) (./chapter/Grundlagen.tex [2
 
-] [3]
+]
 chapter 2.
-) [4
 
-] [5
+Overfull \hbox (15.8617pt too wide) in paragraph at lines 3--4
+\T1/cmss/m/n/12 Zusammenfassung der tech-ni-schen Grund-la-gen, die für das Ver-ständ-nis des Freedesign-
+ []
+
+[3
+
+]) (./chapter/Ergebnisse.tex [4]
+chapter 3.
+) (./chapter/Diskussion.tex [5
+
+]
+chapter 4.
+) (./chapter/Zusammenfassung.tex [6
+
+]
+chapter 5.
+)
+
+LaTeX Warning: Empty bibliography on input line 18.
+
+[7
 
 ] (build/Diplomarbeit.lof)
 \tf@lof=\write6
 \openout6 = `Diplomarbeit.lof'.
 
- [6
+ [8
 
 ] (build/Diplomarbeit.aux)
 Package rerunfilecheck Info: File `Diplomarbeit.out' has not changed.
@@ -1077,18 +1093,18 @@ Package logreq Info: Writing requests to 'Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22313 strings out of 479304
- 396354 string characters out of 5867281
- 1307323 words of memory out of 5000000
- 39181 multiletter control sequences out of 15000+600000
- 413725 words of font info for 42 fonts, out of 8000000 for 9000
+ 22188 strings out of 479304
+ 393085 string characters out of 5867281
+ 1311276 words of memory out of 5000000
+ 39023 multiletter control sequences out of 15000+600000
+ 414278 words of font info for 52 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  116i,7n,119p,10622b,2239s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsi1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx2074.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb>
-Output written on build/Diplomarbeit.pdf (8 pages, 112533 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb>
+Output written on build/Diplomarbeit.pdf (10 pages, 100461 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

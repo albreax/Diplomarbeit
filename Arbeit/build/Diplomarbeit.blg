@@ -1,15 +1,9 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'build/Diplomarbeit.blg'
-[156] biber-darwin:340> INFO - === Mi Jan 20, 2021, 18:43:34
-[183] Biber.pm:415> INFO - Reading 'build/Diplomarbeit.bcf'
-[331] Biber.pm:952> INFO - Found 1 citekeys in bib section 0
-[349] Biber.pm:4340> INFO - Processing section 0
-[376] Biber.pm:4531> INFO - Looking for bibtex format file 'literatur.bib' for section 0
-[378] bibtex.pm:1689> INFO - LaTeX decoding ...
-[383] bibtex.pm:1494> INFO - Found BibTeX data source 'literatur.bib'
-[439] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[439] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[439] Biber.pm:4168> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'de-DE'
-[439] Biber.pm:4174> INFO - No sort tailoring available for locale 'de-DE'
-[441] bbl.pm:654> INFO - Writing 'build/Diplomarbeit.bbl' with encoding 'UTF-8'
-[443] bbl.pm:757> INFO - Output to build/Diplomarbeit.bbl
+[1] Config.pm:314> INFO - Logfile is 'build/Diplomarbeit.blg'
+[162] biber-darwin:340> INFO - === Mi Jan 20, 2021, 21:21:55
+[189] Biber.pm:415> INFO - Reading 'build/Diplomarbeit.bcf'
+[341] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[350] Utils.pm:395> WARN - The file 'build/Diplomarbeit.bcf' does not contain any citations!
+[365] bbl.pm:654> INFO - Writing 'build/Diplomarbeit.bbl' with encoding 'UTF-8'
+[365] bbl.pm:757> INFO - Output to build/Diplomarbeit.bbl
+[365] Biber.pm:128> INFO - WARNINGS: 1

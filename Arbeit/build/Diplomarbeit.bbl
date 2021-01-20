@@ -16,35 +16,5 @@
   {}
 \endgroup
 
-
-\refsection{0}
-  \datalist[entry]{nyt/global//global/global}
-    \entry{Unitedprint2017}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ea553c34664a1b9e2f2b745242e1ef99}{%
-           family={Unitedprint.com},
-           familyi={U\bibinitperiod},
-           given={SE},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{ea553c34664a1b9e2f2b745242e1ef99}
-      \strng{fullhash}{ea553c34664a1b9e2f2b745242e1ef99}
-      \strng{bibnamehash}{ea553c34664a1b9e2f2b745242e1ef99}
-      \strng{authorbibnamehash}{ea553c34664a1b9e2f2b745242e1ef99}
-      \strng{authornamehash}{ea553c34664a1b9e2f2b745242e1ef99}
-      \strng{authorfullhash}{ea553c34664a1b9e2f2b745242e1ef99}
-      \field{sortinit}{U}
-      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{PDF}
-      \field{title}{Unternehmenspräsentation}
-      \field{year}{2017}
-    \endentry
-  \enddatalist
-\endrefsection
 \endinput
 
