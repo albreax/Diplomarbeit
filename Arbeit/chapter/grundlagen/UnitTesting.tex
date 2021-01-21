@@ -1,0 +1,21 @@
+\section{Unit-Testing}
+\subsection{Definition}
+Anlehnend an Osherove (\citeyear[S. 34]{Osherove2015}) ist ein \gls{Unit-Test} ein Stück Quelltext, welcher automatisch einen isolierten Baustein, das Testobjekt, einer Software ausführt. Dabei kann das Testobjekt ein Skript, eine Funktion, ein Modul oder bei objektorientierten Sprachen eine Klasse sein. Wichtig ist, dass das Testobjekt abgeschlossen ist. Nach der Ausführung prüft der Unit-Test das Ergebnis, welches vom Testobjekt erzeugt wurde. Entspricht das Ergebnis den vom Test definierten Erwartungen, wird das Testergebnis als erfolgreich gekennzeichnet, andernfalls wird es als negativ gekennzeichnet.
+Das Testergebnis ist konsistent, solange die Logik des Testobjektes nicht geändert wird.
+
+\section{Anforderungen an Unit-Tests}
+\subsection*{Unabhängigkeit der Unit-Tests}
+Die Entwicklung einer Software sollte von regelmäßigen Ausführungen und Erweiterungen der Unit-Tests durch die Entwickler begleitet sein. Damit die Tests regelmäßig von den Entwicklern ausgeführt werden, sollte ihre Ausführung Millisekunden bis maximal wenige Sekunden lang dauern. Andernfalls würde die Akzeptanz der Tests bei den Entwicklern gesenkt. Die Ausführung der Tests sollte auch die Entwicklungsarbeit nicht unterbrechen oder gar blockieren. Um dies zu gewährleisten, ist es wichtig, dass die Unit-Tests unabhängig von ihrer Umgebung ausführbar sind und nicht aufeinander aufbauen \autocite[vgl.][S. 19]{Springer2015}. Das bedeutet, dass keine Datenbankverbindung oder Verbindung zu anderen Systemen bestehen darf. Diese Verbindungen würden es notwendig machen, die Testumgebung zu konfigurieren und würden die Testsausführung verlangsamen oder auch stören. Das Testen mit Datenbankenverbindungen und weiteren externen Abhängigkeiten wird den Integrationstests und den Systemtests überlassen.
+Durch die schnelle Ausführbarkeit muss der Entwickler auch nicht jedesmal die gesamte Applikation starten, um seine Arbeit zu prüfen.
+\subsection*{Leichte Verständlichkeit}
+Eine weitere wichtige Anforderung an Unit-Tests ist, dass sie leicht verständlich programmiert sind und sich somit jedem Entwickler, der im Projekt involviert ist, innerhalb weniger Minuten erschließen \autocite[vgl.][224]{Osherove2015}. Somit können eventuelle Fehlfunktionen, die zu fehlerhaften Unit-Tests führen, schnell vom Entwickler erfasst werden.
+Das hilft den involvierten Entwicklern den Quelltext der Software leichter zu verstehen. Unit-Tests können somit auch als Teil der Softwaredokumentation für die Entwickler gesehen werden \autocite[vgl.][19]{Springer2015}.
+
+
+Da Software aus einer Vielzahl von Funktionen und Funktionalitäten besteht, ist ebenfalls mit einer Vielzahl von Unit-Tests zu rechnen. Aus diesem Grund sollten die Tests von Anfang an in einer sinnvollen Struktur angelegt werden und mit Techniken ausgestattet sein, welche die Wartung der Tests möglichst gering hält.
+
+\subsubsection*{Vermeidung von Logik in den Unit-Tests}
+Innerhalb der Unit-Tests sollte auf Logik verzichtet werden \autocite[vgl.][197]{Osherove2015}. Diese führt nicht nur zur schweren Verständlichkeit der Tests, sondern macht die Unit-Tests selber anfällig für Fehler.
+
+\subsection{Mehraufwand durch das Erstellen von Unit-Tests}
+Das Erstellen von Unit-Tests bedeutet einen nicht unerheblichen Mehraufwand für die Programmierarbeit, was dazu führen kann, dass Entwickler auf den Einsatz von Unit-Tests verzichten. Im Entwickler-Team des Unternehmens Unitedprint wird bereits ein Code-Review-Prozess durchgeführt, bei dem Quelltextänderungen vor dem Einsatz im Produktivsystem von weiteren Entwicklern auf Fehler überprüft wird. Dieser Prozess sollte um die Überprüfung der Unit-Tests erweitert werden. Es muss jedoch auch jedem Entwickler bewusst sein, dass der Einsatz von Unit-Tests sinnvoll ist.
