@@ -2,7 +2,24 @@
 \chapter{Einführung}
 % TODO: Einführung
 \section{Unternehmensvorstellung}
-
+Ein Vorstellung des Unternehmens Unitedprint.
 \section{Der Freedesign-Editor}
+Ein Vorstellung des \gls{Freedesign-Editor}s und seines Funktionsumfanges.
 
 \section{Problemstellung}
+Als Anfang 2018 die Entwicklung der aktuellen FreeDesign-Anwendung begonnen wurde, hatte das Team nur wenig Erfahrung im Entwickeln von ReactJS-Anwendungen. Des Weiteren wurde die Anwendung unter einem hohen zeitlichen Druck entwickelt.
+Dadurch sind eine Reihe von technischen Schulden entstanden. Eine der Hauptschulden ist eine fehlende Definition der Quelltext-Architektur. Durch die Verwendung von ReactJS und Redux wird zwar bereits eine gewisse Architektur vorgeben, diese bezieht sie jedoch auf die Strukturierung der grafischen Oberfläche. Für die Domain-Logik wurde jedoch keine spezifische Architektur festgelegt, was die Pflege und Weiterentwicklung der Anwendung, erschweren kann.
+Die aktuelle Architektur weist derzeit folgende offensichtliche Schwächen auf:
+\begin{itemize}
+  \item Die Architektur ist nicht dokumentiert.
+  \item Der Quelltext für die grafische Oberfläche und für die Domain-Logik sind mitunter viel
+  zu eng gekoppelt, was den Austausch und die Aktualisierung von JavaScript-
+  Bibliotheken erschwert.
+  \item Durch die zuvor genannte enge Kopplung ist es für einige Teile des Quelltextes
+  schwer Unit-Tests zu erstellen bzw. zu pflegen.
+  \item Einige Teile des Quelltextes weisen Muster von Anti-Patterns auf.
+\end{itemize}
+Da die Anwendung einer permanenten Weiterentwicklung unterliegt, ist es wichtig die Software in eine geeignetere Architektur zur überführen. Weiterhin entwickelt sich die Webtechnologie mit großer Geschwindigkeit weiter. An dieser Stelle ist eine Architektur notwendig, die eine effiziente Pflege ermöglicht.
+
+\section{Ziel der Diplomarbeit}
+Das Ziel der Diplomarbeit ist die Ausarbeitung eines Vorgehens zur Überführung einer Ist-Architektur einer, in TypeScript implementierten, ReactJS-Anwendung in eine Soll-Architektur. Um eine hohe Akzeptanz einer solcher Maßnahme zu erreichen, ist eine Rahmenbedingung, dass die Überführung schrittweise geschieht und die Weiterentwicklungsarbeit der ReactJS-Anwendung begleitet.
