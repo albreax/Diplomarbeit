@@ -1,22 +1,26 @@
 % !TeX root = ./Diplomarbeit.tex
 \input{config}
+
+\input{glossar}
+
 \begin{document}
     % \input{chapter/Deckblatt}  TODO: Deckblatt aktivieren
     \pagenumbering{roman}
     \tableofcontents
     \clearpage
     \pagenumbering{arabic}
-
-    \input{chapter/Glossar}
+    \printglossaries
 
     \input{chapter/Einführung}
     \input{chapter/Grundlagen}
     \input{chapter/Ergebnisse}
     \input{chapter/Diskussion}
     \input{chapter/Zusammenfassung}
+    \input{chapter/Ausblick}
 
-    \printbibliography[title={Quellenverzeichnis}]
+    \printbibliography[heading=bibintoc, title={Quellenverzeichnis}]
     \listoffigures
 
-
+    % TODO: selbststaendigkeitserklaerung
+    % TODO: Anlagen
 \end{document}
