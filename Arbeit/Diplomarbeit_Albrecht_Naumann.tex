@@ -7,9 +7,13 @@
     % \input{chapter/Deckblatt}  TODO: Deckblatt aktivieren
     \pagenumbering{roman}
     \tableofcontents
-    \clearpage
+
+    \listoffigures
+    % TODO:Tabellenverzeichnis
+
     \pagenumbering{arabic}
-    \printglossaries
+    \clearpage % reset page count
+    % \printglossaries
 
     \input{chapter/Einführung}
     \input{chapter/Grundlagen}
@@ -19,8 +23,8 @@
     \input{chapter/Ausblick}
 
     \printbibliography[heading=bibintoc, title={Quellenverzeichnis}]
-    \listoffigures
 
-    % TODO: selbststaendigkeitserklaerung
+    % TODO: Eidesstattliche Erklärung
+    % TODO: Eidesstattliche Erklärung ohne Nummerierung
     % TODO: Anlagen
 \end{document}
