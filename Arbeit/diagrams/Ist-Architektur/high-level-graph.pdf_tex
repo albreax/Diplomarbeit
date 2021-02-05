@@ -1,0 +1,116 @@
+%% Creator: Inkscape 1.0.2 (e86c8708, 2021-01-15), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'high-level-graph.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1021.99998474bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.44911937)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{high-level-graph.pdf}}%
+    \put(0.5,0.42641877){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{src}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{high-level-graph.pdf}}%
+    \put(0.268591,0.16223092){\color[rgb]{1,0.64705882,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}actions\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{high-level-graph.pdf}}%
+    \put(0.37866928,0.24735812){\color[rgb]{1,0.64705882,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}core\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{high-level-graph.pdf}}%
+    \put(0.86105675,0.32661447){\color[rgb]{1,0.64705882,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}services\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{high-level-graph.pdf}}%
+    \put(0.95401174,0.2444227){\color[rgb]{1,0.64705882,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}stores\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{high-level-graph.pdf}}%
+    \put(0.76174168,0.18962818){\color[rgb]{1,0.64705882,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}components\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{high-level-graph.pdf}}%
+    \put(0.47765167,0.17488258){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{high-level-graph.pdf}}%
+    \put(0.56702544,0.1446184){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}containers\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{high-level-graph.pdf}}%
+    \put(0.32545988,0.12798435){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{high-level-graph.pdf}}%
+    \put(0.66242661,0.13874756){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}utils\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{high-level-graph.pdf}}%
+    \put(0.29033268,0.19555773){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{high-level-graph.pdf}}%
+    \put(0.51908023,0.31291584){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}not-in-allowed\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{high-level-graph.pdf}}%
+    \put(0.73385519,0.35401173){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}not-in-allowed\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{high-level-graph.pdf}}%
+    \put(0.51197651,0.23072407){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{high-level-graph.pdf}}%
+    \put(0.47162427,0.28258316){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}reducers\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{high-level-graph.pdf}}%
+    \put(0.46011741,0.25356164){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{high-level-graph.pdf}}%
+    \put(0.4839726,0.35205478){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}not-in-allowed\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{high-level-graph.pdf}}%
+    \put(0.78239725,0.25304305){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}not-in-allowed\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{high-level-graph.pdf}}%
+    \put(0.86643836,0.20528376){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{high-level-graph.pdf}}%
+    \put(0.62636989,0.18360078){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{high-level-graph.pdf}}%
+    \put(0.86105675,0.06242661){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}styles\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{high-level-graph.pdf}}%
+    \put(0.49024462,0.20548923){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{high-level-graph.pdf}}%
+    \put(0.74383563,0.15114482){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}access-forbidden\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{high-level-graph.pdf}}%
+    \put(0.77935421,0.30117416){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}not-in-allowed\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{high-level-graph.pdf}}%
+    \put(0.67367906,0.26007827){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}not-in-allowed\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{high-level-graph.pdf}}%
+    \put(0.268591,0.34422699){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}designToSvgCLI\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{high-level-graph.pdf}}%
+    \put(0.268591,0.27671232){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}draftImporterCli.ts\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{high-level-graph.pdf}}%
+    \put(0.05577299,0.20821918){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}freedesign.tsx\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{high-level-graph.pdf}}%
+    \put(0.15851272,0.11037182){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}modules\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{high-level-graph.pdf}}%
+  \end{picture}%
+\endgroup%
