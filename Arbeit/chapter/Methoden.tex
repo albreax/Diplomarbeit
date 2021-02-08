@@ -4,3 +4,17 @@
 Jedes Mitglied des FreeDesign-Team hat tiefgreifende Erfahrungen mit der Architektur des Quelltextes gesammelt. Eine Änderung der Architektur hat Einfluss auf die Arbeit des Teams, daher sollte es von Anfang an mit einbezogen werden. Auch sind die Kompetenzen unterschiedlich im Team verteilt und jedes Mitglied kennt Bereiche des Quelltextes besser oder schlechter. Durch Erfahrungen und Kompetenzen kann jedes Mitglied des Teams wertvoll Hinweise zu Problemen und Schwächen der aktuellen Architektur liefern, sowie Ideen und Wünsche für einer Überarbeitung der Architektur beitragen. 
 Zu diesem Zweck wurde in einem Interview-Format entwickelt.
 % TODO: Interview werden vorher geschickt
+
+\section{Analyse der Ist-Architektur}
+Da die Ist-Architektur kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. Die dafür angewendet Technik wird als Reverse Engineering bezeichnet und hat zum Ziel, aus vorhanden Informationen Modelle herzuleiten \autocite[vgl.][590]{LudewigLichter2013}.  Hierfür  wurde zunächst erörtert welche Aspekte der Ist-Architektur für das Ziel der Arbeit relevant sind und extrahiert werden müssen. 
+Für die Rekonstruktion standen folgende Informationsquellen zur Verfügung:
+\begin{itemize}
+	\item Das Fachwissen des Entwickler-Teams
+	\item Der Quelltext des Projektes
+	\item Projektdokumente (Confluence), welche die erwartete Funktionsweise verschiedener Funktionalitäten beschreiben. 
+	\item Das Log der Versionsverwaltung (Git)
+	\item Das Ticketsystem (Jira), über welches die Entwicklungsaufgaben verwaltet werden. 
+\end{itemize} 
+
+Für das Rekonstruieren einer Architektur können unterschiedlichste Werkzeuge genutzt werden, wobei üblicherweise nicht einzelnes Werkzeug alle Aufgaben übernimmt \autocite[vgl.][381]{Bass2013}. 
+Nach dem Erörtern der Aspekte, wurden geeignete Werkzeuge ermittelt, welche die Arbeit des Reverse Engineering unterstützen können.
