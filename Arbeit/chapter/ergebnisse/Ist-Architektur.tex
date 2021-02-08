@@ -1,6 +1,9 @@
 % Ist-Architektur.tex
 \section{Ist-Architektur}
 
+\subsection{Aspekte der Ist-Archtektur}
+
+
 \subsection{Externe Schnittstellen}
 Der FreeDesign-Editor kommuniziert über folgende vier Schnittstellen:
 \begin{itemize}
@@ -14,35 +17,14 @@ Der FreeDesign-Editor kommuniziert über folgende vier Schnittstellen:
 Browser bieten die Möglichkeiten Daten in einem Local-Storage-Object oder einem Session-Storage-Object Daten zu speichern. \autocite[vgl.][]{Mozilla:Storage}
 Die werden jedoch aktuell von der Anwendung nicht genutzt. 
 
-\begin{figure}[ht]
+% TODO: Es fehlt das Clipboard
+
+\begin{figure}[H]
   \centering
-  \includegraphics{diagrams/Freedesign_Interaktion.pdf}
+  \includegraphics{diagrams/Ist-Architektur/Freedesign_Interaktion.pdf}
    \caption{Externe Schnittstellen}
    \label{fig:Externe_Schnittstellen}
 \end{figure}
-% Finden ein Dokumentationsform
 
-% Vorgehensweise
-% 1. Interviews
+\input{chapter/ergebnisse/Ist-Architekur/Paketstruktur}
 
-% Strategic Design
-% 2. Ubiquitous Lang definieren
-
-
-\subsection{Analyse Ist-Architektur}
-Analyse der Ist-Architektur
-\begin{itemize}
-\item Hi­e­r­ar­chi­sie­rung
-\item Paketstruktur und Zugriffe
-\item Komponenten-Strukturierung
-\item etc.
-\end{itemize}
-
-\subsection{Bewertung Ist-Architektur}
-Kritische Bewertung der Ist-Architektur auf Schwächen.
-\begin{itemize}
-\item Einhaltung von SOLID
-\item Design-Smells
-\item Zyklen
-\item etc.
-\end{itemize}
