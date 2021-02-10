@@ -1,20 +1,34 @@
 \chapter{Methoden}
 
-\section{Auftakt-Interviews}
-Jedes Mitglied des FreeDesign-Team hat tiefgreifende Erfahrungen mit der Architektur des Quelltextes gesammelt. Eine Änderung der Architektur hat Einfluss auf die Arbeit des Teams, daher sollte es von Anfang an mit einbezogen werden. Auch sind die Kompetenzen unterschiedlich im Team verteilt und jedes Mitglied kennt Bereiche des Quelltextes besser oder schlechter. Durch Erfahrungen und Kompetenzen kann jedes Mitglied des Teams wertvoll Hinweise zu Problemen und Schwächen der aktuellen Architektur liefern, sowie Ideen und Wünsche für einer Überarbeitung der Architektur beitragen. 
-Zu diesem Zweck wurde in einem Interview-Format entwickelt.
-% TODO: Interview werden vorher geschickt
+\section{Architektur-Workshop}
+Jedes Mitglied des FreeDesign-Team hat tiefgreifende Erfahrungen mit der Architektur des Quelltextes gesammelt. % TODO: eventuell Zitat ergänzen
+Eine Änderung der Architektur hat Einfluss auf die Arbeit des Teams, daher sollte es von Anfang an mit einbezogen werden. 
+Auch sind die Kompetenzen unterschiedlich im Team verteilt und jedes Mitglied kennt Bereiche des Quelltextes besser oder schlechter. 
+Durch Erfahrungen und Kompetenzen kann jedes Mitglied des Teams wertvoll Hinweise zu Problemen und Schwächen der aktuellen Architektur liefern, sowie Ideen und Wünsche für einer Überarbeitung der Architektur beitragen.
+Zu diesem Zweck wurde vor der eigenetlichen Analyse mit dem FreeDesign-Entwicklerteam eine Architektur-Workshop durchgeführt, in welchem der aktuelle Zustand der Architektur ergründet wurde. Neben den Schwächen der der Ist-Architektur wurden auch Stärken hervorgehoben, die es zu bewahren gild. 
+
+Auch der Beitrag eines sehr neuen Teammitgliedes erwies sich als sehr hilfreich, da dieses eine frische Sicht auf das Projekt hat. Es konnten dadurch Erfahrungen gesammelt werden, wie gut der Einstieg in die Projektstruktur gelingt. 
+
+Damit das Entwicklerteam sich optimal auf den Workshop vorbereiten konnten, wurde diese zwei Wochen vorher angekündigt. Eine vor dem Workshop erhielten die Teammitglieder eine Agenda mit den Fragen:
+\begin{itemize}
+	\item Was ist positiv in der aktuellen Architektur herzuheben?
+	\item Welche Schwächen oder Probleme werden in aktuellen Architektur gesehen?
+	\item Welche Ideen und Wünsche können in eine Überarbeitung der Architekture einfließen?
+\end{itemize}
 
 \section{Analyse der Ist-Architektur}
-Da die Ist-Architektur kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. Die dafür angewendet Technik wird als Reverse Engineering bezeichnet und hat zum Ziel, aus vorhanden Informationen Modelle herzuleiten \autocite[vgl.][590]{LudewigLichter2013}.  Hierfür  wurde zunächst erörtert welche Aspekte der Ist-Architektur für das Ziel der Arbeit relevant sind und extrahiert werden müssen. 
+Da die Ist-Architektur des FreeDesign-Editors kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. 
+Die dafür angewendet Technik wird als Reverse Engineering bezeichnet und hat zum Ziel, aus vorhanden Informationen Modelle herzuleiten \autocite[vgl.][590]{LudewigLichter2013}. 
+Die Analyse konzentriete sich dabei auf die Aspekte, die im Architektur-Workshop vom Entwicklerteam herausgearbeitet wurden.
 Für die Rekonstruktion standen folgende Informationsquellen zur Verfügung:
 \begin{itemize}
 	\item Das Fachwissen des Entwickler-Teams
 	\item Der Quelltext des Projektes
-	\item Projektdokumente (Confluence), welche die erwartete Funktionsweise verschiedener Funktionalitäten beschreiben. 
+	\item Projektdokumente (Confluence), welchen verschiedener Funktionalitäten des Editors beschreiben. 
 	\item Das Log der Versionsverwaltung (Git)
 	\item Das Ticketsystem (Jira), über welches die Entwicklungsaufgaben verwaltet werden. 
 \end{itemize} 
 
-Für das Rekonstruieren einer Architektur können unterschiedlichste Werkzeuge genutzt werden, wobei üblicherweise nicht einzelnes Werkzeug alle Aufgaben übernimmt \autocite[vgl.][381]{Bass2013}. 
-Nach dem Erörtern der Aspekte, wurden geeignete Werkzeuge ermittelt, welche die Arbeit des Reverse Engineering unterstützen können.
+Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise nicht einzelnes Werkzeug alle Analyse-Aufgaben übernimmt \autocite[vgl.][381]{Bass2013}. 
+
+% Nach dem Erörtern der Aspekte, wurden geeignete Werkzeuge ermittelt, welche die Arbeit des Reverse Engineering unterstützen können.
