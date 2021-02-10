@@ -1,10 +1,40 @@
 % Ist-Architektur.tex
 \section{Ist-Architektur}
 
-\subsection{Aspekte der Ist-Archtektur}
+\subsection{Ergebnis des Workshops zur Ist-Architektur}
+
+\subsubsection{Positives und Erhaltenwertes}
+Als positiv wurde hervorgehoben, dass die aktuelle Architektur, zumindest soweit bekannt, nicht unlösbaren Problemen leidet. 
+Das war vor einer Neuimplementierung des FreeDesign-Editor der Fall gewesen. 
+Auch Anforderungsänderung und Erweiterungen konnten bisher problemlos umgesetzt werden. 
+
+Die Nutzung von Redux als zentrale Zustandverwaltung, sowie die Anbindung and die Einbindung über \textit{Container}-Objekte wurde positiv geweitet. 
+
+Als undbedingt erhaltenwerte wurde auch die strikte Trennung zwischen Produktdarstellung und Designdarstellung, sowie den grafischen Komponenten zum bearbeiten des Designs bewertet. 
+
+Die grundlegende Strukturierung des Quelltextes innerhalb der Ordner hat ebenfalls bewährt und scheint den Einstieg in das Projekt zu fördern. 
+
+\subsubsection{Schwächen und Probleme}
+
+\subsection{Aspekte der Ist-Architektur}
 
 
-\subsection{Externe Schnittstellen}
+
+\subsubsection{Komponenten}
+Zunächst wurde als wichtig befunden, aufzuschlüsseln aus welchen fachlichen Hauptkomponenten die Anwendung besteht und wie diese mit einander interagieren.
+
+\subsubsection{Struktur des Quelltextes}
+Der Quelltext wurde nach Strukturen untersucht und wie sich Hauptkomponenten innerhalb der Struktur wiederfinden
+
+\subsubsection{Verletzungen der Ist-Architektur }
+
+	
+\subsection{Analyse-Werkzeuge}
+
+
+\subsection{Komponenten des FreeDesign-Editors}
+
+\subsubsection{Externe Schnittstellen}
 Der FreeDesign-Editor kommuniziert über folgende vier Schnittstellen:
 \begin{itemize}
 	\item Über eine grafische Oberfläche wird der Editor vom Nutzer bedient und die Anwendung reagiert sowohl auf Mauseingaben als auch auf Tastatureingaben. 
@@ -14,7 +44,7 @@ Der FreeDesign-Editor kommuniziert über folgende vier Schnittstellen:
 	\item Ein Browser-Cookie wird vorwiegend zur Nutzer-Authentifizierung genutzt. 
 \end{itemize}
 
-Browser bieten die Möglichkeiten Daten in einem Local-Storage-Object oder einem Session-Storage-Object Daten zu speichern. \autocite[vgl.][]{Mozilla:Storage}
+Browser bieten die Möglichkeiten Daten in einem Local-Storage-Object oder einem Session-Storage-Object Daten zu speichern. \cite{Mozilla:Storage}
 Die werden jedoch aktuell von der Anwendung nicht genutzt. 
 
 % TODO: Es fehlt das Clipboard
@@ -25,6 +55,21 @@ Die werden jedoch aktuell von der Anwendung nicht genutzt.
    \caption{Externe Schnittstellen}
    \label{fig:Externe_Schnittstellen}
 \end{figure}
+
+
+\subsubsection{Grafische-Oberfläche}
+
+\subsubsection{Anwendung-Zustand}
+
+\subsubsection{Produktkonfiguration}
+
+\subsubsection{Design-Modell}
+
+\subsubsection{Nutzerdaten}
+
+\subsubsection{REST-API-Anbindung}
+
+\subsubsection{Kommandozeilenprogramme}
 
 \input{chapter/ergebnisse/Ist-Architekur/Paketstruktur}
 
