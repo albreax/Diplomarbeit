@@ -44,22 +44,28 @@
 % \titlespacing*{\section}{0pt}{1em}{1em}
 % \titleformat*{\subsection}{\normalfont\bfseries}
 
-% global stuff
+% global packages
 %
 \usepackage{url}
 \usepackage[ampersand]{easylist}
 \usepackage[utf8]{inputenc}
+\usepackage{scrhack}
 %
 % references
 %
-\usepackage[babel, german=guillemets]{csquotes}
-\usepackage[style=authoryear]{biblatex}
+\usepackage[babel,german=guillemets]{csquotes}
+% \usepackage[style=authoryear]{biblatex}
+\usepackage[backend=biber, style=authoryear]{biblatex} %biblatex mit biber laden
+% \ExecuteBibliographyOptions{
+%   sorting=nyt, %Sortierung Autor, Titel, Jahr
+%   bibwarn=true, %Probleme mit den Daten, die Backend betreffen anzeigen isbn=false, %keine isbn anzeigen
+%   url=false %keine url anzeigen
+% }
 \addbibresource{literatur.bib}
 
 %
 % item list
 %
-% \usepackage[babel, german=guillemets]{csquotes}
 \usepackage{listings}
 \usepackage{paralist}
 \renewcommand{\labelitemi}{$\bullet$}
