@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%
+%%% Workshop %%%
+%%%%%%%%%%%%%%%%
+\subsection{Ergebnis des Workshops zur Ist-Architektur}
+
+\subsubsection{Positives und Erhaltenwertes}
+
+Als positiv wurde hervorgehoben, dass die Architektur, zumindest soweit bekannt, nicht unlösbaren Problemen leidet. 
+Das war vor einer Neuimplementierung des FreeDesign-Editor der Fall gewesen. 
+Auch Anforderungsänderung und Erweiterungen konnten bisher problemlos umgesetzt werden. 
+
+Die Nutzung von Redux als zentrale Zustandverwaltung, sowie die Anbindung and die Einbindung über \textit{Container}-Objekte wurde positiv geweitet. 
+
+Als undbedingt erhaltenwerte wurde auch die strikte Trennung zwischen Produktdarstellung und Designdarstellung, sowie den grafischen Komponenten zum bearbeiten des Designs bewertet. 
+
+Die grundlegende Strukturierung des Quelltextes innerhalb der Ordner hat ebenfalls bewährt und scheint den Einstieg in das Projekt zu fördern. 
+Mitgliedern des Entwicklerteam ist die Strukturierung auch aus andere Projekte bekannt.
+
+\subsubsection{Schwächen und Probleme}
+\paragraph{Geschäftlogik}
+Als größte Schwäche der Architektur wurde die unzureichende Strukturierung der Geschäftslogik bemängelt. Diese ist an verschiedensten Stellen im Quelltext implementiert. Den Mitglieder des Teams ist oft während der Entwickelungsarbeit nicht klar, ob eine bestimmte Funktionalität bereits implementiert ist und wo die Implementierung im Projekt zu finden ist. 
+Daher wird vermutet, dass einige Funktionalitäten mehrfach implementiert sind. 
+Dies verstößt gegen das, durch Dave Thomas und Andy Hunt formulierte Prinzip, \textit{"Don’t Repeat Yourself" (DRY)}. Es besagt, dass jedes Wissen innerhalb eines Systems ein einzige, eindeutige und verbindliche Darstellung haben muss \autocite[vgl.][30 - 31]{ThomasAndHunt2020}.  
+Quelltext-Duplikate sind aus mehrereren Gründen problematisch. Bei Änderungen, müssen mehrerer Stellen im Quelltext angepasst werden. Neben den Funktionalitäten sind auch Unit-Tests mehrfach implementiert, die das Selbe testen und bei Änderungen angepasst werden müssen. Neben dem höreren Entwicklung- und Wartungaufwand, führen Duplikate auch zu einer größeren JavaScript-Datei für den FreeDesign-Editor. 
+
+\paragraph{Konventionen}
+Eine weiter Kritikpunkt ist das fehlen von inhaltlichen Konventionen. Es bestehen zwar Konventionen für die Formatierung des Quelltext, welche mit dem, eingangs genanten, \textit{Linter} überprüft werden. Darüberhinaus wurden jedoch keine Konventionen festgellegt. 
+Ein paar wenige Konventionen haben sich, vorallem durch die Verwendung von TypeScript, ReactJS und Redux, ergeben. Beispiele hierfür sind, dass React-Komponenten keine Geschäftslogik enthalten sollen und die Verwendung von \textit{Container}-Objekten zum Verbinden von \textit{React}-Komponenten und \textit{Redux}.
+Darüberhinaus wurden jedoch keine Konventionen festgellegt.
+Das führt unter anderem dazu, dass es kein Schema für die Bezeichnung von Klassen, Funktionen oder Modulen gibt. Weiterhin werden Funktionen teilweise in Klassen und teilweise in Modulen zusammen gefasst. 
+
+\paragraph{Kommandozeilenprogramme} 
+Als problematisch wurde die Implementation der Kommandozeilenprogramme, für den Import der Designvorlagen, erachtet. Diese sind direkt innerhalb des Editor-Projekt implementiert und es ist teils schwierig zu unterscheiden, ob es sich um Quelltext für die Kommandozeilenprogramme oder die ReactJS-Anwendung handelt. 
+
+\paragraph{Ordner} Trotz der als gut befundenen Ordnerstruktur, gibt es einige Ordner, die hinterfragt wurden.
+\lstset{language=sh}
+\begin{lstlisting}
+src/actions/helper
+src/components/common
+src/components/controller
+src/components/controls
+src/containers/common
+src/core/common
+src/core/helpers
+src/modules
+src/utils
+\end{lstlisting}
+
+Carola Lilienthal empfiehlt das Vermeiden von generischen Hilfklassen, da sie von überall her benutzt werden können und die Zusammenarbeit mit anderen Klassen nicht einschränkt wird \autocite[vgl.][159]{Lilienthal2019}.    
+Mit der selben Begründung sollte auch das Verwenden von Ordnern wie \textit{helper}, \textit{common} oder \textit{utils} vermieden werden. Diese Ordner dienen als Sammelorte für Module, deren Zuordnung unklar ist oder für Hilfs-Module. 
+
