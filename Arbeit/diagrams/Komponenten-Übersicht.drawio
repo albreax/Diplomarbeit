@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-22T20:08:31.247Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15" etag="fhVX_1ZeM-n-Atow6Z_-" version="14.4.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-22T20:23:45.916Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15" etag="k3irrTwiICxGb6236kij" version="14.4.2" type="github">
   <diagram id="tkPnimrYDGrVxqu_xDMx" name="Page-1">
     <mxGraphModel dx="2066" dy="1160" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -30,6 +30,18 @@
         </mxCell>
         <mxCell id="QfUSe7zzY1h963QB0o7S-10" value="grafische Oberfläche" style="html=1;" vertex="1" parent="1">
           <mxGeometry x="400" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfUSe7zzY1h963QB0o7S-11" value="Nutzerdesignverarbeitung" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="840" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfUSe7zzY1h963QB0o7S-12" value="Kalendergenerator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="920" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfUSe7zzY1h963QB0o7S-13" value="Fehlerbehandlung" style="html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="840" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QfUSe7zzY1h963QB0o7S-14" value="Bilder-Cache" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="440" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
