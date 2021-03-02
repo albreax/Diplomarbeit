@@ -32,8 +32,9 @@
 %Zeilenabstand
 \renewcommand{\baselinestretch}{1.5}\normalsize
 % Arial
-\renewcommand{\familydefault}{\sfdefault}
-
+% \renewcommand{\familydefault}{\sfdefault}
+\tolerance=200
+\emergencystretch=1em % Tolleranz
 
 % Titelformat
 % \usepackage{titlesec}
@@ -63,10 +64,15 @@
 % }
 \addbibresource{literatur.bib}
 
-%
+% Code-Snippets 
+\usepackage{listings}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
+
+% DIR-Tree
+\usepackage{dirtree}
+
 % item list
 %
-\usepackage{listings}
 \usepackage{paralist}
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}

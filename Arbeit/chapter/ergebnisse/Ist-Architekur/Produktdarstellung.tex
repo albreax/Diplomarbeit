@@ -9,13 +9,17 @@ Zur Darstellung des Produktes gehören das Darstellen von Beschnittlinien, Falzl
 
 Das Produkt wird durch eine Struktur beschrieben, welche im \textit{core}-Ordner hinterlegt ist. Die Struktur enthält sowohl geometrische Information für die Produktdarstellung, als auch Produktspezifische eigenschaften, wie die Existenz von Beschnittlinien. 
 
+Für die Darstellung innerhalb des FreeDesign-Editors ist die Nutzung von mathematischen Operationen notwendig, die im Anwendungskern definiert sind. 
+
 \begin{figure}[H]
     \centering
     \includegraphics{diagrams/Ist-Architektur/page-presenter-analysis.pdf}
     \caption{Abhängigkeiten der Komponenten für Produktdarstellung}
     \label{fig:Produktdarstellung}
 \end{figure}
- 
-Für die Darstellung innerhalb des FreeDesign-Editors ist die Nutzung von mathematischen Operationen notwendig, die im Anwendungskern definiert sind. 
 
-Damit stellt sich die Darstellung einer Produktseite als sehr klar strukturiert dar. 
+Der Produktdarstellung kann ein Kindelement übergeben werden, welches in die die Produktdarstellung eingebettet werden. 
+
+\lstinputlisting[frame=single,label=beispielcode,caption=Quelletext-Bsp.: Designdarstellung eingebettet Kindelement]{sourcecode/product.tsx}
+
+\input{chapter/ergebnisse/Ist-Architekur/Komponenten/Komponenten-Produktdarstellung.tex}

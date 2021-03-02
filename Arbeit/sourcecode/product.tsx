@@ -1,0 +1,3 @@
+<SVGPageRenderer>
+    <DesignPresenter/>
+</SVGPageRenderer>
