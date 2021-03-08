@@ -27,6 +27,9 @@
 
 \usepackage[font=small,labelfont=bf]{caption}
 
+% default pdf version 1.5 => changed to 1.7
+\pdfminorversion=7
+
 % Ränder
 \geometry{includeheadfoot, top=2cm, bottom=2cm, left=3cm, right=2cm}
 %Zeilenabstand
@@ -93,7 +96,17 @@
 \usepackage{framed}
 \usepackage{tabularx}
 \usepackage{mathabx}
+
+\usepackage{multicol}
+
+% table
 \usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{ltxtable}
+
+% mute warnings
+\usepackage{silence}
+\WarningFilter{latex}{Writing or overwriting file}
 %
 % PDF output
 %
