@@ -2,172 +2,170 @@
     
     \begin{longtable}{r@{\hspace{5mm}}lX}
     \caption{Zuordnung Quelltextteile zu Bausteinen} \\
-    \label{table:c^ompMap}
+    \label{table:compMap}
     & \textbf{Baustein} & \textbf{Zugehörige Quelltexte} \\
     \hline
-    \hline 
-    0 & API-Kommunikation & src/core/api/* \\
-        & & src/services/* \\
-    \hline 
-    1 & Adobe-Illustrator-Design-Konverter & src/draftImporterCli.ts \\
-    \hline 
-    2 & Anwender-Menü & src/containers/burgerMenu/* \\
-    \hline 
-    3 & Anwenderregistrierung & src/core/forms/* \\
-        & & src/containers/socialMedia/* \\
-        & & src/containers/registerDialog/* \\
-        & & src/modules/BackendLogin.tsx \\
-    \hline 
-    4 & Bestätigungsdialog & src/containers/confirmDialog/ \\ & & \> ConfirmDialog.tsx \\
-    \hline 
-    5 & Bild-Upload & src/containers/common/ \\ & & \> DragAndDropUpload.tsx \\
-        & & src/containers/loadDesignImageDialog/* \\
-    \hline 
-    6 & Bildmaskeneditor & src/containers/imageMaskEditor/* \\
-    \hline 
-    7 & Bildverarbeitung & src/core/image/* \\
-    \hline 
-    8 & Cache & src/core/cache/Cache.ts \\
-    \hline 
-    9 & Cookie-Verarbeitung & src/core/cookies/handler.ts \\
-    \hline 
-    10 & Design-Migration & src/core/design/DesignCompatibility.ts \\
-        & & src/containers/customerDesignMigration/ \\ & & \> CustomerDesignMigration.tsx \\
-    \hline 
-    11 & Design-Parser & src/core/design/designParser/* \\
-    \hline 
-    12 & Design-SVG-Konverter & src/designToSvgCLI/* \\
-    \hline 
-    13 & Design-Serialisierung & src/core/design/DesignSerializer.ts \\
-    \hline 
-    14 & Designbearbeitung & src/core/design/ITextSelection.ts \\
-        & & src/core/design/index.ts \\
-        & & src/core/helpers/RotationRaster.ts \\
-        & & src/components/svgRenderers/pageAssets/ \\ & & \> EmptyImageBox.tsx \\
-    \hline 
 
-    15 & Designdarstellung & src/components/svgRenderers/ \\ 
-        & & \> SVGTextRenderer.tsx \\
-        & & \> SVGImageRenderer.tsx \\
-        & & \> pageAssets/BackgroundImage.tsx \\
-        & & \> SVGItemRenderer.tsx \\
-        & & \> SVGDefsRenderer.tsx \\
-        & & \> SVGPageRenderer.tsx \\
-        & & src/components/svgRenderers/index.ts \\
-        & & src/components/designPresenter/ \\ & & \> DesignPresenter.tsx \\
     \hline 
-    16 & Designelementauswahl & src/containers/selectionLayer/* \\
-    \hline 
-    17 & Designgalerie & src/containers/customerDesignsGallery/ \\ & & \> CustomerDesignsGallery.tsx \\
-    \hline 
-    18 & Designobjekt-Transformation & src/core/design/transformation/* \\
-        & & src/core/design/DesignItemFunctions.ts \\
-    \hline 
-    19 & Designobjekterzeugung & src/core/design/DesignItemBuilder.ts \\
-    \hline 
-    20 & Designstruktur & src/core/design/DesignIterator.ts \\
-        & & src/core/entities/FDDesign.ts \\
-    \hline 
-    21 & Dialogfenster & src/containers/modalContainer/ \\ & & \> ModalContainer.tsx \\
-    \hline 
-    22 & Farbstruktur & src/core/color/* \\
-        & & src/core/validations/ColorValidations.ts \\
-    \hline 
-    23 & Fehlerdialog & src/containers/crashReport/* \\
-    \hline 
-    24 & Formularverarbeitung & src/core/forms/FormParser.ts \\
-    \hline 
-    25 & Fotogalerie & src/core/common/Gallery.ts \\
-        & & src/containers/customerPhotoGallery/* \\
-        & & src/containers/photoGallery/* \\
-    \hline 
-    26 & Fußleiste & src/containers/Footer.tsx \\
-    \hline 
-    27 & Grafische-Oberfläche & src/core/validations/ \\ & & \> RangeInputValidations.ts \\
-        & & src/core/common/  \\ & & \> TextInputKeyHandling.ts \\
-        & & src/core/common/MenuOption.ts \\
-        & & src/stores/* \\
-        & & src/components/* \\
-        & & src/components/controller/  \\ & & \> rangeInputBox/RangeInputBox.tsx \\
-        & & src/actions/* \\
-        & & src/containers/* \\
-        & & src/reducers/* \\
-    \hline 
-    28 & JavaScript-Erweiterung & src/core/common/index.ts \\
-        & & src/core/common/UserAgent.ts \\
-        & & src/core/helpers/Clone.ts \\
-        & & src/core/helpers/FDArrayHelper.ts \\
-        & & src/core/helpers/index.ts \\
-        & & src/polyfill.ts \\
-    \hline 
-    29 & Kalendariumerzeuger & src/core/calendar/* \\
-    \hline 
-    30 & Kalendariumsgenerator & src/core/common/Calendar.ts \\
-    \hline 
-    31 & Kalenderkonfigurator & src/core/entities/DateInterfaces.ts \\
-        & & src/containers/calendarDialog/* \\
-    \hline 
-    32 & Kopfleiste & src/containers/Header.tsx \\
-    \hline 
-    33 & Kurzinformation & src/core/helpers/CalculateTooltipPos.ts \\
-        & & src/containers/tooltip/* \\
-    \hline 
-    34 & Mathematik & src/core/geom/* \\
-        & & src/core/helpers/FDMath.ts \\
-        & & src/core/helpers/deCasteljau.ts \\
-        & & src/utils/WebUtils.ts \\
-    \hline 
-    35 & Maßeinheit-Konverter & src/core/helpers/MeasureUtils.ts \\
-    \hline 
-    36 & Produktdarstellung & src/components/pagePresenter/* \\
-        & & src/components/svgRenderers/pageAssets/ 
-        \\ & & \> PageLabels.tsx \\
-           & & \> GutterLines.tsx \\
-           & & \> BleedLines.tsx \\
-           & & \> SVGNonPrintAreaRenderer.tsx \\
-           & & \> FoldLines.tsx \\
-           & & src/components/svgRenderers/ \\ & & \> SVGProductImageRenderer.tsx \\
-    \hline 
-    37 & Produktkonfigurator & src/containers/checkoutBox/* \\
-    \hline 
-    38 & Produktseiten-Bild-Konverter & src/utils/PageImageRenderer.ts \\
-    \hline 
-    39 & Produktstruktur & src/core/product/* \\
-        & & src/core/entities/product/* \\
-    \hline 
-    40 & Referenzwerkzeug & src/containers/reference/* \\
-    \hline 
-    41 & SVG-Konverter & src/core/design/DesignSvgCreator.ts \\
-    \hline 
-    42 & SVG-Parser & src/core/parsing/svgParsing.ts \\
-    \hline 
-    43 & Schriftverarbeitung & src/core/design/FontFunctions.ts \\
-        & & src/core/entities/IFontData.ts \\
-        & & src/actions/helper/ \\ & & \> ComputeTextDimensionsCreator.ts \\
-    \hline 
-    44 & Speicherkomponente & src/core/validations/ \\ & & \> DesignNameValidations.ts \\
-        & & src/containers/changeDesignNameDialog/* \\
-    \hline 
-    45 & Startvideo & src/startvideo.tsx \\
-    \hline 
-    46 & Tastatur-Kurzbefehle & src/containers/common/Shortcuts.tsx \\
-    \hline 
-    47 & Textschlüsselsammlung & src/core/local/index.ts \\
-    \hline 
-    48 & URL-Verarbeitung & src/core/url/* \\
-    \hline 
-    49 & Vorlagekonverter & src/core/design/designTemplate/* \\
-        & & src/core/cli/* \\
-    \hline 
-    50 & Warenkorb & src/containers/shoppingCart/* \\
-    \hline 
-    51 & Werkzeugmenü & src/containers/menues/toolbox/* \\
-    \hline 
-    52 & XML-Parser & src/core/parsing/xmlParsing.ts \\
-        & & src/utils/WebUtils.ts \\
-    \hline 
-    53 & Zwischenablageschnittstelle & src/services/clipboard/* \\
-    \hline 
+0 & API-Kommunikation & src/core/api/* \\
+ & & src/services/* \\
+\hline 
+1 & Adobe-Illustrator-Design-Konverter & src/draftImporterCli.ts \\
+\hline 
+2 & Anwender-Menü & src/containers/burgerMenu/* \\
+\hline 
+3 & Anwenderregistrierung & src/core/forms/* \\
+ & & src/containers/socialMedia/* \\
+ & & src/containers/registerDialog/* \\
+ & & src/modules/BackendLogin.tsx \\
+\hline 
+4 & Bestätigungsdialog & src/containers/confirmDialog/ConfirmDialog.tsx \\
+\hline 
+5 & Bild-Upload & src/containers/common/DragAndDropUpload.tsx \\
+ & & src/containers/loadDesignImageDialog/* \\
+\hline 
+6 & Bildmaskeneditor & src/containers/imageMaskEditor/* \\
+\hline 
+7 & Bildverarbeitung & src/core/image/* \\
+\hline 
+8 & Cache & src/core/cache/Cache.ts \\
+\hline 
+9 & Cookie-Verarbeitung & src/core/cookies/handler.ts \\
+\hline 
+10 & Design-Migration & src/core/design/DesignCompatibility.ts \\
+ & & src/containers/customerDesignMigration/CustomerDesignMigration.tsx \\
+\hline 
+11 & Design-Parser & src/core/design/designParser/* \\
+\hline 
+12 & Design-SVG-Konverter & src/designToSvgCLI/* \\
+\hline 
+13 & Design-Serialisierung & src/core/design/DesignSerializer.ts \\
+\hline 
+14 & Designbearbeitung & src/core/design/ITextSelection.ts \\
+ & & src/core/design/index.ts \\
+ & & src/core/helpers/RotationRaster.ts \\
+ & & src/components/svgRenderers/pageAssets/EmptyImageBox.tsx \\
+\hline 
+15 & Designdarstellung & src/components/svgRenderers/SVGTextRenderer.tsx \\
+ & & src/components/svgRenderers/SVGImageRenderer.tsx \\
+ & & src/components/svgRenderers/pageAssets/BackgroundImage.tsx \\
+ & & src/components/svgRenderers/SVGItemRenderer.tsx \\
+ & & src/components/svgRenderers/SVGDefsRenderer.tsx \\
+ & & src/components/svgRenderers/SVGPageRenderer.tsx \\
+ & & src/components/svgRenderers/index.ts \\
+ & & src/components/designPresenter/DesignPresenter.tsx \\
+\hline 
+16 & Designelementauswahl & src/containers/selectionLayer/* \\
+\hline 
+17 & Designgalerie & src/containers/customerDesignsGallery/CustomerDesignsGallery.tsx \\
+\hline 
+18 & Designobjekt-Transformation & src/core/design/transformation/* \\
+ & & src/core/design/DesignItemFunctions.ts \\
+\hline 
+19 & Designobjekterzeugung & src/core/design/DesignItemBuilder.ts \\
+\hline 
+20 & Designstruktur & src/core/design/DesignIterator.ts \\
+ & & src/core/entities/FDDesign.ts \\
+\hline 
+21 & Dialogfenster & src/containers/modalContainer/ModalContainer.tsx \\
+\hline 
+22 & Farbstruktur & src/core/color/* \\
+ & & src/core/validations/ColorValidations.ts \\
+\hline 
+23 & Fehlerdialog & src/containers/crashReport/* \\
+\hline 
+24 & Formularverarbeitung & src/core/forms/FormParser.ts \\
+\hline 
+25 & Fotogalerie & src/core/common/Gallery.ts \\
+ & & src/containers/customerPhotoGallery/* \\
+ & & src/containers/photoGallery/* \\
+\hline 
+26 & Fußleiste & src/containers/Footer.tsx \\
+\hline 
+27 & Grafische-Oberfläche & src/core/validations/RangeInputValidations.ts \\
+ & & src/core/common/TextInputKeyHandling.ts \\
+ & & src/core/common/MenuOption.ts \\
+ & & src/stores/* \\
+ & & src/components/* \\
+ & & src/components/controller/rangeInputBox/RangeInputBox.tsx \\
+ & & src/actions/* \\
+ & & src/containers/* \\
+ & & src/reducers/* \\
+\hline 
+28 & JavaScript-Erweiterung & src/core/common/index.ts \\
+ & & src/core/common/UserAgent.ts \\
+ & & src/core/helpers/Clone.ts \\
+ & & src/core/helpers/FDArrayHelper.ts \\
+ & & src/core/helpers/index.ts \\
+ & & src/polyfill.ts \\
+\hline 
+29 & Kalendariumserzeuger & src/core/calendar/* \\
+ & & src/core/common/Calendar.ts \\
+\hline 
+30 & Kalenderkonfigurator & src/core/entities/DateInterfaces.ts \\
+ & & src/containers/calendarDialog/* \\
+\hline 
+31 & Kopfleiste & src/containers/Header.tsx \\
+\hline 
+32 & Kurzinformation & src/core/helpers/CalculateTooltipPos.ts \\
+ & & src/containers/tooltip/* \\
+\hline 
+33 & Mathematik & src/core/geom/* \\
+ & & src/core/helpers/FDMath.ts \\
+ & & src/core/helpers/deCasteljau.ts \\
+ & & src/utils/WebUtils.ts \\
+\hline 
+34 & Maßeinheit-Konverter & src/core/helpers/MeasureUtils.ts \\
+\hline 
+35 & Produktdarstellung & src/components/pagePresenter/* \\
+ & & src/components/svgRenderers/pageAssets/PageLabels.tsx \\
+ & & src/components/svgRenderers/pageAssets/GutterLines.tsx \\
+ & & src/components/svgRenderers/pageAssets/BleedLines.tsx \\
+ & & src/components/svgRenderers/pageAssets/SVGNonPrintAreaRenderer.tsx \\
+ & & src/components/svgRenderers/pageAssets/FoldLines.tsx \\
+ & & src/components/svgRenderers/SVGProductImageRenderer.tsx \\
+\hline 
+36 & Produktkonfigurator & src/containers/checkoutBox/* \\
+\hline 
+37 & Produktseiten-Bild-Konverter & src/utils/PageImageRenderer.ts \\
+\hline 
+38 & Produktstruktur & src/core/product/* \\
+ & & src/core/entities/product/* \\
+\hline 
+39 & Referenzwerkzeug & src/containers/reference/* \\
+\hline 
+40 & SVG-Konverter & src/core/design/DesignSvgCreator.ts \\
+\hline 
+41 & SVG-Parser & src/core/parsing/svgParsing.ts \\
+\hline 
+42 & Schriftverarbeitung & src/core/design/FontFunctions.ts \\
+ & & src/core/entities/IFontData.ts \\
+ & & src/actions/helper/ComputeTextDimensionsCreator.ts \\
+\hline 
+43 & Speicherkomponente & src/core/validations/DesignNameValidations.ts \\
+ & & src/containers/changeDesignNameDialog/* \\
+\hline 
+44 & Startvideo & src/startvideo.tsx \\
+\hline 
+45 & Tastatur-Kurzbefehle & src/containers/common/Shortcuts.tsx \\
+\hline 
+46 & Textschlüsselsammlung & src/core/local/index.ts \\
+\hline 
+47 & URL-Verarbeitung & src/core/url/* \\
+\hline 
+48 & Vorlagekonverter & src/core/design/designTemplate/* \\
+ & & src/core/cli/* \\
+\hline 
+49 & Warenkorb & src/containers/shoppingCart/* \\
+\hline 
+50 & Werkzeugmenü & src/containers/menues/toolbox/* \\
+\hline 
+51 & XML-Parser & src/core/parsing/xmlParsing.ts \\
+ & & src/utils/WebUtils.ts \\
+\hline 
+52 & Zwischenablageschnittstelle & src/services/clipboard/* \\
+\hline 
+
     \hline
     \end{longtable}
 \end{filecontents}
