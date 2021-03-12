@@ -1,9 +1,9 @@
 % Designbearbeitung.tex
 \subsection{Designbearbeitung}
-Die dritte Hauptkomponente des FreeDesign-Editors ist das bearbeiten des Designs. Hierfür stellt der Editor Eingabekomponenten zur Verfügung, welche Änderungen der Designstruktur im \textit{Redux-State} bewirken. Auf diese Änderungen reagiert die Designdarstellung und löst eine Aktualisierung aus, wodurch keine Abhängigkeiten zwischen der Darstellung des Designs und der Bearbeitung des Designs bestehen. Beide Komponenten greifen lediglich auf die selbe Designstruktur zu.  
-Die \textit{Container}-Komponente \textit{Stage.tsx} verbindet alle Komponenten, die für die Bearbeitung des Designs Notwendig sind. Hierzu gehören grafisch Komponente zur Darstellung von Auswahlrahmen, eine Texteingabe sowie Hilfswerkzeugen, wie einem Lineal oder einem Gitter. 
-Desweiteren ist sie mit dem \textit{Redux-Store} verbunden und ruft sie verschieden \textit{Redux-Actions}. 
-Mit  1260 Quelltextzeilen, 51 Funktionen und 46 Importen, handelt es sich um die komplexeste Komponente des FreeDesign-Editor und kann als eine \textit{Man-in-the-middle-Klasse} bezeichnet werden. Hierbei handelt es sich um ein Antimuster bei dem eine Klasse zu viele zuständigkeiten hat \autocite[vgl.][619]{Geirhos2015}.
+Die dritte Hauptkomponente des FreeDesign-Editors ist das bearbeiten des Designs. Hierfür stellt der Editor Eingabekomponenten zur Verfügung, welche Änderungen der Designstruktur im \emph{Redux-State} bewirken. Auf diese Änderungen reagiert die Designdarstellung und löst eine Aktualisierung aus, wodurch keine Abhängigkeiten zwischen der Darstellung des Designs und der Bearbeitung des Designs bestehen. Beide Komponenten greifen lediglich auf die selbe Designstruktur zu.  
+Die \emph{Container}-Komponente \emph{Stage.tsx} verbindet alle Komponenten, die für die Bearbeitung des Designs Notwendig sind. Hierzu gehören grafisch Komponente zur Darstellung von Auswahlrahmen, eine Texteingabe sowie Hilfswerkzeugen, wie einem Lineal oder einem Gitter. 
+Desweiteren ist sie mit dem \emph{Redux-Store} verbunden und ruft sie verschieden \emph{Redux-Actions}. 
+Mit  1260 Quelltextzeilen, 51 Funktionen und 46 Importen, handelt es sich um die komplexeste Komponente des FreeDesign-Editor und kann als eine \emph{Man-in-the-middle-Klasse} bezeichnet werden. Hierbei handelt es sich um ein Antimuster bei dem eine Klasse zu viele zuständigkeiten hat \autocite[vgl.][619]{Geirhos2015}.
 Im allgemeinen ist der Quelltext und die Abhängigkeiten für die Designbearbeitung sehr komplex und ungenügend strukturiert. Das bearbeiten eines Designs ist die Kernfunktionalität des FreeDesign-Editor und sollte von einer Soll-Architektur aus der restlichen Anwendung als entkoppelte Komponente extrahiert werden. 
 
 \begin{multicols}{2}    
