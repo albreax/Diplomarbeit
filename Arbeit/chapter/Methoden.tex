@@ -18,12 +18,55 @@ Damit das Entwicklerteam sich optimal auf den Workshop vorbereiten konnten, wurd
 
 % ===================================================== % 
 
-\section{Analyse der Ist-Architektur}
+\section{Analyse der statischen Ist-Architektur}
+\subsection{Technik}
 Da die Ist-Architektur des FreeDesign-Editors kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. 
-Die dafür angewendet Technik wird als Reverse Engineering bezeichnet und hat zum Ziel, aus vorhanden Informationen Modelle herzuleiten \autocite[vgl.][590]{LudewigLichter2013}. 
+Die dafür angewendet Technik wird als Reverse Engineering bezeichnet und wurde durch Chikofsky und Cross (\citeyear[S. 13-17]{Chikofsky1990}) definiert. Laut der Definition hat Reverse Engineering zwei Ziele: 
+\begin{itemize}
+    \item Die Identifikation der Komponenten eines Softwaresystems und ihre Beziehungen untereinander. 
+    \item Die Darstellung des Softwaresystem in einer abstrakten Form. 
+\end{itemize}
 
-Mit dem Reverse Engineering einer Architektur sollten klar definierte Ziele erreicht werden \autocite[vgl.][200]{Reussner2009}. 
-Für diese Arbeit was das primäre Ziel des Reverse Engineering die Vorbereitung des Entwurfs der statischen Soll-Architektur. Ein Softwaresystem setzt sich aus unterschiedlichen Bestandteilen zusammen wie Klassen, Funktionen, Module und Schnittstellen, sowie Beziehungen zwischen ihnen. Basierend auf Starke \citeyear[S. 24]{Starke2011} können diese Bestandteile auch als Bestandteile auch generisch als \emph{Bausteine} bezeichnet werden.
+Die Komponenten eines Softwaresystems können auch abstrakter als \emph{Bausteine} bezeichnet eines Softwaresystems werden \autocite[vgl.][24]{Starke2011}. 
+
+Für das Reverse Engineering der statischen Ist-Architektur, stand im Fokus eine Grundlagen für den Entwurf einer statischen Soll-Architektur zu erstellen. Daher wurden Bausteine für den Entwurf identifiziert sowie Quelltext-Bestelltandteile der aktuelle Implementation ihnen zugeordnet. Weiterhin wurden die Beziehungen und Abhängigkeiten der aktuellen Quelltext-Bestelltandteile visualisiert. Diese Visualisierungen dienen als Entscheidungshilfen für den Entwurf der Soll-Architektur und als Grundlage für den Entwurf einer Migrationsstrategie von Ist- zur Soll-Architektur.
+
+\subsection{Werkzeuge}
+Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise einzelnes Werkzeug nicht alle Analyse-Aufgaben übernehmen können \autocite[vgl.][381]{Bass2013}. 
+
+Für die Analyse der Komponenten und ihrer Beziehungen der aktuellen Implementation wurde das Werkzeug \emph{dependency-cruiser} eingesetzt. Mit ihm können die Beziehungen als Graphen dargestellt und validiert werden. Für die Validierung können Regeln für die Beziehungen der Komponenten festgelegt werden, wobei Verstöße im Graph visualisiert werden, sowie als Report ausgeben werden. Um verschieden Sichten der Analyse zu erzeugen stehen umfangreiche Möglichkeiten der Konfiguration für Graphen zur Verfügung \autocite[vgl.][]{Verweij:Dependency}.
+
+Um Fragmente des Quelltext den Bausteinen zuzuordnen wurde ein kleines Werkzeug entwickelt, welches das Quellenverzeichnis rekursiv durchsucht. Zum einen sucht es nach Dateien mit der Bezeichnung \glqq\emph{\_component.md}\grqq{} und zum anderen innerhalb der Quelltextdateien nach der Textphrase \glqq\emph{// @component\{BAUSTEINNAME\}}\grqq. 
+Mit Hilfe der \glqq\emph{\_component.md}\grqq-Dateien, der einziger Inhalt der Name eines Bausteins ist, kann der Inhalt eines gesamten Verzeichnis einem Baustein zugeordnet werden. Einzelne Quelltextdateien können mit der Textphrase \glqq\emph{// @component\{BAUSTEINNAME\}}\grqq{} Bausteinen zugeordnet werden. Die Textphrase kann auch mehrfach innerhalb einer Datei enthalten sein, wodurch es möglich ist einen Datei mehreren Bausteinen zuzuordnen. 
+
+Das Ergebnis der Ergebnis der Analyse ist eine tabellarische Zusordnung von Bausteinen zu Quelltext-Fragmenten.
+
+\subsection{Vorgehen}
+Zunächst wurde die Beziehungen des Quelltextkomponenten auf der obersten Ordnerebene analysiert und bewertet.
+Die tiefgreifende Analysen bezogen sich auf die Hauptaufgaben der Software:
+\begin{itemize}
+    \item die Darstellung von Produkten
+    \item die Darstellung von Designs
+    \item das Editieren von Designs
+    \item die grafische Oberfläche des FreeDesign-Editors
+    \item das Konvertieren von Adobe-Illustrator-Dateien
+    \item das Konvertieren von FreeDesign-Designs in SVG-Dateien
+\end{itemize}
+Für jeden der Aufgaben wurde ein Graph der beteiligten Software-Artakte mit hilfe {dependency-cruiser} generiet. 
+Mit Hilfe des Fachwissens der Entwickler wurden Regeln für die Beziehungen zwischen den Komponenten ergänzt. 
+Auf der Basis der so entstanden Graphen wurden Baustein identifiziert und im Quelltext angeben.
+
+% Mit dem Reverse Engineering einer Architektur sollten klar definierte Ziele erreicht werden \autocite[vgl.][200]{Reussner2009}. 
+% Für diese Arbeit war das primäre Ziel des Reverse Engineerings die Vorbereitung des Entwurfs der statischen Soll-Architektur. 
+
+
+% Ein Softwaresystem setzt sich aus unterschiedlichen Bestandteilen zusammen wie Klassen, Funktionen, Module und Schnittstellen, sowie Beziehungen zwischen ihnen. Basierend auf Starke (\citeyear[S. 24]{Starke2011}) können diese Bestandteile auch generisch als \emph{Bausteine} bezeichnet werden.
+
+% Somit war ein Ziel des Reverse Engineering das identifizieren von Bausteinen aus dem der FreeDesign-Editor besteht. 
+%Weitere Ziele waren den Bausteinen zugehörige Quelltext-Bestelltandteile der aktuelle Implementation zuzuordnen, sowie die Abhängigkeiten der Quelltext-Bestelltandteile darzustelegen. 
+
+%Um die Ziele zu erreichen wurden zun nächst die Beziehungen des Quelltext auf der obersten Ordnerebene analysiert. Hierfür wurde das Werkzeug 
+
 
 
 % Die Analyse konzentriete sich dabei auf die Aspekte, die im Architektur-Workshop vom Entwicklerteam herausgearbeitet wurden.
