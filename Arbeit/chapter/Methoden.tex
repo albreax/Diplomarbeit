@@ -21,17 +21,22 @@ Damit das Entwicklerteam sich optimal auf den Workshop vorbereiten konnten, wurd
 \section{Analyse der Ist-Architektur}
 Da die Ist-Architektur des FreeDesign-Editors kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. 
 Die dafür angewendet Technik wird als Reverse Engineering bezeichnet und hat zum Ziel, aus vorhanden Informationen Modelle herzuleiten \autocite[vgl.][590]{LudewigLichter2013}. 
-Die Analyse konzentriete sich dabei auf die Aspekte, die im Architektur-Workshop vom Entwicklerteam herausgearbeitet wurden.
-Für die Rekonstruktion standen folgende Informationsquellen zur Verfügung:
-\begin{itemize}
-	\item Das Fachwissen des Entwickler-Teams
-	\item Der Quelltext des Projektes
-	\item Projektdokumente (Confluence), welchen verschiedener Funktionalitäten des Editors beschreiben. 
-	\item Das Log der Versionsverwaltung (Git)
-	\item Das Ticketsystem (Jira), über welches die Entwicklungsaufgaben verwaltet werden. 
-\end{itemize} 
 
-Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise nicht einzelnes Werkzeug alle Analyse-Aufgaben übernimmt \autocite[vgl.][381]{Bass2013}. 
+Mit dem Reverse Engineering einer Architektur sollten klar definierte Ziele erreicht werden \autocite[vgl.][200]{Reussner2009}. 
+Für diese Arbeit was das primäre Ziel des Reverse Engineering die Vorbereitung des Entwurfs der statischen Soll-Architektur. Ein Softwaresystem setzt sich aus unterschiedlichen Bestandteilen zusammen wie Klassen, Funktionen, Module und Schnittstellen, sowie Beziehungen zwischen ihnen. Basierend auf Starke \citeyear[S. 24]{Starke2011} können diese Bestandteile auch als Bestandteile auch generisch als \emph{Bausteine} bezeichnet werden.
+
+
+% Die Analyse konzentriete sich dabei auf die Aspekte, die im Architektur-Workshop vom Entwicklerteam herausgearbeitet wurden.
+% Für die Rekonstruktion standen folgende Informationsquellen zur Verfügung:
+% \begin{itemize}
+% 	\item Das Fachwissen des Entwickler-Teams
+% 	\item Der Quelltext des Projektes
+% 	\item Projektdokumente (Confluence), welchen verschiedener Funktionalitäten des Editors beschreiben. 
+% 	\item Das Log der Versionsverwaltung (Git)
+% 	\item Das Ticketsystem (Jira), über welches die Entwicklungsaufgaben verwaltet werden. 
+% \end{itemize} 
+
+% Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise nicht einzelnes Werkzeug alle Analyse-Aufgaben übernimmt \autocite[vgl.][381]{Bass2013}. 
 
 % Nach dem Erörtern der Aspekte, wurden geeignete Werkzeuge ermittelt, welche die Arbeit des Reverse Engineering unterstützen können.
 
