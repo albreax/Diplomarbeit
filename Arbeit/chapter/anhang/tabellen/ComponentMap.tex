@@ -1,3 +1,5 @@
+% line break
+% \\ & & \>
 \begin{filecontents}[overwrite]{table-comp-map.tex}
     
     \begin{longtable}{r@{\hspace{5mm}}lX}
@@ -19,9 +21,9 @@
  & & src/containers/registerDialog/* \\
  & & src/modules/BackendLogin.tsx \\
 \hline 
-4 & Bestätigungsdialog & src/containers/confirmDialog/ConfirmDialog.tsx \\
+4 & Bestätigungsdialog & src/containers/confirmDialog/ \\ & & \> ConfirmDialog.tsx \\
 \hline 
-5 & Bild-Upload & src/containers/common/DragAndDropUpload.tsx \\
+5 & Bild-Upload & src/containers/common/\\ & & \>DragAndDropUpload.tsx \\
  & & src/containers/loadDesignImageDialog/* \\
 \hline 
 6 & Bildmaskeneditor & src/containers/imageMaskEditor/* \\
@@ -33,7 +35,7 @@
 9 & Cookie-Verarbeitung & src/core/cookies/handler.ts \\
 \hline 
 10 & Design-Migration & src/core/design/DesignCompatibility.ts \\
- & & src/containers/customerDesignMigration/CustomerDesignMigration.tsx \\
+ & & src/containers/customerDesignMigration/\\ & & \>CustomerDesignMigration.tsx \\
 \hline 
 11 & Design-Parser & src/core/design/designParser/* \\
 \hline 
@@ -44,20 +46,20 @@
 14 & Designbearbeitung & src/core/design/ITextSelection.ts \\
  & & src/core/design/index.ts \\
  & & src/core/helpers/RotationRaster.ts \\
- & & src/components/svgRenderers/pageAssets/EmptyImageBox.tsx \\
+ & & src/components/svgRenderers/pageAssets/\\ & & \>EmptyImageBox.tsx \\
 \hline 
-15 & Designdarstellung & src/components/svgRenderers/SVGTextRenderer.tsx \\
- & & src/components/svgRenderers/SVGImageRenderer.tsx \\
- & & src/components/svgRenderers/pageAssets/BackgroundImage.tsx \\
- & & src/components/svgRenderers/SVGItemRenderer.tsx \\
- & & src/components/svgRenderers/SVGDefsRenderer.tsx \\
- & & src/components/svgRenderers/SVGPageRenderer.tsx \\
- & & src/components/svgRenderers/index.ts \\
- & & src/components/designPresenter/DesignPresenter.tsx \\
+15 & Designdarstellung & src/components/svgRenderers/\\ & & \>SVGTextRenderer.tsx \\
+ & & \>SVGImageRenderer.tsx \\
+ & & \>pageAssets/BackgroundImage.tsx \\
+ & & \>SVGItemRenderer.tsx \\
+ & & \>SVGDefsRenderer.tsx \\
+ & & \>SVGPageRenderer.tsx \\
+ & & \>index.ts \\
+ & & src/components/designPresenter/\\ & & \>DesignPresenter.tsx \\
 \hline 
 16 & Designelementauswahl & src/containers/selectionLayer/* \\
 \hline 
-17 & Designgalerie & src/containers/customerDesignsGallery/CustomerDesignsGallery.tsx \\
+17 & Designgalerie & src/containers/customerDesignsGallery/\\ & & \>CustomerDesignsGallery.tsx \\
 \hline 
 18 & Designobjekt-Transformation & src/core/design/transformation/* \\
  & & src/core/design/DesignItemFunctions.ts \\
@@ -67,7 +69,7 @@
 20 & Designstruktur & src/core/design/DesignIterator.ts \\
  & & src/core/entities/FDDesign.ts \\
 \hline 
-21 & Dialogfenster & src/containers/modalContainer/ModalContainer.tsx \\
+21 & Dialogfenster & src/containers/modalContainer/\\ & & \>ModalContainer.tsx \\
 \hline 
 22 & Farbstruktur & src/core/color/* \\
  & & src/core/validations/ColorValidations.ts \\
@@ -82,12 +84,12 @@
 \hline 
 26 & Fußleiste & src/containers/Footer.tsx \\
 \hline 
-27 & Grafische-Oberfläche & src/core/validations/RangeInputValidations.ts \\
- & & src/core/common/TextInputKeyHandling.ts \\
+27 & Grafische-Oberfläche & src/core/validations/\\ & & \>RangeInputValidations.ts \\
+ & & src/core/common/\\ & & \>TextInputKeyHandling.ts \\
  & & src/core/common/MenuOption.ts \\
  & & src/stores/* \\
  & & src/components/* \\
- & & src/components/controller/rangeInputBox/RangeInputBox.tsx \\
+ & & src/components/controller/\\ & & \>rangeInputBox/RangeInputBox.tsx \\
  & & src/actions/* \\
  & & src/containers/* \\
  & & src/reducers/* \\
@@ -118,12 +120,12 @@
 34 & Maßeinheit-Konverter & src/core/helpers/MeasureUtils.ts \\
 \hline 
 35 & Produktdarstellung & src/components/pagePresenter/* \\
- & & src/components/svgRenderers/pageAssets/PageLabels.tsx \\
- & & src/components/svgRenderers/pageAssets/GutterLines.tsx \\
- & & src/components/svgRenderers/pageAssets/BleedLines.tsx \\
- & & src/components/svgRenderers/pageAssets/SVGNonPrintAreaRenderer.tsx \\
- & & src/components/svgRenderers/pageAssets/FoldLines.tsx \\
- & & src/components/svgRenderers/SVGProductImageRenderer.tsx \\
+ & & src/components/svgRenderers/pageAssets/\\ & & \>PageLabels.tsx \\
+ & & \>GutterLines.tsx \\
+ & & \>BleedLines.tsx \\
+ & & \>SVGNonPrintAreaRenderer.tsx \\
+ & & \>FoldLines.tsx \\
+ & & src/components/svgRenderers/\\ & & \>SVGProductImageRenderer.tsx \\
 \hline 
 36 & Produktkonfigurator & src/containers/checkoutBox/* \\
 \hline 
@@ -140,9 +142,9 @@
 \hline 
 42 & Schriftverarbeitung & src/core/design/FontFunctions.ts \\
  & & src/core/entities/IFontData.ts \\
- & & src/actions/helper/ComputeTextDimensionsCreator.ts \\
+ & & src/actions/helper/\\ & & \>ComputeTextDimensionsCreator.ts \\
 \hline 
-43 & Speicherkomponente & src/core/validations/DesignNameValidations.ts \\
+43 & Speicherkomponente & src/core/validations/\\ & & \>DesignNameValidations.ts \\
  & & src/containers/changeDesignNameDialog/* \\
 \hline 
 44 & Startvideo & src/startvideo.tsx \\
