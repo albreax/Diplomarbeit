@@ -1,5 +1,5 @@
 % line break
-% \\ & & \>
+% \\ & \>
 \begin{filecontents}[overwrite]{table-comp-map.tex}
     
     \begin{longtable}{r@{\hspace{5mm}}lX}
@@ -9,163 +9,231 @@
     \hline
 
     \hline 
-0 & API-Kommunikation & src/core/api/* \\
- & & src/services/* \\
+\rownumber & API-Kommunikation 
+& src/core/api/* \\
+& & src/services/* \\
 \hline 
-1 & Adobe-Illustrator-Design-Konverter & src/draftImporterCli.ts \\
+\rownumber & Adobe-Illustrator-Design-Konverter 
+& src/draftImporterCli.ts \\
 \hline 
-2 & Anwender-Menü & src/containers/burgerMenu/* \\
+\rownumber & Anwender-Menü 
+& src/containers/burgerMenu/* \\
 \hline 
-3 & Anwenderregistrierung & src/core/forms/* \\
- & & src/containers/socialMedia/* \\
- & & src/containers/registerDialog/* \\
- & & src/modules/BackendLogin.tsx \\
+\rownumber & Anwenderregistrierung 
+& src/core/forms/* \\
+& & src/containers/socialMedia/* \\
+& & src/containers/registerDialog/* \\
+& & src/modules/BackendLogin.tsx \\
 \hline 
-4 & Bestätigungsdialog & src/containers/confirmDialog/ \\ & & \> ConfirmDialog.tsx \\
+\rownumber & Bestätigungsdialog 
+& src/containers/confirmDialog/ \\ 
+& & \> ConfirmDialog.tsx \\
 \hline 
-5 & Bild-Upload & src/containers/common/\\ & & \>DragAndDropUpload.tsx \\
- & & src/containers/loadDesignImageDialog/* \\
+\rownumber & Bild-Upload 
+& src/containers/common/\\ 
+& & \>DragAndDropUpload.tsx \\
+& & src/containers/loadDesignImageDialog/* \\
 \hline 
-6 & Bildmaskeneditor & src/containers/imageMaskEditor/* \\
+\rownumber & Bildmaskeneditor 
+& src/containers/imageMaskEditor/* \\
 \hline 
-7 & Bildverarbeitung & src/core/image/* \\
+\rownumber & Bildverarbeitung 
+& src/core/image/* \\
 \hline 
-8 & Cache & src/core/cache/Cache.ts \\
+\rownumber & Cache 
+& src/core/cache/Cache.ts \\
 \hline 
-9 & Cookie-Verarbeitung & src/core/cookies/handler.ts \\
+\rownumber & Cookie-Verarbeitung 
+& src/core/cookies/handler.ts \\
 \hline 
-10 & Design-Migration & src/core/design/DesignCompatibility.ts \\
- & & src/containers/customerDesignMigration/\\ & & \>CustomerDesignMigration.tsx \\
+\rownumber & Design-Migration 
+& src/core/design/DesignCompatibility.ts \\
+& & src/containers/customerDesignMigration/\\ 
+& & \>CustomerDesignMigration.tsx \\
 \hline 
-11 & Design-Parser & src/core/design/designParser/* \\
+\rownumber & Design-Parser 
+& src/core/design/designParser/* \\
 \hline 
-12 & Design-SVG-Konverter & src/designToSvgCLI/* \\
+\rownumber & Design-SVG-Konverter 
+& src/designToSvgCLI/* \\
 \hline 
-13 & Design-Serialisierung & src/core/design/DesignSerializer.ts \\
+\rownumber & Design-Serialisierung 
+& src/core/design/DesignSerializer.ts \\
 \hline 
-14 & Designbearbeitung & src/core/design/ITextSelection.ts \\
- & & src/core/design/index.ts \\
- & & src/core/helpers/RotationRaster.ts \\
- & & src/components/svgRenderers/pageAssets/\\ & & \>EmptyImageBox.tsx \\
+\rownumber & Designbearbeitung 
+& src/core/design/ITextSelection.ts \\
+& & src/core/design/index.ts \\
+& & src/core/helpers/RotationRaster.ts \\
+& & src/components/svgRenderers/pageAssets/\\ 
+& & \>EmptyImageBox.tsx \\
 \hline 
-15 & Designdarstellung & src/components/svgRenderers/\\ & & \>SVGTextRenderer.tsx \\
- & & \>SVGImageRenderer.tsx \\
- & & \>pageAssets/BackgroundImage.tsx \\
- & & \>SVGItemRenderer.tsx \\
- & & \>SVGDefsRenderer.tsx \\
- & & \>SVGPageRenderer.tsx \\
- & & \>index.ts \\
- & & src/components/designPresenter/\\ & & \>DesignPresenter.tsx \\
+\rownumber & Designdarstellung 
+& src/components/svgRenderers/\\ 
+& & \>SVGTextRenderer.tsx \\
+& & \>SVGImageRenderer.tsx \\
+& & \>pageAssets/BackgroundImage.tsx \\
+& & \>SVGItemRenderer.tsx \\
+& & \>SVGDefsRenderer.tsx \\
+& & \>SVGPageRenderer.tsx \\
+& & \>index.ts \\
+& & src/components/designPresenter/\\ 
+& & \>DesignPresenter.tsx \\
 \hline 
-16 & Designelementauswahl & src/containers/selectionLayer/* \\
+\rownumber & Designelementauswahl 
+& src/containers/selectionLayer/* \\
 \hline 
-17 & Designgalerie & src/containers/customerDesignsGallery/\\ & & \>CustomerDesignsGallery.tsx \\
+\rownumber & Designgalerie 
+& src/containers/customerDesignsGallery/\\ 
+& & \>CustomerDesignsGallery.tsx \\
 \hline 
-18 & Designobjekt-Transformation & src/core/design/transformation/* \\
- & & src/core/design/DesignItemFunctions.ts \\
+\rownumber & Designobjekt-Transformation 
+& src/core/design/transformation/* \\
+& & src/core/design/DesignItemFunctions.ts \\
 \hline 
-19 & Designobjekterzeugung & src/core/design/DesignItemBuilder.ts \\
+\rownumber & Designobjekterzeugung 
+& src/core/design/DesignItemBuilder.ts \\
 \hline 
-20 & Designstruktur & src/core/design/DesignIterator.ts \\
- & & src/core/entities/FDDesign.ts \\
+\rownumber & Designstruktur 
+& src/core/design/DesignIterator.ts \\
+& & src/core/entities/FDDesign.ts \\
 \hline 
-21 & Dialogfenster & src/containers/modalContainer/\\ & & \>ModalContainer.tsx \\
+\rownumber & Dialogfenster 
+& src/containers/modalContainer/\\ 
+& & \>ModalContainer.tsx \\
 \hline 
-22 & Farbstruktur & src/core/color/* \\
- & & src/core/validations/ColorValidations.ts \\
+\rownumber & Farbstruktur 
+& src/core/color/* \\
+& & src/core/validations/ColorValidations.ts \\
 \hline 
-23 & Fehlerdialog & src/containers/crashReport/* \\
+\rownumber & Fehlerdialog 
+& src/containers/crashReport/* \\
 \hline 
-24 & Formularverarbeitung & src/core/forms/FormParser.ts \\
+\rownumber & Formularverarbeitung 
+& src/core/forms/FormParser.ts \\
 \hline 
-25 & Fotogalerie & src/core/common/Gallery.ts \\
- & & src/containers/customerPhotoGallery/* \\
- & & src/containers/photoGallery/* \\
+\rownumber & Fotogalerie 
+& src/core/common/Gallery.ts \\
+& & src/containers/photoGallery/* \\
+& & src/containers/customerPhotoGallery/* \\
 \hline 
-26 & Fußleiste & src/containers/Footer.tsx \\
+\rownumber & Fußleiste 
+& src/containers/Footer.tsx \\
 \hline 
-27 & Grafische-Oberfläche & src/core/validations/\\ & & \>RangeInputValidations.ts \\
- & & src/core/common/\\ & & \>TextInputKeyHandling.ts \\
- & & src/core/common/MenuOption.ts \\
- & & src/stores/* \\
- & & src/components/* \\
- & & src/components/controller/\\ & & \>rangeInputBox/RangeInputBox.tsx \\
- & & src/actions/* \\
- & & src/containers/* \\
- & & src/reducers/* \\
+\rownumber & Grafische-Oberfläche 
+& src/core/validations/\\ 
+& & \>RangeInputValidations.ts \\
+& & src/core/common/MenuOption.ts \\
+& & src/stores/* \\
+& & src/components/* \\
+& & src/components/controller/\\ 
+& & \>rangeInputBox/RangeInputBox.tsx \\
+& & src/actions/* \\
+& & src/containers/* \\
+& & src/reducers/* \\
+& & src/core/common/\\ 
+& & \>TextInputKeyHandling.ts \\
 \hline 
-28 & JavaScript-Erweiterung & src/core/common/index.ts \\
- & & src/core/common/UserAgent.ts \\
- & & src/core/helpers/Clone.ts \\
- & & src/core/helpers/FDArrayHelper.ts \\
- & & src/core/helpers/index.ts \\
- & & src/polyfill.ts \\
+\rownumber & JavaScript-Erweiterung 
+& src/core/common/index.ts \\
+& & src/core/common/UserAgent.ts \\
+& & src/core/helpers/Clone.ts \\
+& & src/core/helpers/FDArrayHelper.ts \\
+& & src/core/helpers/index.ts \\
+& & src/polyfill.ts \\
 \hline 
-29 & Kalendariumserzeuger & src/core/calendar/* \\
- & & src/core/common/Calendar.ts \\
+\rownumber & Kalendariumserzeuger 
+& src/core/calendar/* \\
+& & src/core/common/Calendar.ts \\
 \hline 
-30 & Kalenderkonfigurator & src/core/entities/DateInterfaces.ts \\
- & & src/containers/calendarDialog/* \\
+\rownumber & Kalenderkonfigurator 
+& src/core/entities/DateInterfaces.ts \\
+& & src/containers/calendarDialog/* \\
 \hline 
-31 & Kopfleiste & src/containers/Header.tsx \\
+\rownumber & Kopfleiste 
+& src/containers/Header.tsx \\
 \hline 
-32 & Kurzinformation & src/core/helpers/CalculateTooltipPos.ts \\
- & & src/containers/tooltip/* \\
+\rownumber & Kurzinformation 
+& src/core/helpers/CalculateTooltipPos.ts \\
+& & src/containers/tooltip/* \\
 \hline 
-33 & Mathematik & src/core/geom/* \\
- & & src/core/helpers/FDMath.ts \\
- & & src/core/helpers/deCasteljau.ts \\
- & & src/utils/WebUtils.ts \\
+\rownumber & Mathematik 
+& src/core/geom/* \\
+& & src/core/helpers/FDMath.ts \\
+& & src/core/helpers/deCasteljau.ts \\
+& & src/utils/WebUtils.ts \\
 \hline 
-34 & Maßeinheit-Konverter & src/core/helpers/MeasureUtils.ts \\
+\rownumber & Maßeinheit-Konverter 
+& src/core/helpers/MeasureUtils.ts \\
 \hline 
-35 & Produktdarstellung & src/components/pagePresenter/* \\
- & & src/components/svgRenderers/pageAssets/\\ & & \>PageLabels.tsx \\
- & & \>GutterLines.tsx \\
- & & \>BleedLines.tsx \\
- & & \>SVGNonPrintAreaRenderer.tsx \\
- & & \>FoldLines.tsx \\
- & & src/components/svgRenderers/\\ & & \>SVGProductImageRenderer.tsx \\
+\rownumber & Produktdarstellung 
+& src/components/pagePresenter/* \\
+& & src/components/svgRenderers/pageAssets/\\ 
+& & \>PageLabels.tsx \\
+& & \>GutterLines.tsx \\
+& & \>BleedLines.tsx \\
+& & \>SVGNonPrintAreaRenderer.tsx \\
+& & \>FoldLines.tsx \\
+& & src/components/svgRenderers/\\ 
+& & \>SVGProductImageRenderer.tsx \\
 \hline 
-36 & Produktkonfigurator & src/containers/checkoutBox/* \\
+\rownumber & Produktkonfigurator 
+& src/containers/checkoutBox/* \\
 \hline 
-37 & Produktseiten-Bild-Konverter & src/utils/PageImageRenderer.ts \\
+\rownumber & Produktseiten-Bild-Konverter 
+& src/utils/PageImageRenderer.ts \\
 \hline 
-38 & Produktstruktur & src/core/product/* \\
- & & src/core/entities/product/* \\
+\rownumber & Produktstruktur 
+& src/core/product/* \\
+& & src/core/entities/product/* \\
 \hline 
-39 & Referenzwerkzeug & src/containers/reference/* \\
+\rownumber & Referenzwerkzeug 
+& src/containers/reference/* \\
 \hline 
-40 & SVG-Konverter & src/core/design/DesignSvgCreator.ts \\
+\rownumber & SVG-Konverter 
+& src/core/design/DesignSvgCreator.ts \\
 \hline 
-41 & SVG-Parser & src/core/parsing/svgParsing.ts \\
+\rownumber & SVG-Parser 
+& src/core/parsing/svgParsing.ts \\
 \hline 
-42 & Schriftverarbeitung & src/core/design/FontFunctions.ts \\
- & & src/core/entities/IFontData.ts \\
- & & src/actions/helper/\\ & & \>ComputeTextDimensionsCreator.ts \\
+\rownumber & Schriftverarbeitung 
+& src/core/design/FontFunctions.ts \\
+& & src/core/entities/IFontData.ts \\
+& & src/actions/helper/\\ 
+& & \>ComputeTextDimensionsCreator.ts \\
 \hline 
-43 & Speicherkomponente & src/core/validations/\\ & & \>DesignNameValidations.ts \\
- & & src/containers/changeDesignNameDialog/* \\
+\rownumber & Speicherkomponente 
+& src/core/validations/\\ 
+& & \>DesignNameValidations.ts \\
+& & src/containers/changeDesignNameDialog/* \\
 \hline 
-44 & Startvideo & src/startvideo.tsx \\
+\rownumber & Startvideo 
+& src/startvideo.tsx \\
 \hline 
-45 & Tastatur-Kurzbefehle & src/containers/common/Shortcuts.tsx \\
+\rownumber & Tastatur-Kurzbefehle 
+& src/containers/common/Shortcuts.tsx \\
 \hline 
-46 & Textschlüsselsammlung & src/core/local/index.ts \\
+\rownumber & Textschlüsselsammlung 
+& src/core/local/index.ts \\
 \hline 
-47 & URL-Verarbeitung & src/core/url/* \\
+\rownumber & URL-Verarbeitung 
+& src/core/url/* \\
 \hline 
-48 & Vorlagekonverter & src/core/design/designTemplate/* \\
- & & src/core/cli/* \\
+\rownumber & Vorlagekonverter 
+& src/core/design/designTemplate/* \\
+& & src/core/cli/* \\
 \hline 
-49 & Warenkorb & src/containers/shoppingCart/* \\
+\rownumber & Warenkorb 
+& src/containers/shoppingCart/* \\
 \hline 
-50 & Werkzeugmenü & src/containers/menues/toolbox/* \\
+\rownumber & Werkzeugmenü 
+& src/containers/menues/toolbox/* \\
 \hline 
-51 & XML-Parser & src/core/parsing/xmlParsing.ts \\
- & & src/utils/WebUtils.ts \\
+\rownumber & XML-Parser 
+& src/core/parsing/xmlParsing.ts \\
+& & src/utils/WebUtils.ts \\
 \hline 
-52 & Zwischenablageschnittstelle & src/services/clipboard/* \\
+\rownumber & Zwischenablageschnittstelle 
+& src/services/clipboard/* \\
 \hline 
 
     \hline
