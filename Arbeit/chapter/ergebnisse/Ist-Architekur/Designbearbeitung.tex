@@ -4,8 +4,13 @@ Die dritte Hauptkomponente des FreeDesign-Editors ist das bearbeiten des Designs
 Die \emph{Container}-Komponente \emph{Stage.tsx} verbindet alle Komponenten, die für die Bearbeitung des Designs Notwendig sind. Hierzu gehören grafisch Komponente zur Darstellung von Auswahlrahmen, eine Texteingabe sowie Hilfswerkzeugen, wie einem Lineal oder einem Gitter. 
 Desweiteren ist sie mit dem \emph{Redux-Store} verbunden und ruft sie verschieden \emph{Redux-Actions}. 
 Mit  1260 Quelltextzeilen, 51 Funktionen und 46 Importen, handelt es sich um die komplexeste Komponente des FreeDesign-Editor und kann als eine \emph{Man-in-the-middle-Klasse} bezeichnet werden. Hierbei handelt es sich um ein Antimuster bei dem eine Klasse zu viele zuständigkeiten hat \autocite[vgl.][619]{Geirhos2015}.
-Im allgemeinen ist der Quelltext und die Abhängigkeiten für die Designbearbeitung sehr komplex und ungenügend strukturiert. Das bearbeiten eines Designs ist die Kernfunktionalität des FreeDesign-Editor und sollte von einer Soll-Architektur aus der restlichen Anwendung als entkoppelte Komponente extrahiert werden. 
+Im allgemeinen ist der Quelltext und die Abhängigkeiten für die Designbearbeitung sehr komplex und ungenügend strukturiert. 
+Ein Darstellung der gesamten Abhängigkeiten ist im Anhang unter \emph{D1\_Designbearbeitung.html} enthalten.
+Das bearbeiten eines Designs ist die Kernfunktionalität des FreeDesign-Editor und sollte von einer Soll-Architektur aus der restlichen Anwendung als entkoppelte Komponente extrahiert werden. 
 
+
+
+Folgende Bausteine wurden identifiziert, für die Designbearbeitung notwendig sind.
 \begin{multicols}{2}    
     \input{chapter/ergebnisse/Ist-Architekur/Komponenten/Komponenten-Designbearbeitung.tex}
 \end{multicols}
