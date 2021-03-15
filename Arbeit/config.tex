@@ -16,7 +16,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc} % europäische Zeichen
 
-
 %
 % Document Format
 %
@@ -94,7 +93,6 @@
 
 % sonstiges
 \usepackage{framed}
-\usepackage{tabularx}
 \usepackage{mathabx}
 
 \usepackage{multicol}
@@ -102,7 +100,11 @@
 % table
 \usepackage[table]{xcolor}
 \usepackage{longtable}
+\usepackage{tabularx}
 \usepackage{ltxtable}
+
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
 
 % mute warnings
 \usepackage{silence}
