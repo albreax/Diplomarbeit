@@ -11,6 +11,10 @@ Das Produkt wird durch eine Struktur beschrieben, welche im \emph{core}-Ordner h
 
 Für die Darstellung innerhalb des FreeDesign-Editors ist die Nutzung von mathematischen Operationen notwendig, die im Anwendungskern definiert sind. 
 
+Der Produktdarstellung kann ein Kindelement übergeben werden, welches in die die Produktdarstellung eingebettet werden. 
+
+\lstinputlisting[frame=single,label=beispielcode,caption=Quelletext-Bsp.: Designdarstellung eingebettet Kindelement]{sourcecode/product.tsx}
+
 \begin{figure}[H]
     \centering
     \includegraphics{diagrams/Ist-Architektur/page-presenter-analysis.pdf}
@@ -18,9 +22,7 @@ Für die Darstellung innerhalb des FreeDesign-Editors ist die Nutzung von mathem
     \label{fig:Produktdarstellung}
 \end{figure}
 
-Der Produktdarstellung kann ein Kindelement übergeben werden, welches in die die Produktdarstellung eingebettet werden. 
-
-\lstinputlisting[frame=single,label=beispielcode,caption=Quelletext-Bsp.: Designdarstellung eingebettet Kindelement]{sourcecode/product.tsx}
-\begin{multicols}{2}
+Für die Produktdarstellung konnten lediglich folgende drei Bausteine identifiziert werden.
+\begin{multicols}{3}
     \input{chapter/ergebnisse/Ist-Architekur/Komponenten/Komponenten-Produktdarstellung.tex}
 \end{multicols}
