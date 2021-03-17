@@ -9,23 +9,23 @@ Als positiv wurde hervorgehoben, dass die Architektur, zumindest soweit bekannt,
 Das war vor einer Neuimplementierung des FreeDesign-Editor der Fall gewesen. 
 Auch Anforderungsänderung und Erweiterungen konnten bisher problemlos umgesetzt werden. 
 
-Die Nutzung von Redux als zentrale Zustandverwaltung, sowie die Anbindung and die Einbindung über \emph{Container}-Objekte wurde positiv geweitet. 
+Die Nutzung von Redux als zentrale Zustandsverwaltung, sowie die Anbindung und die Einbindung über \emph{Container}-Objekte wurde positiv geweitet. 
 
-Als undbedingt erhaltenwerte wurde auch die strikte Trennung zwischen Produktdarstellung und Designdarstellung, sowie den grafischen Komponenten zum bearbeiten des Designs bewertet. 
+Als unbedingt erhaltenswerte wurde auch die strikte Trennung zwischen Produktdarstellung und Designdarstellung, sowie den grafischen Komponenten zum bearbeiten des Designs bewertet. 
 
 Die grundlegende Strukturierung des Quelltextes innerhalb der Ordner hat ebenfalls bewährt und scheint den Einstieg in das Projekt zu fördern. 
 Mitgliedern des Entwicklerteam ist die Strukturierung auch aus andere Projekte bekannt.
 
 \subsubsection{Schwächen und Probleme}
 \paragraph{Geschäftlogik}
-Als größte Schwäche der Architektur wurde die unzureichende Strukturierung der Geschäftslogik bemängelt. Diese ist an verschiedensten Stellen im Quelltext implementiert. Den Mitglieder des Teams ist oft während der Entwickelungsarbeit nicht klar, ob eine bestimmte Funktionalität bereits implementiert ist und wo die Implementierung im Projekt zu finden ist. 
+Als größte Schwäche der Architektur wurde die unzureichende Strukturierung der Geschäftslogik bemängelt. Diese ist an verschiedensten Stellen im Quelltext implementiert. Den Mitglieder des Teams ist oft während der Entwicklungsarbeit nicht klar, ob eine bestimmte Funktionalität bereits implementiert ist und wo die Implementierung im Projekt zu finden ist. 
 Daher wird vermutet, dass einige Funktionalitäten mehrfach implementiert sind. 
 Dies verstößt gegen das, durch Dave Thomas und Andy Hunt formulierte Prinzip, \emph{"Don’t Repeat Yourself" (DRY)}. Es besagt, dass jedes Wissen innerhalb eines Systems ein einzige, eindeutige und verbindliche Darstellung haben muss \autocite[vgl.][30 - 31]{ThomasAndHunt2020}.  
-Quelltext-Duplikate sind aus mehrereren Gründen problematisch. Bei Änderungen, müssen mehrerer Stellen im Quelltext angepasst werden. Neben den Funktionalitäten sind auch Unit-Tests mehrfach implementiert, die das Selbe testen und bei Änderungen angepasst werden müssen. Neben dem höreren Entwicklung- und Wartungaufwand, führen Duplikate auch zu einer größeren JavaScript-Datei für den FreeDesign-Editor. 
+Quelltext-Duplikate sind aus mehreren Gründen problematisch. Bei Änderungen, müssen mehrerer Stellen im Quelltext angepasst werden. Neben den Funktionalitäten sind auch Unit-Tests mehrfach implementiert, die das Selbe testen und bei Änderungen angepasst werden müssen. Neben dem höheren Entwicklung- und Wartungsaufwand, führen Duplikate auch zu einer größeren JavaScript-Datei für den FreeDesign-Editor. 
 
 \paragraph{Konventionen}
-Eine weiter Kritikpunkt ist das fehlen von inhaltlichen Konventionen. Es bestehen zwar Konventionen für die Formatierung des Quelltext, welche mit dem, eingangs genanten, \emph{Linter} überprüft werden. Darüberhinaus wurden jedoch keine Konventionen festgellegt. 
-Ein paar wenige Konventionen haben sich, vorallem durch die Verwendung von TypeScript, ReactJS und Redux, ergeben. Beispiele hierfür sind, dass React-Komponenten keine Geschäftslogik enthalten sollen und die Verwendung von \emph{Container}-Objekten zum Verbinden von \emph{React}-Komponenten und \emph{Redux}.
+Eine weiter Kritikpunkt ist das fehlen von inhaltlichen Konventionen. Es bestehen zwar Konventionen für die Formatierung des Quelltext, welche mit dem, eingangs genanten, \emph{Linter} überprüft werden. Darüber hinaus wurden jedoch keine Konventionen festgelegt. 
+Ein paar wenige Konventionen haben sich, vor allem durch die Verwendung von TypeScript, ReactJS und Redux, ergeben. Beispiele hierfür sind, dass React-Komponenten keine Geschäftslogik enthalten sollen und die Verwendung von \emph{Container}-Objekten zum Verbinden von \emph{React}-Komponenten und \emph{Redux}.
 Darüberhinaus wurden jedoch keine Konventionen festgellegt.
 Das führt unter anderem dazu, dass es kein Schema für die Bezeichnung von Klassen, Funktionen oder Modulen gibt. Weiterhin werden Funktionen teilweise in Klassen und teilweise in Modulen zusammen gefasst. 
 
