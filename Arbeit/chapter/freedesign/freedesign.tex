@@ -1,9 +1,7 @@
 \section{Der FreeDesign-Editor}
 \label{Der FreeDesign-Editor}
 \subsection{Funktionsbeschreibung}
-Der, durch Unitedprint bereitgestellte, Webshop \emph{easyprint.com} bietet Kunden die Möglichkeit Druckprodukt online zu gestaltet und im Anschluss zu bestellen. Für die Gestaltung der Produkte wurde unternehmenintern die Webanwendung \emph{FreeDesign} entwickelt, welche beständig gepflegt und weiterentwickelt wird. Die Anwendung ist eine Single-Page-Webanwendung, welche in der Programmiersprache TypeScript, sowie unter der Verwendung von \emph{ReactJS} und \emph{Redux} entwickelt wurde. 
-
-Basierend auf Flanagan (\citeyear[S. 497]{Flanagan2006}) wird als Single-Page-Webanwendung ein Webanwendung bezeichnet die auf der Ajax-Technologie basiert und ihre Inhalt per JavaScript aktualisiert und nicht durch das neu Laden der Anwendung. 
+Der, durch Unitedprint bereitgestellte, Webshop \emph{easyprint.com} bietet Kunden die Möglichkeit Druckprodukt online zu gestaltet und im Anschluss zu bestellen. Für die Gestaltung der Produkte wurde unternehmenintern die Webanwendung \emph{FreeDesign} entwickelt, welche beständig gepflegt und weiterentwickelt wird. Die Anwendung ist eine Single-Page-Application (SPA) was basieren auf Flanagan (\citeyear[S. 497]{Flanagan2006}) bedeutet, dass der Inhalt eine Webseite durch Manipulation der HTML-Struktur per JavaScript aktualisiert wird und somit die Seite nicht komplett neu geladen werden muss. 
 
 Mit hilfe des Editor kann eine große Vielzahl von Druckprodukten gestaltet werden, wobei das Portfolio verschiedenste Produktgruppen, wie Bürozubehör, Textilien oder Werbematerialien, abdeckt. Zur Gestaltung eines Designs bietet der Editor die Möglichkeit der Nutzung eigener Text und Bilder sowie das Verwenden verschiedenster geometrischer Formen. Alle Element können umfangreich geometrisch und grafische bearbeitet werden. Um einen optimalen Gestaltungsprozess zu ermöglichen, kann die Produktdarstell auch wärend der Gestaltung vergrößert, verschoben oder rotiert werden. Weiterhin stehen auch Hilfwerkzeuge wie Lineal oder Hilflinien zur Verfügung. 
 
@@ -11,27 +9,29 @@ Die Nutzer haben auch die Möglichkeit Designs als Entwürfe zu speicheren und z
 
 \begin{figure}[H]
     \centering
-    \efbox{\includegraphics[width=.98\textwidth]{chapter/freedesign/Screenshot-Freedesign.png}}
+    \efbox{\includegraphics[width=.98\textwidth]{chapter/freedesign/Screenshot-FreeDesign.png}}
     \caption{Ein Bildschirmfoto des FreeDesign-Editor}
     \label{fig:Der FreeDesign-Editor}
 \end{figure}
 
 \subsection{Designvorlagen}
+\label{sect:Designvorlagen}
+Um das Gestalteten der Produkte zu erleichtern, werden eine Vielzahl von Designvorlagen zur weiteren Gestaltung im Webshop angeboten. 
+Aktuell (März 2021) werden die Designvorlagen in deutsch und englisch angeboten. Jedoch sollen in Zukunft die Designvorlagen auch in den restlichen Sprachen, in denen \emph{easyprint.com} zur Verfügung steht angeboten werden. 
+Jede Designvorlage steht in verschiedenen Farbvarianten, welche als Farbschemen bezeichnet werden, zur Verfügung. Die Abbildung \ref{fig:Designuebersichtseite} zeigt den Aufbau einer Übersichtseite für die Designvorlagen. Im Linken Menü kann, über das Untermenü mit den Farbkreisen, ein Farbschema für alle Designvorlagen der Seite gewählt werden. Es kann aber auch innerhalb des Vorschaubildes das Farbschema für ein einzelnes Design gewechselt werden.
+Die Varianten einer Designvorlage werden im folgenden als Designderivate bezeichenet. 
+Durch die Kombination aus Sprachen und Farbschemen werden aktuell je Design 20 Farb/Sprach-Derivate angeboten.
+\begin{center}
+    \efbox{Farb/Sprach-Derivate=Fabderivate*Sprachderivate}
+\end{center}
 
 \begin{figure}[H]
     \centering
     \efbox{\includegraphics[width=.98\textwidth]{chapter/freedesign/Screenshot-Designseite.png}}
-    \caption{Ein Bildschirmfoto der Designübersichtseite für Visitenkarten}
+    \caption{Ein Bildschirmfoto der Übersichtseite für Designvorlagen}
     \label{fig:Designuebersichtseite}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=.98\textwidth]{diagrams/Freedesign-Vorlagenerstellung.pdf}
-\caption{Prozessbeschreibung der Vorlagenerstellung}
-\label{fig:Vorlagenimport}
-\end{figure}
+Unitedprint betreibt auch das Webportal \emph{design.easyprint.com}, in welchem Designvorlagen, mit Hilfe des FreeDesign-Editors, gestaltet und zur Veröffentliche eingereicht werden können. Wird eine Designvorlage durch die Innovationsabteilung des Unternehmens angenommen, durchläuft es einen Integrationsprozess und die Person, die die Vorlage gestaltet hat, erhält ein Honorar.
 
-\subsection{Bestellablauf}
-%TODO: => Auf Team eingehen
 

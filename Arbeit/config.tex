@@ -83,6 +83,7 @@
 
 \usepackage{chngcntr} % => \counterwithin{figure}{chapter}
 \counterwithin{figure}{chapter}
+
 \usepackage[ngerman]{babel}
 \addto\captionsngerman{
   % \renewcommand{\figurename}{Abbildung}
@@ -90,6 +91,8 @@
   % \renewcommand{\lstlistingname}{Listing}
 }
 \renewcommand{\lstlistlistingname}{Abbildungsverzeichnis}%  List of Listings -> Abb.
+
+\usepackage{amsmath}
 
 % sonstiges
 \usepackage{framed}
@@ -102,6 +105,10 @@
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{ltxtable}
+
+% frame
+\usepackage{efbox,graphicx}
+\efboxsetup{linecolor=black,linewidth=.2pt}
 
 \newcounter{magicrownumbers}
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}

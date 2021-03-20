@@ -1,7 +1,6 @@
 % Produktdarstellung.tex
 \subsection{Produktdarstellung}
 Eine zentrale Komponenten der Anwendung ist die Darstellung einer Produktseite, welche auf dem \emph{SVG}-Format basiert.
-Das SVG-Format ist eine XML-basiertes Markup-Sprache welche eine zweidimensionale Grafik beschreibt und innherhalb von HTML-Quelltext platziert werden kann \autocite[vgl.][]{AboutSVG}. 
 
 Wie von Abbildung \ref{fig:Produktdarstellung} zu entnehmen ist, werden für das Erzeugen der \emph{SVG}-Struktur \emph{ReactJS}-Komponenten genutzt, die exklusiv für die Produktdarstellung erstellt wurden. Diese Komponenten finden in keinem anderem Zusammenhang Verwendung und sind eng an die Produktdarstellung gekoppelt. 
 Zur Darstellung des Produktes gehören das Darstellen von Beschnittlinien, Falzlinien, Nutlinien, Bereichen die nicht bedruckbar sind, sowie Seitenbezeichnungen. Bei einigen Produkten, Textilien oder Werbeprodukte, kann im Hintergrund eine Abbildung des Produktes dargestellt werden. Die Komponente \emph{SVGPageRenderer} ist für verantwortlich für die Produktdarstellung und wird Komponente \emph{PagePresenter.tsx} eingesetzt. Diese wiederum ist für Präsentation des Produktes innerhalb des FreeDesign-Editors verantwortlich und ermöglicht das Rotieren, Skalieren sowie das Verschieben der Darstellung. 
