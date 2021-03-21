@@ -34,3 +34,17 @@ Ergänzt wird der Einsatz des Jest-Frameworks durch die Nutzung der Funktionsbib
 
 \subsection{Das SVG-Format}
 Das Format SVG (Scalable Vector Graphics) ist eine XML-basierte Markup-Sprache welche eine Vektorgrafik beschreibt. SVG-Grafiken können *.svg-Dateien gespeichert und innherhalb von HTML-Quelltext platziert werden \autocite[vgl.][]{AboutSVG}. Innerhalb des FreeDesign-Editors wird das SVG-Format für die Produkt- und Designdarstellung, sowie für die Darstellung von Bearbeitungswerkzeugen eingesetzt. 
+
+\subsection{Git}
+\label{chap:git}
+Für die zentrale Verwaltung des Quelltextes für das Softwaresystem von Unitedprint wird Git genutzt. 
+Basierend auf Chacon und Straub (\citeyear{Git:About}) ist Git ein Versionskontrollsystem welches Dateiänderungen protokolliert und die Änderung Versionen zuweist. Somit ist es möglich jede Änderungen im nachhinein nachzuvollziehen, mit einem vorhergehenden Zustand zu vergleichen und bei Bedarf rückgängig zu machen.
+
+Weiterhin bietet Git die Möglichkeit verschiedene Zustände eines Projektes in sogenannten \emph{Branches} zu verwalten, wobei jedes Git-Projekt einen eigenen Haupt-Branch besitzt. Um diesen während der 
+Entwicklung nicht zu beeinflussen, können Änderung in eigenen Branches entwickelt werden und nach Abschluss der Entwicklungsarbeit mit dem Haupt-Branch zusammengeführt werden, was als mergen bezeichnet wird \autocite[vgl.][]{Git:Branching}. 
+
+Git biete eine Vielzahl weiterer Funktionalitäten um mit Branches zu arbeiten, deren Beschreibung jedoch für das Verständnis der Diplomarbeit nicht notwendig ist. 
+
+Für das zentrale Management von Git-Projekten setzt Unitedprint die Software Bitbucket ein, welches von einem IT-internen Operations-Team verwaltet wird. Über Bitbucket können Entwickler die Integration eines Branches in einen anderen Branch beantragen, was als Pull-Request bezeichnet wird. Pull-Requests können von anderen Entwicklern begutachtet werden und Änderungen am Projektinhalt, durch das Zusammenführen verursacht würden, kommentiert werden. Weiterhin bietet Bitbucket die Funktionalität sogenannten Pipelines an, mit deren Hilfe automatisiert Integrationsschritte ausgeführt werden können \autocite[vgl.][]{Bitbucket:Product}.
+
+Das FreeDesign-Projekt wird in einem eigenem Git-Projekt verwaltet.
