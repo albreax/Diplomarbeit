@@ -1,0 +1,26 @@
+% CI.tex
+\section{Integration des FreeDesign-Projektes}
+
+\subsection{Veröffentlichungszyklus}
+Die Geschäftsführung des Unternehmens gibt einen wöchentlichen Veröffentlichungszyklus für das gesamte Softwaresystem vor, wobei jeden Montag am frühen Morgen eine neue Version veröffentlicht wird. 
+
+Dies wird durch die Anwendung des Paradigmas der kontinuierlichen Integration ermöglicht. 
+% TODO: Definition ergänzen
+
+Wie bereits unter \ref{chap:git} erwähnt, wird für die Quelltextverwaltung Git, mit eigenen Projekt für das FreeDesign-Projekt, genutzt.
+Das FreeDesign-Projekt besitzt folgende Git-Strukturierung. Die Produktivanwendung wird auf Basis des Haupt-Branch namens \emph{master} erstellt. 
+Jeden Montag wird durch die Zusammenführung mit einem \emph{release}-Branch die Veröffentlichung durchgeführt. 
+Der \emph{release}-Branch wiederum wird in der Woche zuvor donnerstag Vormittag auf der Basis eines \emph{develop}-Branch erstellt. Neue Funktionalitäten, Fehlerkorrekturen und sonstige Änderungen am Quelltext werden in eigenen Git-Branchen, sogenten \emph{Feature}-Branches entwickelt. Wurde eine Änderung fertiggestellt, wird mit einem \emph{Pull-Request} die Zusammenführung der Änderung in den \emph{develop}-Branch beantragt.
+Wurde die Zusammenführung genehmigt und durchgeführt, ist die Änderung somit automatisch Bestandteilt der nächsten Veröffentlichung. 
+
+
+\subsection{Bereitstellungsablauf}
+Vor der Zusammenführung wird jedoch die Änderung intensiv geprüft. Hierfür wird automatisch auf der Basis des \emph{Pull-Request}
+eine Pipeline in Bitbucket ausgelöst. 
+Basierend auf der Beschreibung von Silvio Gohl (Operations-Team Unitedprint.com SE) kann der Ablauf der Pipeline wie folgt beschrieben werden.
+Zunächst erstellt die Pipeline auf der Basis des Feature-Branch einen temporären Branch, in welchen Feature-Branch und develop-Branch zusammengeführt werden. 
+Die nächsten Schritte der Pipeline sind die Ausführung der Unit-Tests und das testweise Kompilieren des FreeDesign-Editors. Treten bei den diesen Schritten Fehler auf, müssen diese durch den Entwickler korrigiert und Pull-Request neu erstellt werden. 
+
+Verlief das Erstellen des Pull-Request ohne Probleme und alle Schritte liefen fehlerfrei durch, werden die anderen Entwickler des Teams informiert und gebeten eine Begutachtung der Änderungen durchzuführen. Diese haben nun die Möglichkeit die Änderungen in Bitbucket zu begutachten und zu kommentieren. Wurden die Änderungen von mindestens zwei Entwicklern bestätigt, kann der Feature-Branch mit dem develop-Branch zusammengeführt werden. 
+
+Sobald eine Änderung im develop-Branch enthalten ist, steht sie auf einem Testserver zur Verfügung. Die Änderung wird nun von der hausinterne Abteilung für die Qualitätssicherung, sowie von der Fachabteilung, die die Änderung in Auftrag geben hat, überprüft.
