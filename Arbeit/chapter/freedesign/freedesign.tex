@@ -1,25 +1,30 @@
-% Status: Erstprüfung 
+% Status: 
+% * Erstprüfung 
+% * Prüfung durch Julia
+% * Korrektur
 \section{Der FreeDesign-Editor}
 \label{Der FreeDesign-Editor}
 \subsection{Funktionsbeschreibung}
-Der, durch Unitedprint bereitgestellte, Webshop \emph{easyprint.com} bietet Kunden die Möglichkeit, Druckprodukt online zu gestaltet und im Anschluss zu bestellen. Für die Gestaltung der Produkte wurde die Webanwendung \emph{FreeDesign} entwickelt, welche beständig gepflegt und weiterentwickelt wird. Die Anwendung ist eine Single-Page-Application (SPA), was basieren auf Flanagan (\citeyear[S. 497]{Flanagan2006}) bedeutet, dass der Inhalt einer Webseite durch die Manipulation der HTML-Struktur per JavaScript aktualisiert wird und somit die Seite nicht komplett neu geladen werden muss. 
+Der, durch Unitedprint.com SE bereitgestellte Webshop \emph{easyprint.com} bietet Kunden die Möglichkeit, Druckprodukt online zu gestaltet und im Anschluss zu bestellen. Für die Gestaltung der Produkte wurde die Webanwendung \emph{FreeDesign} entwickelt, welche beständig gepflegt und weiterentwickelt wird. 
+Die Anwendung setzt das Paradigma einer Single-Page-Application (SPA) um. 
+Eine SPA ist eine Anwendung, welche den Inhalt der Website durch die Manipulation der HTML-Struktur per JavaScript aktualisiert und nicht durch das erneute Laden der gesamten Seite \autocite[vgl.][497]{Flanagan2006}.  
 
-Mit Hilfe des FreeDesign-Editors kann eine große Vielzahl von Druckprodukten gestaltet werden, wobei das Portfolio verschiedenste Produktgruppen, wie Bürozubehör, Textilien oder Werbematerialien, abdeckt. Zur Gestaltung eines Designs bietet der Editor die Möglichkeit der Nutzung eigener Texte und Bilder sowie das Verwenden verschiedenster geometrischer Formen. Alle Elemente können umfangreich geometrisch und grafische bearbeitet werden. Um einen optimalen Gestaltungsprozess zu ermöglichen, kann die Produktdarstellung auch während der Gestaltung vergrößert, verschoben oder rotiert werden. Weiterhin stehen Hilfswerkzeuge wie Lineal oder Hilfslinien zur Verfügung. 
+Mit Hilfe des FreeDesign-Editors kann eine große Vielzahl von Druckprodukten gestaltet werden, wobei das Portfolio verschiedenste Produktgruppen, wie Bürozubehör, Textilien oder Werbematerialien, abdeckt. Zur Gestaltung eines Designs bietet der Editor die Möglichkeit der Nutzung eigener Texte und Bilder sowie das Verwenden verschiedenster geometrischer Formen. Alle Elemente können umfangreich geometrisch und grafisch bearbeitet werden. Um einen optimalen Gestaltungsprozess zu ermöglichen, kann die Produktdarstellung auch während der Gestaltung vergrößert, verschoben oder rotiert werden. Weiterhin stehen Hilfswerkzeuge wie Lineal oder Hilfslinien zur Verfügung. 
 
 Die Nutzer haben auch die Möglichkeit Designs als Entwürfe zu speichern und zu einem späteren Zeitpunkt zu öffnen.
 
 \begin{figure}[H]
     \centering
     \efbox{\includegraphics[width=.98\textwidth]{chapter/freedesign/Screenshot-FreeDesign.png}}
-    \caption{Ein Bildschirmfoto des FreeDesign-Editor}
+    \caption{Ein Bildschirmfoto des FreeDesign-Editors}
     \label{fig:Der FreeDesign-Editor}
 \end{figure}
 
 \subsection{Designvorlagen}
 \label{sect:Designvorlagen}
-Um das Gestalteten der Produkte zu erleichtern, werden eine Vielzahl von Designvorlagen zur weiteren Gestaltung im Webshop angeboten. 
-Aktuell (März 2021) werden die Designvorlagen in deutsch und englisch angeboten. Jedoch sollen in Zukunft die Designvorlagen auch in den restlichen Sprachen, in denen \emph{easyprint.com} zur Verfügung steht angeboten werden. 
-Jede Designvorlage steht in verschiedenen Farbvarianten, welche als Farbschemen bezeichnet werden, zur Verfügung. Abbildung \ref{fig:Designuebersichtseite} zeigt den Aufbau einer Übersichtseite für die Designvorlagen, über welche der Nutzer eine Vorlage zur weiteren Bearbeitung im FreeDesign-Editor auswählen kann. Im Linken Menü kann, über das Untermenü mit den Farbkreisen, ein Farbschema für alle Designvorlagen der Seite gewählt werden. Es ist jedoch auch Möglich, innerhalb des Vorschaubildes das Farbschema für ein einzelnes Design zu wechseln.
+Um das Gestalten der Produkte zu erleichtern, werden eine Vielzahl von Designvorlagen zur weiteren Gestaltung im Webshop angeboten. 
+Aktuell (März 2021) werden die Designvorlagen in deutsch und englisch angeboten. Jedoch sollen in Zukunft die Designvorlagen auch in den restlichen Sprachen der Länder, in denen \emph{easyprint.com} zur Verfügung steht angeboten werden, wie Spanisch, Französisch oder Italienisch. 
+Jede Designvorlage steht in verschiedenen Farbvarianten, welche als Farbschemen bezeichnet werden, zur Verfügung. Abbildung \ref{fig:Designuebersichtseite} zeigt den Aufbau einer Übersichtsseite für die Designvorlagen, über welche der Nutzer eine Vorlage zur weiteren Bearbeitung im FreeDesign-Editor auswählen kann. Im Linken Menü kann über das Untermenü mit den Farbkreisen ein Farbschema für alle Designvorlagen der Seite gewählt werden. Es ist jedoch auch möglich innerhalb des Vorschaubildes das Farbschema für ein einzelnes Design zu wechseln.
 Die Varianten einer Designvorlage werden im folgenden als Designderivate bezeichnet. 
 Durch die Kombination aus Sprachen und Farbschemen werden aktuell je Design 20 Farb/Sprach-Derivate angeboten.
 \begin{center}
@@ -33,6 +38,6 @@ Durch die Kombination aus Sprachen und Farbschemen werden aktuell je Design 20 F
     \label{fig:Designuebersichtseite}
 \end{figure}
 
-Unitedprint betreibt auch das Webportal \emph{design.easyprint.com}, in welchem Designvorlagen, mit Hilfe des FreeDesign-Editors, gestaltet und zur Veröffentliche eingereicht werden können. Wird eine Designvorlage durch die Innovationsabteilung des Unternehmens angenommen, durchläuft es einen Integrationsprozess für die Bereitstellung im Webshop. Sie Person, die die Vorlage gestaltet hat, erhält ein Honorar für die erfolgreiche Einreichung.
+Unitedprint betreibt auch das Webportal \emph{design.easyprint.com}, in welchem Designvorlagen, mit Hilfe des FreeDesign-Editors, gestaltet und zur Veröffentlichung eingereicht werden können. Wird eine Designvorlage durch die Innovationsabteilung des Unternehmens angenommen, durchläuft es einen Integrationsprozess für die Bereitstellung im Webshop. Die Person, die die Vorlage gestaltet hat, erhält ein Honorar für die erfolgreiche Einreichung.
 
 
