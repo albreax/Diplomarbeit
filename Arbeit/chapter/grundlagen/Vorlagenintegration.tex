@@ -5,11 +5,11 @@ Auf dem Webportal \emph{design.easyprint.com} wird für jedes Produkt nur ein Pr
 Die Adaptierung führt eine hauseigene Grafikabteilung unter verwendung der Software \emph{Adobe Illustrator}, welche eine Software zur Erstellung von Vektor-Grafiken ist \autocite[vgl.][]{Adobe:Illustrator}. 
 Ein Teil der Adaptierungsarbeit ist das Definieren von Text- und Farbschlüsseln, die später im Integrationsprozess durch Übersetzungstexte und Farben der Farbschemen ersetzt werden. 
 
-Die Designvorlagen werden im Anschluss als SVG-Dateien exportiert und durch einen Import-Prozess in das Easyprint-Shop-System integriert. 
+Die Designvorlagen werden im Anschluss als SVG-Dateien exportiert und durch einen Importprozess in das Easyprint-Shop-System integriert. 
 In einem ersten Schritt wird zunächst die SVG-Datei in eine Datenstruktur übersetzt, welche der FreeDesign-Editor einlesen kann. Auf Basis der so entstandenen  
 Datenstruktur werden die Sprach/Farb-Derivate erzeugt und auf den Webservern, für die Verwendung im FreeDesign-Editor, gespeichert.  
 
-In einem letzten Schritt wird das 3D-Vorschaubild erzeugt, welches zur Präsentation auf der Übersichtsseite eingesetzt wird. Für das Erzeugen eines Vorschaubildes werden die SVG-Grafiken der Designs der einzelnen Produktseiten verwendete. 
+In einem letzten Schritt wird das 3D-Vorschaubild erzeugt, welches zur Präsentation auf der Übersichtsseite eingesetzt wird. Für das Erzeugen eines Vorschaubildes werden die SVG-Grafiken der Designs der einzelnen Produktseiten verwendet. 
 Diese werden in einem Schritt vorher, direkt nach dem Speichern der Sprach/Farb-Derivate erzeugt. Es wird somit für jedes Sprach/Farb-Derivat ein 3D-Vorschaubild erzeugt.
 Die Abbildung \ref{fig:Vorlagenimport} stellt den gesamten Integrationsprozess durch ein Aktivitätsdiagramm dar.
 
@@ -20,4 +20,4 @@ Die Abbildung \ref{fig:Vorlagenimport} stellt den gesamten Integrationsprozess d
 \label{fig:Vorlagenimport}
 \end{figure}
 
-Das FreeDesign-Projekt unterstützt den Integrationsprozess durch die Bereitstellung eines Kommandozeilenprogramms für die automatische Konvertierung der SVG-Dateien in die Datenstruktur für den FreeDesign-Editor. Weiterhin wird ein Kommandozeilenprogramm für die automatische Erzeugung SVG-Dateien der einzelnen Produktseiten bereitgestellt. Beide Schritte sind in Abbildung \ref{fig:Vorlagenimport} gestrichelt eingerahmt. 
+Das FreeDesign-Projekt unterstützt den Integrationsprozess durch die Bereitstellung eines Kommandozeilenprogramms für die automatische Konvertierung der SVG-Dateien in die Datenstruktur für den FreeDesign-Editor. Weiterhin wird ein Kommandozeilenprogramm für die automatische Erzeugung der SVG-Dateien der einzelnen Produktseiten bereitgestellt. Beide Schritte sind in Abbildung \ref{fig:Vorlagenimport} gestrichelt eingerahmt. 

@@ -15,12 +15,12 @@ Wurde die Zusammenführung genehmigt und durchgeführt, ist die Änderung somit 
 
 
 \subsection{Bereitstellungsablauf}
-Vor der Zusammenführung wird jedoch die Änderung intensiv geprüft. Hierfür wird automatisch auf der Basis des \emph{Pull-Request}
+Vor der Zusammenführung wird jedoch die Änderung intensiv geprüft. Hierfür wird automatisch auf der Basis des \emph{Pull-Requests}
 eine Pipeline in Bitbucket ausgelöst. 
 Basierend auf der Beschreibung von Silvio Gohl (Operations-Team Unitedprint.com SE) kann der Ablauf der Pipeline wie folgt beschrieben werden.
-Zunächst erstellt die Pipeline auf der Basis des Feature-Branch einen temporären Branch, in welchem der Feature-Branch und der develop-Branch zusammengeführt werden. 
+Zunächst erstellt die Pipeline auf der Basis des Feature-Branch einen temporären Branch, in welchem der Feature-Branch und der \emph{develop}-Branch zusammengeführt werden. 
 Die nächsten Schritte der Pipeline sind die Ausführung der Unit-Tests und das testweise Kompilieren des FreeDesign-Editors. Treten bei diesen Schritten Fehler auf, müssen sie durch den Entwickler korrigiert und der Pull-Request neu erstellt werden. 
 
-Verlief das Erstellen des Pull-Request ohne Probleme, werden die anderen Entwickler des Teams informiert und gebeten eine Begutachtung der Änderungen durchzuführen. Diese haben nun die Möglichkeit die Änderungen in Bitbucket zu begutachten und zu kommentieren. Wurden die Änderungen von mindestens zwei Entwicklern bestätigt, kann der Feature-Branch mit dem develop-Branch zusammengeführt werden. 
+Verlief das Erstellen des Pull-Request ohne Probleme, werden die anderen Mitglieder des Teams informiert und gebeten eine Begutachtung der Änderungen durchzuführen. Diese haben nun die Möglichkeit die Änderungen in Bitbucket zu begutachten und zu kommentieren. Wurden die Änderungen von mindestens zwei Entwicklern bestätigt, kann der Feature-Branch mit dem develop-Branch zusammengeführt werden. 
 
-Sobald eine Änderung im develop-Branch enthalten ist, steht sie auf einem Testserver zur Verfügung. Die Änderung wird nun von der hausinterne Abteilung für die Qualitätssicherung, sowie von der Fachabteilung, die die Änderung in Auftrag geben hat, überprüft.
+Sobald eine Änderung im develop-Branch enthalten ist, steht sie auf einem Testserver zur Verfügung. Die Änderung wird nun von der hausinternen Abteilung für die Qualitätssicherung, sowie von der Fachabteilung, die die Änderung in Auftrag geben hat, überprüft.
