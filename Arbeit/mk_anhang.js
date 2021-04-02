@@ -13,8 +13,7 @@ const recursiveRead = (dir, level = 0) => {
         const stat = fs.lstatSync(p);
         const relativ = p.replace(root, "");
         const pth = relativ.split("/").pop().replace(/_/g, "\\_").normalize();
-        const obj = {level, }
-        if (stat.isDirectory()){
+        if (stat.isDirectory() && level < 2){
             // console.log(relativ)
             const d = "\\textbf{" +pth + ":}";
             return [...prev, {level, path: d}, ...recursiveRead(p, level + 1)];
