@@ -1,0 +1,100 @@
+\section{Analyse der statischen Ist-Architektur}
+\subsection{Reverse Engineering}
+Da die Ist-Architektur des FreeDesign-Editors kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. 
+Dies wird als \emph{Reverse Engineering} bezeichnet und hat, laut der Definition von Chikofsky und Cross (\citeyear[S. 13-17]{Chikofsky1990}), zwei Ziele: 
+\begin{itemize}
+    \item Die Darstellung des Softwaresystem in einer abstrakten Form. 
+    \item Die Identifikation der Komponenten eines Softwaresystems und ihre Beziehungen untereinander. 
+\end{itemize}
+
+% Für das Reverse Engineering der statischen Ist-Architektur stand im Fokus, eine Grundlagen für den Entwurf einer statischen Soll-Architektur zu erstellen.
+% Daher konzentriete sich die Reverse-Engineering auf das identifizieren von Baustein aus denen der FreeDesign-Editor besteht und auf denen die Soll-Architektur basieren kann. 
+% Den Bausteinen wurden weiterhin Bestandteile des Quelltextes der aktuellen Implementation zugeordnet. 
+
+\subsection{Darstellung des Softwaresystems}
+\subsubsection{Das {dependency-cruiser}-Werkzeug}
+Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise ein einzelnes Werkzeug nicht alle Analyse-Aufgaben übernehmen kann  \autocite[vgl.][381]{Bass2013}.  
+
+Für die Visualisierung der Ist-Architektur wurde das Werkzeug \emph{dependency-cruiser}, welches von Sander Verweij entwickelt und unter \url{https://github.com/sverweij/dependency-cruiser} veröffentlicht wurde, in der Version v9.22.0 eingesetzt. 
+Das Werkzeug untersucht das Quellentextverzeichnis eines TypeScript-Projektes und visualisiert die Struktur des Quelltext als Abhängigkeitsgraph. Weiterhin können Regeln für die Abhängigkeiten der Komponenten angelegt werden, die durch das Werkzeug validiert, Verstöße gekennzeichnet und als Report ausgeben werden \autocite[vgl.][]{Verweij:Dependency}. 
+
+Das \emph{dependency-cruiser}-Werkzeug ist ein Programm für die Kommandozeile, welches mit unterschiedlichen Argumenten aufgerufen werden kann \autocite[vgl.][]{Verweij:CLI}.
+
+\subsubsection{Konfiguration des {dependency-cruiser}-Werkzeug}
+Für alle Analysen wurde die selbe Konfigurationsdatei angelegt, welche im Anhang unter \emph{dependency-cruiser-konfiguration.json} enthalten ist. Diese wurde beim Aufruf durch Angabe des Argumentes \lstinline|--config| eingebunden.
+\begin{lstlisting}[language={sh},label=depcruise-config, caption=Aufruf des \emph{dependency-cruiser} mit eingebundener Konfigurationsdatei]
+    npx depcruise --config dependency-cruiser-konfiguration.json src
+\end{lstlisting}
+Die Konfigurationsdatei liegt im JSON-Format vor. 
+
+Das JSON-Format ist ein, sprachunabhängiges Format zum Austausch von Informationen, welches auf strukturierten Text basiert. Der Text ist ein serialisiertes Objekt oder Array, deren Werte vom Datentyp Objekt, Array, Nummer oder eine Zeichenkette sein können. Weiterhin sind die Literale \lstinline|null|, \lstinline|true| und \lstinline|false| valide Wertzuweisungen \autocite[vgl.][]{JSON:Einführung}.  
+
+Das Konfigurationsdatei besteht aus einem JSON-Objekt mit den drei Eigenschaften \lstinline|forbidden|, \lstinline|allowed| und \lstinline|options|.
+
+% forbidden & allowed
+Die Eigenschaften \lstinline|forbidden| und \lstinline|allowed| sind jeweils vom Datentyp Array und enthalten die Regeln zur Validierung der Abhängigkeiten zwischen den Quelltextkomponenten. 
+In beiden Arrays werden Abhängigkeiten durch eine Objektstruktur angeben, welche die Eigenschaften \lstinline|from| und \lstinline|to| enthält. Beide Eigenschaften einthalten wiederum die Eigenschaft \lstinline|path|, welcher entweder ein Dateipfad-Fragment als Zeichenkette oder ein Array aus Dateipfad-Fragmenten zugewiesen werden kann. Die Struktur wird anhand eines Beispiels in Listing \ref{depcruise-example} illustriert.
+
+\begin{lstlisting}[language={sh}, label=depcruise-example, caption=Beispiel einer Abhängigkeitesrelation]
+{
+    "from": { "path": "^src/services" },
+    "to": { "path": [
+        "^src/core",
+        "^src/store",
+        "^src/actions/types/ApiActionTypes.ts",
+        "^src/actions/types/ProductApiActionTypes.ts",
+        "^src/actions/types/GuiActionTypes.ts"
+    ]}
+},
+\end{lstlisting}
+Das Beispiel stammt aus dem \lstinline|allowed|-Array und erlaubt somit, dass Quelltext der innerhalb des Ordners \lstinline|src/services| liegt, auf Quelltext innerhalb der in \lstinline|to| angeben Pfade zugreifen darf. 
+Somit ist beispielsweise die Importangabe \newline  
+\glqq\lstinline|import ApiRoutes from '../../core/api/ApiRoutes';|\grqq \newline
+innerhalb der Datei \lstinline|src/services/designService/CustomerDesignService.ts| valide.
+
+Zunächst wurden Abhängigkeiten, für die innerhalb des Teams Konsens besteht, dass es sie grundlegend nicht geben darf, in das \lstinline|forbidden|-Array eingetragen. Während der Analyse der Ist-Architektur wurden die bestehenden Abhängigkeiten überprüft und alle Abhängigkeiten die für valide befunden wurden in das \lstinline|allowed|-Array aufgenommen. Da es für die Abhängigkeiten nur lose, mündlich kommunizierte Regeln gab, konnten nur wenige Einschränkungen der Abhängigkeiten getroffen werden.  
+ 
+% options
+Der Eigenschaft \lstinline|options| ist ein Objekt zugewiesen mit den Eigenschaften 
+\lstinline|tsConfig|, 
+\lstinline|webpackConfig|, 
+\lstinline|reporterOptions| und 
+\lstinline|exclude|. Die Eigenschaften \lstinline|tsConfig| und \lstinline|webpackConfig| enthalten Konfigurationsinformation zum TypeScript-Projekt. Über die Eigenschafte reporterOptions konnte Einfluss auf das Ausehen der Abhängigkeitsgraphen genommen werden. Für Eigenschaft \lstinline|exclude| wurde ein Array mit Pfadangaben angelegt, die von der Analyse ausgeschlossen werden sollten. Dies betraf Abhängigkeiten zu externen Javascript-Bibleotheken, die für die interne Architektur keine Rolle spielen sowie Daten für Unit-Tests. 
+
+\subsubsection{Erzeugung der Visualisierungen}
+Durch das nutzen verschiedener Argumente konnten unterschiedliche Darstellungen der Ist-Architektur mit unterschiedlichem Fokus erzeugt werden. 
+
+Zunächst wurde die Beziehungen der Quelltextkomponenten auf der obersten Ordnerebene visualisiert und analysiert. 
+Hierzu wurde das Werkzeug mit folgende Argumenten aufgerufen:
+
+\begin{lstlisting}[language={sh}, label=depcruise-overview, caption=Kommando zur Erzeugung der Visualisierungen der obersten Ordnerebene]
+npx depcruise --config dependency-cruiser-konfiguration.json -T archi src | dot -T svg > Projektuebersicht.svg
+\end{lstlisting}
+
+Für das Argument \lstinline|--output-type|, welches den Typen der Ausgabe angibt, wurde die Kurzform  \lstinline|-T| genutzt. Mit Hilfe des Typen \lstinline|archi| können zusammenfassende Übersichten der Abhängigkeiten erstellt werden, in den lediglich die oberster Ordnerebene dargestellt werden \autocite[vgl.][]{Verweij:Options}.
+Der so erzeugte Abhängigkeitsgraph wurde anschließend als SVG-Datei gespeichert. 
+
+Weitere Analysen bezogen sich auf die Hauptaufgaben der Software:
+\begin{itemize}
+    \item die Darstellung von Produkten
+    \item die Darstellung von Designs
+    \item das Editieren von Designs
+    \item die grafische Oberfläche des FreeDesign-Editors
+    \item das Konvertieren von Adobe-Illustrator-Dateien
+    \item das Konvertieren von FreeDesign-Designs in SVG-Dateien
+\end{itemize}
+
+% Das Werkzeug dependency-cruiser unter einer MIT-Linzenz zu Verfügung gestellt, welche eine kostenfreien Nutzung garantiert \autocite[vgl.][]{Verweij:License}. 
+
+
+\subsection{Identifikation von Bausteinen}
+Starke und Hruschka bezeichnen die Komponenten eines Softwaresystems als Bausteine, die miteinander in Beziehungen stehen \autocite[vgl.][24]{Starke2011}. Diese Bezeichnung wird auch in der vorliegenden Diplomarbeit verwendet, um einer Verwechselung zwischen Softwarebausteinen und React-Komponenten vorzubeugen.
+
+Mit Hilfe der Abhängigkeitsgraphen wurden die Bausteine, aus denen der FreeDesign-Editor besteht, identifiziert. 
+
+Um Fragmente des Quelltextes den Bausteinen zuzuordnen, wurde ein kleines Werkzeug entwickelt, welches das Quellenverzeichnis rekursiv durchsucht. Zum einen sucht es nach Dateien mit der Bezeichnung \glqq\lstinline|_component.md|\grqq{} und zum anderen, innerhalb der Quelltextdateien, nach der Textphrase \glqq\lstinline|// @component{BAUSTEINNAME}|\grqq{}. 
+Mit Hilfe der \lstinline|_component.md|-Dateien, deren einziger Inhalt der Name eines Bausteins ist, kann der Inhalt eines gesamten Verzeichnisses einem Baustein zugeordnet werden. Einzelne Quelltextdateien können mit der Textphrase \glqq\lstinline|// @component{BAUSTEINNAME}|\grqq{} Bausteinen zugeordnet werden. Die Textphrase kann auch mehrfach innerhalb einer Datei enthalten sein, wodurch es möglich ist, ein Datei mehreren Bausteinen zuzuordnen. 
+
+Das Ergebnis der Analyse ist eine tabellarische Zuordnung von Bausteinen zu Quelltext-Fragmenten in Form einer HTML-Datei. 
+
+Das Werkzeug ist im Anhang unter \emph{Komponentenzuordnung} enthalten.

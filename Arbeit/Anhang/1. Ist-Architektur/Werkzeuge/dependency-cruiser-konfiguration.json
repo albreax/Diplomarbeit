@@ -1,0 +1,562 @@
+{
+   
+    "forbidden": [
+        {
+            "name": "access-forbidden",
+            "severity": "error",
+            "from": {
+                "path": "^src/actions"
+            },
+            "to": {
+                "path": [
+                    "^src/containers",
+                    "^src/components"
+                ]
+            }
+        },
+        {
+            "name": "access-forbidden",
+            "severity": "error",
+            "from": {
+                "path": "^src/core"
+            },
+            "to": {
+                "path": [
+                    "^src/reducers",
+                    "^src/components",
+                    "^src/actions",
+                    "^src/services"
+                ]
+            }
+        },
+        {
+            "name": "access-forbidden",
+            "severity": "error",
+            "from": {
+                "path": "^src/utils"
+            },
+            "to": {
+                "path": [
+                    "^src/core",
+                    "^src/components"
+                ]
+            }
+        },
+        {
+            "name": "access-forbidden",
+            "severity": "error",
+            "from": {
+                "path": "^src/components"
+            },
+            "to": {
+                "path": [
+                    "^src/containers",
+                    "^src/stores"
+                ]
+            }
+        }
+    ],
+    "allowed": [
+        {
+            "from": {
+                "path": "^src"
+            },
+            "to": {
+                "path": [
+                    "^node_modules",
+                    "^src/services/appSettings/AppSettings.ts"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/draftImporterCli.ts"
+            },
+            "to": {
+                "path": [
+                    "^src/core",
+                    "fs"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/freedesign.tsx"
+            },
+            "to": {
+                "path": [
+                    "^src/modules",
+                    "^src/actions",
+                    "^src/core",
+                    "^src/services",
+                    "^src/containers",
+                    "^src/reducers"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/modules"
+            },
+            "to": {
+                "path": [
+                    "^src/actions",
+                    "^src/core",
+                    "^src/components",
+                    "^src/containers",
+                    "^src/styles"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/actions"
+            },
+            "to": {
+                "path": [
+                    "^src/utils",
+                    "^src/actions",
+                    "^src/services",
+                    "^src/core",
+                    "^src/store"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/reducers"
+            },
+            "to": {
+                "path": [
+                    "^src/actions",
+                    "^src/containers",
+                    "^src/store",
+                    "^src/core"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/store"
+            },
+            "to": {
+                "path": [
+                    "^src/core"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/containers"
+            },
+            "to": {
+                "path": [
+                    "^src/core",
+                    "^src/components",
+                    "^src/utils",
+                    "^src/styles",
+                    "^src/actions",
+                    "^src/services",
+                    "^src/store"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/containers/stage/Stage.tsx"
+            },
+            "to": {
+                "path": [
+                    "^src/containers/stage/index.ts",
+                    "^src/containers/productPagination",
+                    "^src/containers/tooltip",
+                    "^src/containers/selectionLayer",
+                    "^src/containers/reference"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/containers/selectionLayer"
+            },
+            "to": {
+                "path": "^src/containers/selectionLayer"
+            }
+        },
+        {
+            "from": {
+                "path": "^src/containers/reference"
+            },
+            "to": {
+                "path": "^src/containers/reference"
+            }
+        },
+        {
+            "from": {
+                "path": "^src/components"
+            },
+            "to": {
+                "path": [
+                    "^src/core",
+                    "^src/utils",
+                    "^src/styles",
+                    "^src/components"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core"
+            },
+            "to": {
+                "path": []
+            }
+        },
+        {
+            "from": {
+                "path": "^src/services"
+            },
+            "to": {
+                "path": [
+                    "^src/core",
+                    "^src/store",
+                    "^src/actions/types/ApiActionTypes.ts",
+                    "^src/actions/types/ProductApiActionTypes.ts",
+                    "^src/actions/types/GuiActionTypes.ts"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/components/selection/svgSelectionBox/SvgTextSelection.tsx"
+            },
+            "to": {
+                "path": [
+                    "^src/services/FontService.ts"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/services/designService"
+            },
+            "to": {
+                "path": "^src/services/designService"
+            }
+        },
+        {
+            "from": {
+                "path": "^src/designToSvgCLI"
+            },
+            "to": {
+                "path": [
+                    "^src/core",
+                    "^src/services",
+                    "node_modules",
+                    "fs",
+                    "path",
+                    "assets/cli/fontService.json"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/designToSvgCLI/designToSvgConverter.ts"
+            },
+            "to": {
+                "path": [
+                    "^src/designToSvgCLI/index.ts"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/cli"
+            },
+            "to": {
+                "path": [
+                    "^src/core/product",
+                    "^src/core/design",
+                    "^src/core/helpers",
+                    "^src/core/entities",
+                    "^src/core/constants"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/product"
+            },
+            "to": {
+                "path": [
+                    "^src/core/url",
+                    "^src/core/local",
+                    "^src/core/entities"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/design"
+            },
+            "to": {
+                "path": [
+                    "^src/core/entities",
+                    "^src/core/common",
+                    "^src/core/image",
+                    "^src/core/cache",
+                    "^src/core/parsing",
+                    "^src/core/constants",
+                    "^src/core/geom",
+                    "^src/core/color",
+                    "^src/core/helpers"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/calendar"
+            },
+            "to": {
+                "path": [
+                    "^src/core/design",
+                    "^src/core/local",
+                    "^src/core/color",
+                    "^src/core/parsing",
+                    "^src/core/helpers",
+                    "^src/core/entities"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/parsing"
+            },
+            "to": {
+                "path": [
+                    "^src/core/image",
+                    "^src/core/common",
+                    "^src/core/color",
+                    "^src/core/helpers",
+                    "^src/core/geom",
+                    "^src/core/entities"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/image"
+            },
+            "to": {
+                "path": [
+                    "^src/core/constants"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/core/helpers"
+            },
+            "to": {
+                "path": [
+                    "^src/core/constants"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/reducers/rootReducer.ts"
+            },
+            "to": {
+                "path": "^src/reducers/.*.ts"
+            }
+        },
+        {
+            "from": {
+                "path": [
+                    "^src/components/pagePresenter"
+                ]
+            },
+            "to": {
+                "path": "^src/components/svgRenderers"
+            }
+        },
+        {
+            "from": {
+                "path": [
+                    "^src/components/designPresenter"
+                ]
+            },
+            "to": {
+                "path": [
+                    "^src/components/svgRenderers",
+                    "^src/components/calendar"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/components/svgRenderers"
+            },
+            "to": {
+                "path": [
+                    "^src/components/svgRenderers/pageAssets",
+                    "^src/components/svgRenderers"
+                ]
+            }
+        },
+        {
+            "from": {
+                "path": "^src/components/svgRenderers/SVGPageRenderer.tsx"
+            },
+            "to": {
+                "path": "^src/components/svgRenderers/SVGProductImageRenderer.tsx"
+            }
+        },
+        {
+            "from": {
+                "path": "^src/components/svgRenderers/SVGPageRenderer.tsx"
+            },
+            "to": {
+                "path": "^src/components/svgRenderers/SVGProductImageRenderer.tsx"
+            }
+        }
+    ],
+    "options": {
+        "exclude": {
+            "path": [
+                "node_modules",
+                "__mocks__",
+                "__stubs__",
+                "assets",
+                "fs",
+                "path",
+                "polyfill.ts",
+                "^version.json"
+            ]
+        },
+        "tsConfig": {
+            "fileName": "tsconfig.json"
+        },
+        "webpackConfig": {
+            "fileName": "webpack.config.js"
+        },
+        
+        "reporterOptions": {
+            "archi": {
+                "collapsePattern": "^(node_modules|packages|src|lib|app|bin|test(s?)|spec(s?))/[^/]+",
+                "theme": {
+                    "graph": {
+                        "bgcolor": "white",
+                        "color": "black",
+                        "fontcolor": "black",
+                        "fillcolor": "transparent",
+                        "splines": "ortho",
+                        "ranksep": 0.25,
+                        "nodesep": 0.4
+                    },
+                    "edge": {
+                        "arrowhead": "vee",
+                        "arrowsize": 1,
+                        "penwidth": 1,
+                        "color": "#008B0090",
+                        "fontcolor": "green"
+                    },
+                    "modules": [
+                        {
+                            "criteria": {
+                                "source": "[\\.]ts"
+                            },
+                            "attributes": {
+                                "shape": "box"
+                            }
+                        },
+                        {
+                            "criteria": {},
+                            "attributes": {
+                                "shape": "tab",
+                                "height": 0.7
+                            }
+                        }
+                    ],
+                    "dependencies": [
+                        {
+                            "criteria": {
+                                "rules[0].severity": "error"
+                            },
+                            "attributes": {
+                                "fontcolor": "transparent",
+                                "fill": "transparent"
+                            }
+                        },
+                        {
+                            "criteria": {
+                                "rules[0].severity": "warn"
+                            },
+                            "attributes": {
+                                "fontcolor": "transparent",
+                                "fill": "transparent"
+                            }
+                        }
+                    ]
+                }
+            },
+            "dot": {
+                "theme": {
+                    "graph": {
+                        "bgcolor": "white",
+                        "color": "black",
+                        "fontcolor": "black",
+                        "fillcolor": "transparent",
+                        "splines": "ortho"
+                    },
+                    "edge": {
+                        "arrowhead": "vee",
+                        "arrowsize": 1,
+                        "penwidth": 1,
+                        "color": "#008B0090",
+                        "fontcolor": "green",
+                        "minlen": 3
+                    },
+                    "modules": [
+                        {
+                            "criteria": {
+                                "source": "[\\.]ts"
+                            },
+                            "attributes": {
+                                "shape": "box"
+                            }
+                        },
+                        {
+                            "criteria": {},
+                            "attributes": {
+                                "shape": "tab",
+                                "height": 0.5
+                            }
+                        }
+                    ],
+                    "dependencies": [
+                        {
+                            "criteria": {
+                                "rules[0].severity": "error"
+                            },
+                            "attributes": {
+                                "fontcolor": "transparent",
+                                "fill": "transparent"
+                            }
+                        },
+                        {
+                            "criteria": {
+                                "rules[0].severity": "warn"
+                            },
+                            "attributes": {
+                                "fontcolor": "transparent",
+                                "fill": "transparent"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

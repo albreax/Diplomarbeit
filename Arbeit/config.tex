@@ -66,9 +66,21 @@
 % }
 \addbibresource{literatur.bib}
 
+\usepackage[table]{xcolor}
+\definecolor{lstgrey}{rgb}{0.95,0.95,0.95}
+
 % Code-Snippets 
 \usepackage{listings}
-\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt}
+\lstset{
+    numbers=left, 
+    numberstyle=\tiny,
+    numbersep=5pt, 
+    stepnumber=2, 
+    frame=single,
+    backgroundcolor=\color{lstgrey},
+    basicstyle=\footnotesize\ttfamily,
+    breaklines=true,
+}
 
 % DIR-Tree
 \usepackage{dirtree}
@@ -101,7 +113,6 @@
 \usepackage{multicol}
 
 % table
-\usepackage[table]{xcolor}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{ltxtable}
