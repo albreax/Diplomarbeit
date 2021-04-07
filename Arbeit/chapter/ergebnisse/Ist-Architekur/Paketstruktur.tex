@@ -36,7 +36,8 @@ Die Datei \emph{freedesign.tsx} ist die Startdatei des FreeDesign-Editors, über
 
 
 \paragraph{Zugriffe}
-Die grünen Zugriffspfeile stellen erwartete Zugriffe dar und sind somit gewollte Kopplungen der Einzellkomponenten. Im Gegensatz dazu sind die roten und orangen Zugriffspfeile ungewollte Zugriffe und wurden mit der Zeit integriert. Bei den roten Zugriffen besteht außerdem das Problem, dass diese Zyklen erzeugen und damit gegen die Forderung an eine Architektur, zyklusfrei zu sein, verstoßen. Zyklen schaffen eine gegenseitige Abhängigkeit zwischen den Komponenten und schränken damit die Erweiterbarkeit, Testbarkeit und Verständlichkeit der Komponenten ein \autocite[vgl.][88 - 90]{Lilienthal2019}. 
+Die grünen Zugriffspfeile stellen erwartete Zugriffe dar und sind somit gewollte Kopplungen der Einzellkomponenten. Im Gegensatz dazu sind die roten und orangen Zugriffspfeile ungewollte Zugriffe und wurden mit der Zeit integriert. Bei den roten Zugriffen besteht außerdem das Problem, dass diese Zyklen erzeugen und damit gegen die Forderung an eine Architektur, zyklusfrei zu sein, verstoßen. 
+
 Es bestehe sowohl einzelne Zyklen, wie zwischen den Ordner \emph{core} und \emph{services} sowie Zyklengruppen. Ein Beispiel hierfür ist die Gruppe bestehend aus \emph{actions}, \emph{utils} und \emph{core}.
 Auch innerhalb der Ordner bestehe Zyklen wischen Unterkomponenten. 
 Insgerammt wurden 14 Zyklen festgestellt.

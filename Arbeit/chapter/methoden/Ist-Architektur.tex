@@ -21,7 +21,7 @@ Das Werkzeug untersucht das Quellentextverzeichnis eines TypeScript-Projektes un
 Das \emph{dependency-cruiser}-Werkzeug ist ein Programm für die Kommandozeile, welches mit unterschiedlichen Argumenten aufgerufen werden kann \autocite[vgl.][]{Verweij:CLI}.
 
 \subsubsection{Konfiguration des {dependency-cruiser}-Werkzeug}
-Für alle Analysen wurde die selbe Konfigurationsdatei angelegt, welche im Anhang unter \emph{dependency-cruiser-konfiguration.json} enthalten ist. Diese wurde beim Aufruf durch Angabe des Argumentes \lstinline|--config| eingebunden.
+Für alle Analysen mit dem dependency-cruiser-Werkzeug wurde die selbe Konfigurationsdatei angelegt, welche im Anhang unter \emph{dependency-cruiser-konfiguration.json} enthalten ist. Diese wurde beim Aufruf des Programms durch die Angabe des Argumentes \lstinline|--config| eingebunden.
 \begin{lstlisting}[language={sh},label=depcruise-config, caption=Aufruf des \emph{dependency-cruiser} mit eingebundener Konfigurationsdatei]
     npx depcruise --config dependency-cruiser-konfiguration.json src
 \end{lstlisting}
@@ -30,6 +30,13 @@ Die Konfigurationsdatei liegt im JSON-Format vor.
 Das JSON-Format ist ein, sprachunabhängiges Format zum Austausch von Informationen, welches auf strukturierten Text basiert. Der Text ist ein serialisiertes Objekt oder Array, deren Werte vom Datentyp Objekt, Array, Nummer oder eine Zeichenkette sein können. Weiterhin sind die Literale \lstinline|null|, \lstinline|true| und \lstinline|false| valide Wertzuweisungen \autocite[vgl.][]{JSON:Einführung}.  
 
 Das Konfigurationsdatei besteht aus einem JSON-Objekt mit den drei Eigenschaften \lstinline|forbidden|, \lstinline|allowed| und \lstinline|options|.
+
+% options
+Der Eigenschaft \lstinline|options| ist ein Objekt zugewiesen mit den Eigenschaften 
+\lstinline|tsConfig|, 
+\lstinline|webpackConfig|, 
+\lstinline|reporterOptions| und 
+\lstinline|exclude|. Die Eigenschaften \lstinline|tsConfig| und \lstinline|webpackConfig| enthalten Konfigurationsinformation zum TypeScript-Projekt. Über die Eigenschafte reporterOptions konnte Einfluss auf das Ausehen der Abhängigkeitsgraphen genommen werden. Für Eigenschaft \lstinline|exclude| wurde ein Array mit Pfadangaben, die von der Analyse ausgeschlossen werden sollten, angelegt. Dies betraf Abhängigkeiten zu externen Javascript-Bibleotheken, die für die interne Architektur keine Rolle spielen sowie Daten für Unit-Tests und CSS-Dateien. 
 
 % forbidden & allowed
 Die Eigenschaften \lstinline|forbidden| und \lstinline|allowed| sind jeweils vom Datentyp Array und enthalten die Regeln zur Validierung der Abhängigkeiten zwischen den Quelltextkomponenten. 
@@ -53,13 +60,48 @@ Somit ist beispielsweise die Importangabe \newline
 innerhalb der Datei \lstinline|src/services/designService/CustomerDesignService.ts| valide.
 
 Zunächst wurden Abhängigkeiten, für die innerhalb des Teams Konsens besteht, dass es sie grundlegend nicht geben darf, in das \lstinline|forbidden|-Array eingetragen. Während der Analyse der Ist-Architektur wurden die bestehenden Abhängigkeiten überprüft und alle Abhängigkeiten die für valide befunden wurden in das \lstinline|allowed|-Array aufgenommen. Da es für die Abhängigkeiten nur lose, mündlich kommunizierte Regeln gab, konnten nur wenige Einschränkungen der Abhängigkeiten getroffen werden.  
- 
-% options
-Der Eigenschaft \lstinline|options| ist ein Objekt zugewiesen mit den Eigenschaften 
-\lstinline|tsConfig|, 
-\lstinline|webpackConfig|, 
-\lstinline|reporterOptions| und 
-\lstinline|exclude|. Die Eigenschaften \lstinline|tsConfig| und \lstinline|webpackConfig| enthalten Konfigurationsinformation zum TypeScript-Projekt. Über die Eigenschafte reporterOptions konnte Einfluss auf das Ausehen der Abhängigkeitsgraphen genommen werden. Für Eigenschaft \lstinline|exclude| wurde ein Array mit Pfadangaben angelegt, die von der Analyse ausgeschlossen werden sollten. Dies betraf Abhängigkeiten zu externen Javascript-Bibleotheken, die für die interne Architektur keine Rolle spielen sowie Daten für Unit-Tests. 
+
+Das \lstinline|forbidden|-Array wurde außerdem durch die Einträge 
+\lstinline|no-orphans| und \lstinline|no-circular| ergänzt.
+
+Der Eintrag \lstinline|no-orphans| dient zum Aufdecken von ungenutzten Quelltext was für die Entwicklung der Soll-Architektur wichtig war.
+
+Mit Hilfe der Option \lstinline|no-circular| konnten zyklische Abhängigkeiten aufgedeckt werden.
+
+Anlehnend an Lilienthal (\citeyear[vgl.][88 - 90]{Lilienthal2019}) greifen bei zyklischen Abhängigkeiten Komponenten gegenseitig aufeinander zu und bedingen sich somit gegenseitig. 
+
+\begin{figure}[H]
+    \centering
+    \caption{Beispiele für Abhängigkeiten basierend auf Lilienthal}
+    \label{fig:exampleCircular}
+    \begin{subfigure}[b]{.3\textwidth}
+        \centering
+        \includegraphics[width=.9\textwidth]{diagrams/Methoden/Circular-Example-C.pdf}
+        \caption{ohne Zyklus}
+        \label{fig:circularA}
+    \end{subfigure}
+    %\qquad
+    \begin{subfigure}[b]{.3\textwidth}
+        \centering
+        \includegraphics[width=.6\textwidth]{diagrams/Methoden/Circular-Example-A.pdf}
+        \caption{mit Zyklus}
+        \label{fig:circularB}
+    \end{subfigure}
+    %\qquad
+    \begin{subfigure}[b]{.3\textwidth}
+        \centering
+        \includegraphics[width=.5\textwidth]{diagrams/Methoden/Circular-Example-B.pdf}
+        \caption{Zyklusgruppe}
+        \label{fig:circularC}
+    \end{subfigure}
+\end{figure}
+In Abbildung \ref{fig:circularA} sind zwei zyklusfreie Abhängigkeit illustriert, wobei A und B auf C zugreifen. Somit sind A und B abhängig von C. Eine Änderung an C hat Einfluss auf A und B, jedoch hat eine Änderung in A oder B keinen Einfluss auf C. Dadurch sind Abhängigkeiten leicht verständlich und problemlos Erweiterbar. 
+Auch lässt sich B isoliert von A und C testen. Für Tests von A und C kann B einfach simuliert werden.
+
+Treten hingegen Zyklen in den Abhängigkeiten auf, wie in Abbildung \ref{fig:circularB} und \ref{fig:circularC} illustriert, verringert sich die Verständlichkeit des Quelltextes und er lässt sich nur schwer ändern. Bezogen auf Abbildung \ref{fig:circularB}, kann ein Änderung in A eine Änderung B zu folge haben. Die Änderung in B kann wiederum einen Änderung in A notwendig machen. Somit können Änderung eine rückkoppelnde Wirkung haben.
+
+Die so auf gedeckten Zyklen zeigten Potentiale zur Verbesserung der Ist-Architektur und musste bei der Entwicklung der Strategie zur Migration in die Soll-Architektur beachtet werden.
+
 
 \subsubsection{Erzeugung der Visualisierungen}
 Durch das nutzen verschiedener Argumente konnten unterschiedliche Darstellungen der Ist-Architektur mit unterschiedlichem Fokus erzeugt werden. 
@@ -67,22 +109,35 @@ Durch das nutzen verschiedener Argumente konnten unterschiedliche Darstellungen 
 Zunächst wurde die Beziehungen der Quelltextkomponenten auf der obersten Ordnerebene visualisiert und analysiert. 
 Hierzu wurde das Werkzeug mit folgende Argumenten aufgerufen:
 
-\begin{lstlisting}[language={sh}, label=depcruise-overview, caption=Kommando zur Erzeugung der Visualisierungen der obersten Ordnerebene]
+\begin{lstlisting}[language={sh}, label=depcruise-overview, caption=Kommando zur Erzeugung der Visualisierung der obersten Ordnerebene]
 npx depcruise --config dependency-cruiser-konfiguration.json -T archi src | dot -T svg > Projektuebersicht.svg
 \end{lstlisting}
 
 Für das Argument \lstinline|--output-type|, welches den Typen der Ausgabe angibt, wurde die Kurzform  \lstinline|-T| genutzt. Mit Hilfe des Typen \lstinline|archi| können zusammenfassende Übersichten der Abhängigkeiten erstellt werden, in den lediglich die oberster Ordnerebene dargestellt werden \autocite[vgl.][]{Verweij:Options}.
 Der so erzeugte Abhängigkeitsgraph wurde anschließend als SVG-Datei gespeichert. 
+\newline
+Die Visualisierung sämtlicher Abhängigkeiten der Software ergibt einen sehr umfangreichen und unübersichtlichen Graphen. Daher mehrere Graphen erzeugt, die sich auf die Hauptaufgaben der Software beziehen:
+\paragraph{Die Produktpräsentation} gehört zu den wichtigsten Aufgaben des FreeDesign-Editors. Der dafür verantwortliche Quelltext ist im Ordner 
+\lstinline|src/components/pagePresenter| enthalten. Mit dem unter Listing \ref{depcruise-page-presenter} angegebenen Kommando, konnten visualisiert werden, von welchem Quelltextkomponente die Produktpräsentation abhängig ist. 
+\begin{lstlisting}[language={sh}, label=depcruise-page-presenter, caption=Erzeugung der Visualisierung der Abhängigkeiten für die Produktpräsentation]
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot src/components/pagePresenter | dot -T svg > Produktpraesentation.svg
+\end{lstlisting}
 
-Weitere Analysen bezogen sich auf die Hauptaufgaben der Software:
-\begin{itemize}
-    \item die Darstellung von Produkten
-    \item die Darstellung von Designs
-    \item das Editieren von Designs
-    \item die grafische Oberfläche des FreeDesign-Editors
-    \item das Konvertieren von Adobe-Illustrator-Dateien
-    \item das Konvertieren von FreeDesign-Designs in SVG-Dateien
-\end{itemize}
+\paragraph{Die Designpräsentation} gehört ebenfalls zu den zentralen Aufgaben des FreeDesign-Editors. Der hierfür verantwortliche Quelltext ist im Ordner \lstinline|src/components/pagePresenter| hinterlegt. Die Quelltextkomponente auf die die Designpräsentation zugreif konnten mit folgendem Kommando visualisiert werden:  
+\begin{lstlisting}[language={sh}, label=depcruise-design-presenter, caption=Erzeugung der Visualisierung der Abhängigkeiten für die Designpräsentation]
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot src/components/designPresenter | dot -T svg > Designpraesentation.svg
+\end{lstlisting}
+
+\paragraph{Das Editieren von Designs}
+xyz
+\paragraph{Die grafische Oberfläche des FreeDesign-Editors}
+xyz
+\paragraph{Das Konvertieren von Adobe-Illustrator-Dateien}
+xyz
+\paragraph{Das Konvertieren von FreeDesign-Designs in SVG-Dateien}
+xyz
+
+% TODO: Validation Report erzeugen
 
 % Das Werkzeug dependency-cruiser unter einer MIT-Linzenz zu Verfügung gestellt, welche eine kostenfreien Nutzung garantiert \autocite[vgl.][]{Verweij:License}. 
 

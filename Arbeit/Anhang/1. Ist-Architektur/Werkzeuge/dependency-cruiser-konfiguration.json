@@ -1,5 +1,4 @@
 {
-   
     "forbidden": [
         {
             "name": "access-forbidden",
@@ -54,7 +53,38 @@
                     "^src/stores"
                 ]
             }
-        }
+        },
+        {
+            "name": "no-src-to-test",
+            "severity": "error",
+            "from": {
+                "path": "^src"
+            },
+            "to": {
+                "path": "^__test__"
+            }
+        },
+        {
+            "name": "no-circular",
+            "severity": "error",
+            "from": {},
+            "to": {
+                "circular": true
+            }
+        },    {
+            "name": "no-orphans",
+            "severity": "warn",
+            "from": {
+              "orphan": true,
+              "pathNot": [
+                "(^|/)\\.[^/]+\\.(js|tsx|ts|json)$", 
+                "\\.d\\.ts\\.tsx$",                            
+                "(^|/)tsconfig\\.json$",                 
+                "(^|/)(webpack)\\.config\\.(js|tsx|ts|json)$"
+              ]
+            },
+            "to": {}
+          }
     ],
     "allowed": [
         {
@@ -426,13 +456,15 @@
         "exclude": {
             "path": [
                 "node_modules",
+                "__tests__",
                 "__mocks__",
                 "__stubs__",
                 "assets",
                 "fs",
                 "path",
                 "polyfill.ts",
-                "^version.json"
+                "^version.json",
+                "\\.scss"
             ]
         },
         "tsConfig": {
@@ -441,7 +473,6 @@
         "webpackConfig": {
             "fileName": "webpack.config.js"
         },
-        
         "reporterOptions": {
             "archi": {
                 "collapsePattern": "^(node_modules|packages|src|lib|app|bin|test(s?)|spec(s?))/[^/]+",
