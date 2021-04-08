@@ -1,4 +1,5 @@
 \section{Analyse der statischen Ist-Architektur}
+
 \subsection{Reverse Engineering}
 Da die Ist-Architektur des FreeDesign-Editors kaum dokumentiert war, musste die aktuelle Architektur zunächst rekonstruiert werden. 
 Dies wird als \emph{Reverse Engineering} bezeichnet und hat, laut der Definition von Chikofsky und Cross (\citeyear[S. 13-17]{Chikofsky1990}), zwei Ziele: 
@@ -6,12 +7,14 @@ Dies wird als \emph{Reverse Engineering} bezeichnet und hat, laut der Definition
     \item Die Darstellung des Softwaresystem in einer abstrakten Form. 
     \item Die Identifikation der Komponenten eines Softwaresystems und ihre Beziehungen untereinander. 
 \end{itemize}
-
+Das Reverse-Engineering der Ist-Architektur de FreeDesign-Editor bezieht sich auf den Projektzustand vom 11. Januar 2020. 
 % Für das Reverse Engineering der statischen Ist-Architektur stand im Fokus, eine Grundlagen für den Entwurf einer statischen Soll-Architektur zu erstellen.
 % Daher konzentriete sich die Reverse-Engineering auf das identifizieren von Baustein aus denen der FreeDesign-Editor besteht und auf denen die Soll-Architektur basieren kann. 
 % Den Bausteinen wurden weiterhin Bestandteile des Quelltextes der aktuellen Implementation zugeordnet. 
 
 \subsection{Darstellung des Softwaresystems}
+Das Ziel der Darstellung des Softwaresystems war, es in einer Form darzustellen, dass sich Komponenten identifizieren lassen sowie ihre Integration in der Ist-Architektur. 
+
 \subsubsection{Das {dependency-cruiser}-Werkzeug}
 Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise ein einzelnes Werkzeug nicht alle Analyse-Aufgaben übernehmen kann  \autocite[vgl.][381]{Bass2013}.  
 
@@ -102,6 +105,12 @@ Treten hingegen Zyklen in den Abhängigkeiten auf, wie in Abbildung \ref{fig:cir
 
 Die so auf gedeckten Zyklen zeigten Potentiale zur Verbesserung der Ist-Architektur und musste bei der Entwicklung der Strategie zur Migration in die Soll-Architektur beachtet werden.
 
+\subsubsection{Erzeugung eines Validierungsreport}
+Mit dem in Listing \ref{depcruise-report} angeben Kommando wurde auf Basis der Regeln, die in der Konfigurationsdatei hinterlegt wurden, ein Report erstellt.
+Der Report enthält eine Liste aller Verstöße gegen die angegebenen Regeln.
+\begin{lstlisting}[language={sh}, label=depcruise-report, caption=Erzeugung eines Validierungsreport]
+npx depcruise --config dependency-cruiser-konfiguration.json -T err-html src -f Validierungsreport.html
+\end{lstlisting}
 
 \subsubsection{Erzeugung der Visualisierungen}
 Durch das nutzen verschiedener Argumente konnten unterschiedliche Darstellungen der Ist-Architektur mit unterschiedlichem Fokus erzeugt werden. 
@@ -116,27 +125,61 @@ npx depcruise --config dependency-cruiser-konfiguration.json -T archi src | dot 
 Für das Argument \lstinline|--output-type|, welches den Typen der Ausgabe angibt, wurde die Kurzform  \lstinline|-T| genutzt. Mit Hilfe des Typen \lstinline|archi| können zusammenfassende Übersichten der Abhängigkeiten erstellt werden, in den lediglich die oberster Ordnerebene dargestellt werden \autocite[vgl.][]{Verweij:Options}.
 Der so erzeugte Abhängigkeitsgraph wurde anschließend als SVG-Datei gespeichert. 
 \newline
-Die Visualisierung sämtlicher Abhängigkeiten der Software ergibt einen sehr umfangreichen und unübersichtlichen Graphen. Daher mehrere Graphen erzeugt, die sich auf die Hauptaufgaben der Software beziehen:
-\paragraph{Die Produktpräsentation} gehört zu den wichtigsten Aufgaben des FreeDesign-Editors. Der dafür verantwortliche Quelltext ist im Ordner 
+Die Visualisierung sämtlicher Abhängigkeiten der Software ergibt einen sehr umfangreichen und unübersichtlichen Graphen. Daher wurden mehrere Graphen erzeugt, die sich auf die Hauptaufgaben der Software beziehen:
+\paragraph{Die Produktpräsentation} gehört zu den wichtigsten Aufgaben des FreeDesign-Editors. 
+Der dafür verantwortliche Quelltext ist im Ordner 
 \lstinline|src/components/pagePresenter| enthalten. Mit dem unter Listing \ref{depcruise-page-presenter} angegebenen Kommando, konnten visualisiert werden, von welchem Quelltextkomponente die Produktpräsentation abhängig ist. 
 \begin{lstlisting}[language={sh}, label=depcruise-page-presenter, caption=Erzeugung der Visualisierung der Abhängigkeiten für die Produktpräsentation]
-npx depcruise --config dependency-cruiser-konfiguration.json -T dot src/components/pagePresenter | dot -T svg > Produktpraesentation.svg
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot
+  src/components/pagePresenter | dot -T svg > Produktpraesentation.svg
 \end{lstlisting}
 
-\paragraph{Die Designpräsentation} gehört ebenfalls zu den zentralen Aufgaben des FreeDesign-Editors. Der hierfür verantwortliche Quelltext ist im Ordner \lstinline|src/components/pagePresenter| hinterlegt. Die Quelltextkomponente auf die die Designpräsentation zugreif konnten mit folgendem Kommando visualisiert werden:  
+\paragraph{Die Designpräsentation} gehört ebenfalls zu den zentralen Aufgaben des FreeDesign-Editors. Die Designpräsentation ist entkoppelt von der Produktpräsentation und wird dieser lediglich übergeben, wodurch das Design innerhalb der Produktpräsentation dargestellt werden kann.
+Der für Designpräsentation verantwortliche Quelltext ist im Ordner \lstinline|src/components/pagePresenter| hinterlegt. Die Quelltextkomponente auf die die Designpräsentation zugreif konnten mit folgendem Kommando visualisiert werden:  
 \begin{lstlisting}[language={sh}, label=depcruise-design-presenter, caption=Erzeugung der Visualisierung der Abhängigkeiten für die Designpräsentation]
-npx depcruise --config dependency-cruiser-konfiguration.json -T dot src/components/designPresenter | dot -T svg > Designpraesentation.svg
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot 
+  src/components/designPresenter | dot -T svg > Designpraesentation.svg
 \end{lstlisting}
 
-\paragraph{Das Editieren von Designs}
-xyz
-\paragraph{Die grafische Oberfläche des FreeDesign-Editors}
-xyz
-\paragraph{Das Konvertieren von Adobe-Illustrator-Dateien}
-xyz
-\paragraph{Das Konvertieren von FreeDesign-Designs in SVG-Dateien}
-xyz
+\paragraph{Das Editieren von Designs} ist die Kernaufgabe des FreeDesign-Editors. 
+An dieser Aufgaben sind sehr viele Quelltextkomponenten des Editors beteiligt, die ausgehen vom Redux-Container \lstinline|Stage.tsx| zusammearbeiten. Die Datei \lstinline|Stage.tsx| ist im Ordner \lstinline|src/containers/stage| hinterlegt, deren Abhängigkeiten durch das folgende Kommando visualisiert wurden.
+\begin{lstlisting}[language={sh}, label=depcruise-design-edit, caption=Visualisierung der Abhängigkeiten für den Quelletext zum editieren des Designs]
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot  
+  src/containers/stage | dot -T svg > Designeditieren.svg      
+\end{lstlisting}
+Da das Editieren von Designs von sehr vielen Quelltextkomponenten abhängig ist und dadurch der Graph sehr umfangreich ist, wurde eine weitere kompakte Darstellung erzeugt. Hierzu wurde das Argument \lstinline|--collapse| angewandt, welches eine Graph der beteiligten Ordner erzeugt \autocite[vgl.][]{Verweij:CLI}. 
+\begin{lstlisting}[language={sh}, label=depcruise-design-edit-compact, caption=Visualisierung der Abhängigkeiten für den Quelletext zum editieren des Designs]
+npx depcruise --config dependency-cruiser-konfiguration.json --collapse 
+  ".*/" -T dot src/containers/stage | dot -T svg > 
+  Designeditieren-kompakt.svg
+\end{lstlisting}
 
+\paragraph{Die grafische Oberfläche} des FreeDesign-Editors
+enthält, neben dem Redux-Container Stage, eine Reihe weitere Elemente. Eine Übersicht der Elemente und der Abhängigkeiten wurden mit dem, in Listing \ref{depcruise-gui} angeben, Kommando erzeugen. Da sich der FreeDesign-Editor aus Redux-Container-Elementen zusammensetzt, die auf React-Komponenten, den Redux-State und Redux-Actions zugreifen, konnte die Analyse basierend auf dem Ordner \lstinline|src/containers| erfolgen. Da die Visualisierung sonst zu umfangreich während, wurde \lstinline|--collapse| genutzt sowie der Redux-Container Stage mit dem Argument \lstinline|--do-not-follow| ausblendet.
+
+\begin{lstlisting}[language={sh}, label=depcruise-gui, caption=Visualisierung der Zusammenhänge der grafischen Elemente des Editors]
+npx depcruise --config dependency-cruiser-konfiguration.json 
+  --do-not-follow "^src/containers/stage" --collapse ".*/" -T dot 
+  src/containers | dot -T svg  > 
+  Grafische-Oberflaeche.svg
+\end{lstlisting}
+
+\paragraph{Das Konvertieren von Adobe-Illustrator-Dateien} in FreeDesign-Designs, welches als Kommandozeilenprogramm für den, in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben, Integrationsprozess bereitgestellt wird, ist ebenfalls ein Teil des FreeDesign-Projektes. 
+Das Kommandozeilenprogramm wird durch die Datei \lstinline|src/draftImporterCli.ts| umgesetzt, der Abhängigkeiten durch folgendes Kommando visualisiert werden konnten.
+\begin{lstlisting}[language={sh}, label=depcruise-draft-import, caption=Visualisierung der Abhängigkeiten des Programms zum Import der AI-Dateien]
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot 
+  src/draftImporterCli.ts | dot -T svg > AI-Import.svg
+\end{lstlisting}
+
+\paragraph{Das Konvertieren von FreeDesign-Designs in SVG-Dateien} als Basis für das Erstellen der Vorschaubilder ist ebenfalls ein Teil des, in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben, Integrationsprozess.  
+Das Kommandozeilenprogramm für diesen Schritt wurde im Ordner \lstinline|src/designToSvgCLI| umgesetzt. Die Abhängigkeit wurden mit folgendem Kommando visualisiert.
+\begin{lstlisting}[language={sh}, label=depcruise-draft-import, caption=Visualisierung des Kommandozeilenprogramms designToSvgCLI]
+npx depcruise --config dependency-cruiser-konfiguration.json -T dot 
+  src/designToSvgCLI | dot -T svg > SVG-Konvertierung.svg
+\end{lstlisting}
+    
+
+% HTML 
 % TODO: Validation Report erzeugen
 
 % Das Werkzeug dependency-cruiser unter einer MIT-Linzenz zu Verfügung gestellt, welche eine kostenfreien Nutzung garantiert \autocite[vgl.][]{Verweij:License}. 
