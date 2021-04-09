@@ -173,7 +173,7 @@ npx depcruise --config dependency-cruiser-konfiguration.json -T dot
 
 \paragraph{Das Konvertieren von FreeDesign-Designs in SVG-Dateien} als Basis für das Erstellen der Vorschaubilder ist ebenfalls ein Teil des, in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben, Integrationsprozess.  
 Das Kommandozeilenprogramm für diesen Schritt wurde im Ordner \lstinline|src/designToSvgCLI| umgesetzt. Die Abhängigkeit wurden mit folgendem Kommando visualisiert.
-\begin{lstlisting}[language={sh}, label=depcruise-draft-import, caption=Visualisierung des Kommandozeilenprogramms designToSvgCLI]
+\begin{lstlisting}[language={sh}, label=depcruise-design-to-svg, caption=Visualisierung des Kommandozeilenprogramms designToSvgCLI]
 npx depcruise --config dependency-cruiser-konfiguration.json -T dot 
   src/designToSvgCLI | dot -T svg > SVG-Konvertierung.svg
 \end{lstlisting}
