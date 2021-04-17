@@ -499,14 +499,16 @@
                                 "source": "[\\.]ts"
                             },
                             "attributes": {
-                                "shape": "box"
+                                "shape": "box",
+                                "fillcolor": "#bbfeff"
                             }
                         },
                         {
                             "criteria": {},
                             "attributes": {
                                 "shape": "tab",
-                                "height": 0.7
+                                "height": 0.7,
+                                "fillcolor": "#ffffcf"
                             }
                         }
                     ],
