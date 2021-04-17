@@ -31,19 +31,21 @@ Es ist vorgesehen, dass umgebender Quelletext auf den Quelltext des \lstinline|c
 
 \paragraph{Die Ordner reducers, action und stores} beziehen sich auf Redux und enthalten die Redux-Reducer, die Redux-Actions sowie den Redux-State. Der Redux-States ist auf mehrere Dateien innerhalb des Ordners \lstinline|stores| aufgeteilt. Die Dateien beziehen sich auf unterschiedlich Teile der Anwendung. Beispielsweise wird der Zustand der grafischen Oberfläche in der Datei \lstinline|guiState.ts| verwaltet und der Zustand des Projektes, welches gestaltet wird, in der Datei \lstinline|productState.ts|. 
 
+\paragraph{Der Ordner services} enthält Quelletext zur Kommunikation mit der FreeDesign-API sowie eine Komponenten zur Kommunikation mit der Zwischenablage des Betriebssystems. Über die Komponenten für die Zwischenablage wir das Kopieren und Einfügen von Texten beim Bearbeiten eines Designs ermöglicht.
 
 % Für die Kommunikation mit der API von Unitedprint wird das Modul \emph{redux-axios-middleware} eingesetzt. 
 % Das Module ist eine \emph{Redux}-Middleware für die asynchrone HTTP-Kommunikation. HTTP-Anfragen werden durch den Aufruf von \emph{Redux-Actions} ausgelöst, ebenso werden \emph{Redux-Actions} nach eintreffender Antwort ausgelöst \autocite[vgl.][]{ReduxAxios}. Im Ordner \emph{services} sind die \emph{Redux-Actions} für die API-Aufrufe definiert. Desweiteren enthält der Ordner noch eine Serviceklasse zur Kommunikation mit Zwischenablage des Betriebssystems. Die Klasse ermöglicht das einfügen von Text aus der Zwischenablage in das Design, sowie das Kopier von Text aus dem Design in die Zwischenablage.
 
-\paragraph{Im Ordner utils} befinden sich nur zwei TypeScript-Dateien. Wie bereits im Architektur-Workshop festgestellt, ist die Existenz dieses Ordners fragwürdig und wird durch die 
-Soll-Architektur aufgelöst werden.  
+\paragraph{Im Ordner utils} befinden sich nur zwei TypeScript-Dateien. Wie bereits im Architektur-Workshop festgestellt, ist die Existenz dieses Ordners fragwürdig und wird durch die Soll-Architektur aufgelöst werden.  
 
 \paragraph{Der Ordner modules} wird ebenfalls durch die Soll-Architektur aufgelöst, da er React- und Redux-Komponenten enthält, welche in die Ordner \lstinline|components| und \lstinline|containers| integriert werden können.
 
 \paragraph{Im Ordner styles} sind globale \emph{CSS}-Definition untergebracht, die das optische Erscheinungsbild der Anwendung beschreiben. Die Definitionen werden ausschließlich Komponenten im Ordner \emph{components} verwendete. 
 
+\paragraph{Der Ordner designToSvgCLI} enthält das Kommandozeilenprogramm für die Design-SVG-Konvertierung im Integrationsprozess der Designvorlagen, welche im Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben wurde.
 
-\paragraph{}Die Datei \emph{freedesign.tsx} ist die Startdatei des FreeDesign-Editors, über die das Programm betreten wird. Für das Kommandozeilen-Programm \emph{Draft-Importer}, zum Import der Designvorlagen, ist die Datei \emph{draftImporterCli.ts} als Startdatei vorgesehen. Im Ordner \emph{designToSvgCLI}-Ordner wurde ein weiteres Kommandozeilen-Programm implementiert, welches ebenfalls für den Import der Designvorlagen benötigt wird.
+
+\paragraph{}Die TypeScript-Datei \lstinline|freedesign.tsx| ist die Startdatei des FreeDesign-Editors, über die das Programm gestartet wird. Für das Kommandozeilen-Programm zum Import des AI-Dateien, welches ebenfalls in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben wurde, ist die Datei \lstinline|draftImporterCli.ts| als Startdatei vorgesehen.
 
 
 % \paragraph{Zugriffe}
