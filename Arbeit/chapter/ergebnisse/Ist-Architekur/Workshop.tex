@@ -1,18 +1,18 @@
-% Status: Erstkorrektur
+% Status: Zweitkorrektur
 %%%%%%%%%%%%%%%%
 %%% Workshop %%%
 %%%%%%%%%%%%%%%%
 \subsection{Ergebnis des Architektur-Workshops}
 
 \subsubsection{Positives und Erhaltenwertes}
-Als positiv wurde hervorgehoben, dass die Architektur, zumindest soweit bekannt, nicht an unlösbaren Problemen leidet. 
+Nach Abschluss des Workshops wurden als positiv hervorgehoben, dass die Architektur, zumindest soweit bekannt, keine unlösbaren Probleme enthält. 
 Dies war in einer früheren Implementation des FreeDesign-Editors der Fall gewesen.
 
-Auch Anforderungsänderung und Erweiterungen konnten bisher problemlos umgesetzt werden.
+Auch Änderungen und Erweiterungen der Funktionalitäten des Editors konnten bisher problemlos umgesetzt werden.
 
 Die Nutzung von Redux als zentrale Zustandsverwaltung, sowie das Verbinden des Redux-States an die React-Komponenten über \emph{Container}-Objekte wurde ebenfalls als positiv gewertet. 
 
-Als unbedingt erhaltenswerte wurde auch die strikte Trennung zwischen Produktdarstellung und Designdarstellung, sowie den grafischen Komponenten zur Bearbeitung des Designs bewertet. 
+Als unbedingt erhaltenswert erachtet wurde auch die strikte Trennung zwischen Produktdarstellung und Designdarstellung, sowie den grafischen Komponenten zur Bearbeitung des Designs. 
 
 %Die grundlegende Strukturierung des Quelltextes innerhalb der Ordner hat sich ebenfalls bewährt und scheint den Einstieg in das Projekt zu fördern. 
 %Mitgliedern des Entwicklerteam ist die Strukturierung auch aus andere Projekte bekannt.
@@ -22,22 +22,22 @@ Als unbedingt erhaltenswerte wurde auch die strikte Trennung zwischen Produktdar
 wurde als schwerwiegendste Schwäche der Architektur kritisiert.
 Diese ist an verschiedensten Stellen im Quelltext implementiert. Den Mitgliedern des Teams ist oft während der Entwicklungsarbeit nicht klar, ob eine bestimmte Funktionalität bereits implementiert ist und an welcher Stelle im Quelltext diese zu finden ist. 
 Daher wird vermutet, dass einige Funktionalitäten mehrfach implementiert sind. 
-Dies verstößt gegen das, durch Dave Thomas und Andy Hunt formulierte Prinzip, \emph{"Don’t Repeat Yourself" (DRY)}. Es besagt, dass jedes Wissen innerhalb eines Systems ein einzige, eindeutige und verbindliche Darstellung haben muss \autocite[vgl.][30 - 31]{ThomasAndHunt2020}. 
+Dies verstößt gegen das durch Dave Thomas und Andy Hunt formulierte Prinzip, \emph{"Don’t Repeat Yourself" (DRY)}. Es besagt, dass jedes Wissen innerhalb eines Systems ein einzige, eindeutige und verbindliche Darstellung haben muss \autocite[vgl.][30 - 31]{ThomasAndHunt2020}. 
 
-Quelltext-Duplikate sind aus mehreren Gründen problematisch. Bei Änderungen, müssen mehrerer Stellen im Quelltext angepasst werden. Neben den Funktionalitäten sind auch Unit-Tests mehrfach implementiert, die das Selbe testen und bei Änderungen angepasst werden müssen. Neben dem höheren Entwicklung- und Wartungsaufwand, führen Duplikate auch zu einer größeren JavaScript-Datei für den FreeDesign-Editor. 
+Quelltext-Duplikate sind aus mehreren Gründen problematisch. Bei Änderungen müssen mehrere Stellen im Quelltext angepasst werden. Neben den Funktionalitäten sind auch Unit-Tests mehrfach implementiert, die daselbe testen und bei Änderungen angepasst werden müssen. Neben dem höheren Entwicklung- und Wartungsaufwand, führen Duplikate auch zu einer größeren JavaScript-Datei für den FreeDesign-Editor. 
 
-\paragraph{Der Mangel inhaltlicher Konventionen} war ein weiterer Kritikpunkt gewesen. Es bestehen technische Konventionen für die Implementation von Quelltext, jedoch mangelt es an fachlichen und inhaltlichen Konventionen. Die Konventionen die in der Ist-Architektur bestehen, resultieren aus der Verwendung von TypeScript, ReactJS und Redux. Beispiele hierfür sind, dass React-Komponenten keine Geschäftslogik enthalten und die Verwendung von \emph{Container}-Objekten zum Verbinden von \emph{React}-Komponenten und \emph{Redux}.
-Diese Konventionen wurden jedoch nicht schriftlich festgellegt, sonden bestehen aus mündlichen Absprachen. 
+\paragraph{Der Mangel inhaltlicher Konventionen} ist weiterer Kritikpunkt gewesen. Es bestehen technische Konventionen für die Implementation von Quelltext, jedoch mangelt es an fachlichen und inhaltlichen Konventionen. Die Konventionen die in der Ist-Architektur bestehen, resultieren aus der Verwendung von TypeScript, ReactJS und Redux. Beispiele hierfür sind, dass React-Komponenten keine Geschäftslogik enthalten und die Verwendung von \emph{Container}-Objekten zum Verbinden von \emph{React}-Komponenten und \emph{Redux}.
+Diese Konventionen wurden jedoch nicht schriftlich festgellegt, sondern bestehen lediglich aus mündlichen Absprachen. 
 % Darüberhinaus wurden keine Konventionen für den fachlichen und strukturellen Inhalt des Quelltextes festgellegt. 
 % Das führt unter anderem dazu, dass es kein Schema für die Bezeichnung von Klassen, Funktionen oder Modulen gibt. Weiterhin werden Funktionen teilweise in Klassen und teilweise in Modulen zusammen gefasst. 
 
-\paragraph{Die Strukturierung der Kommandozeilenprogramme} für die Integration der Designvorlagen wurde ebenfalls kritisiert, welche innerhalb des Editor-Projekt implementiert sind.
-Es fällt den Teammitgliedern  schwer, bei Quelltextkomponenten die von den Kommandozeilenprogramme genutzt werden, zu unterscheiden, ob diese exklusiv für die Kommandozeilenprogramme bestehen oder nicht. Dadurch besteht die Gefahr, dass Änderungen der Kommandozeilenprogramme unbeabsichtigt den FreeDesign-Editor mit ändern. Dies verlangsamt die Entwicklungsarbeit und erhöht den Testaufwand.
+\paragraph{Die Strukturierung der Kommandozeilenprogramme} für die Integration der Designvorlagen, welche innerhalb des Editor-Projekts implementiert sind, wurde ebenfalls kritisiert.
+Es fällt den Teammitgliedern mitunter schwer, bei Quelltext für die Kommandozeilenprogramme zu unterscheiden, ob diese auch vom FreeDesign-Editor genutzt werden oder nicht. Dadurch besteht die Gefahr, dass Änderungen der Kommandozeilenprogramme unbeabsichtigt den FreeDesign-Editor mit ändern. Dies verlangsamt die Entwicklungsarbeit und erhöht den Testaufwand.
 
-Die TypeScript-Datei \lstinline|draftImporterCli.ts| welche das Kommandozeilenprogramme zur Konvertierung der Adobe-Illustrator-Dateien enthält, liegt innerhalb des Ordners \lstinline|src|. Für das Kommandozeilenprogramme zum Konvertieren der FreeDesign-Designstruktur in SVG-Dateien ist die Datei \lstinline|designToSvgConverter.ts| im Ordner \lstinline|src/designToSvgCLI| verantwortlich. Diese Strukturierung der Programme wurde als inkonsistent empfunden. 
-Es wurde durch das Team angeregt, innerhalb des \lstinline|src|-Ordner einen Ordner ein für Kommandozeilenprogramme zu etablieren, in dem die beiden Programme enthalten sind. Desweiteren wurde vorgeschlagen, dass diese Ordner sämtlichen Quelltextkomponenten enthalten, die exklusiv durch die Kommandozeilenprogramme genutzt werden.  
+Die TypeScript-Datei \lstinline|draftImporterCli.ts|, welche das Kommandozeilenprogramm zur Konvertierung der Adobe-Illustrator-Dateien enthält, liegt innerhalb des Ordners \lstinline|src|. Für das Kommandozeilenprogramm zum Konvertieren der FreeDesign-Designstruktur in SVG-Dateien ist die Startdatei die TypeScript-Datei \lstinline|designToSvgConverter.ts| im Ordner \lstinline|src/designToSvgCLI|. Diese Strukturierung der Programme wurde als inkonsistent empfunden. 
+Es wurde durch das Team angeregt, innerhalb des \lstinline|src|-Ordners einen Ordner für Kommandozeilenprogramme zu etablieren, in dem die beiden Programme enthalten sind. Des Weiteren wurde vorgeschlagen, dass diese Ordner sämtliche Quelltextkomponenten enthalten, die exklusiv durch die Kommandozeilenprogramme genutzt werden.  
 
-\paragraph{Das Verwenden generischer Ordner}, welche in Listing \ref{list:genericdirs} angeben sind, wurde durch das Team bemängelt und führt oft zu Unklarheiten. Für die \lstinline|common|-Ordner bestand kein klarer Grund dafür, dass diese zusätzlichen Ebenen geschaffen wurden. Es bestand nur die diffuse Idee, häufig genutzte Komponenten in diesen Ordnern zu sammeln. 
+\paragraph{Das Verwenden generischer Ordner}, welche in Listing \ref{list:genericdirs} angeben sind, wurde durch das Team bemängelt und führt oft zu Unklarheiten. Für das Etablieren der \lstinline|common|-Ordner, welche eine zusätzliche Ordnerebene schaffen, bestand kein klarer Grund. Es bestand nur die diffuse Idee, häufig genutzte Komponenten in diesen Ordnern zu sammeln. 
 
 \begin{lstlisting}[language={sh}, label=list:genericdirs, caption=generische Ordner die innerhalb des FreeDesign-Projektes genutzt werden]
 src/actions/helper
@@ -48,8 +48,8 @@ src/core/helpers
 src/utils
 \end{lstlisting}
 
-Carola Lilienthal empfiehlt das Vermeiden von generischen Hilfklassen, da sie von überall her benutzt werden können und die Zusammenarbeit mit anderen Klassen nicht einschränkt wird \autocite[vgl.][159]{Lilienthal2019}. 
+Carola Lilienthal empfiehlt das Vermeiden von generischen Hilfklassen, da sie von überall her benutzt werden können und die Zusammenarbeit mit anderen Klassen nicht eingeschränkt wird \autocite[vgl.][159]{Lilienthal2019}. 
 
-Die selben Argumentation liese sich auch das Verwenden generischer Ordnername anwenden. 
+Dieselben Argumentation liese sich auch auf das Verwenden generischer Ordnername anwenden. 
 % Mit der selben Begründung sollte auch das Verwenden von Ordnern wie \emph{helper}, \emph{common} oder \emph{utils} vermieden werden. Diese Ordner dienen als Sammelorte für Module, deren Zuordnung unklar ist oder für Hilfs-Module. 
 
