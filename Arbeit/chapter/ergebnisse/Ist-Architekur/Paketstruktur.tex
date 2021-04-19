@@ -1,6 +1,7 @@
+% Status: Zweitkorrekt
 \subsection{Analyseergebnis der obersten Ordnerebene}
 \subsubsection{Übersicht der obersten Ordnerebene}
-Die Quelltextdateien, welche die Anwendungen beschreibt, sind innerhalb des Ordners \lstinline|src| organisiert. 
+Die Quelltextdateien, welche die Anwendungen beschreiben, sind innerhalb des Ordners \lstinline|src| organisiert. 
 % Die obersten Ordnerebene des \emph{src}-Ordner spiegelt die Architektur der Anwendung auf höchster Ebene wider.
 Abbildung \ref{fig:obersteOrdnerebene} stellt die Zusammenhänge der obersten Ordnereben innerhalb des Ordners als Abhängigkeitsgraph dar. 
 % Wird innerhalb eines Ordners Quelltext aus einem benachbarten Ordner importiert, wird dies durch eine Pfeilspitze am benachbarten Ordner gekennzeichnet. Beispielsweise importiert Quelltext innherhalb des Ordners \lstinline|designToSvgCLI| Quelltext aus dem Ordner \lstinline|core|.
@@ -11,41 +12,41 @@ Abbildung \ref{fig:obersteOrdnerebene} stellt die Zusammenhänge der obersten Or
 	\includegraphics{diagrams/Ist-Architektur/Projektuebersicht.pdf}
 \end{figure}
 
-Der Abhängigkeitsgraph zeigt sämtlichen Ordner die im Ordner \lstinline|src| enthalten sind, so wie die TypeScript-Dateien \lstinline|freedesign.tsx| und \lstinline|draftImporterCli.tsx|, die ebenfalls im Ordner \lstinline|src| hinterlegt sind.  
+Der Abhängigkeitsgraph zeigt sämtliche Ordner die im Ordner \lstinline|src| enthalten sind, so wie die TypeScript-Dateien \lstinline|freedesign.tsx| und \lstinline|draftImporterCli.tsx|, die ebenfalls im Ordner \lstinline|src| hinterlegt sind.  
 
-Durch die Pfeile werden die Abhängigkeiten der Komponenten gekennzeichnet. Die Pfeilspitze zeigt auf den Ordner, auf des Inhalt Zugriffe erfolgen. Beispielsweise greift Quelletext im Ordner \lstinline|designToSvgCLI| auf Quelletext aus dem Ordner \lstinline|core| zu.
+Durch die Pfeile werden die Abhängigkeiten der Komponenten gekennzeichnet. Die Pfeilspitze zeigt auf den Ordner, auf dessen Inhalt Zugriffe erfolgen. Beispielsweise greift Quelletext im Ordner \lstinline|designToSvgCLI| auf Quelletext aus dem Ordner \lstinline|core| zu.
 Wird eine Abhängigkeit durch das \lstinline|allowed|-Array bestätigt, wird diese durch einen grünen Pfeil dargestellt. Eine Abhängigkeit die durch das \lstinline|forbidden|-Array erfasst wird, wird durch einen roten Pfeil gekennzeichnet. Wird eine Abhängigkeit durch keine der beiden Arrays erfasst, wird diese durch einen orangen Pfeil dargestellt.
 
 Enthält ein Ordner ungenutzten Quelltext, wird dies durch einen orangen Rahmen und einer orangen Bezeichnung gekennzeichnet.
 
 \subsubsection{Ordnerinhalt der obersten Ordnerebene}
-\paragraph{Der Ordner core} ist für den Anwendungskern vorgesehen und enthält Geschäftslogik sowie grundlegende Funktionalitäten und Datenstrukturen der Anwendung. 
-Es ist vorgesehen, dass umgebender Quelletext auf den Quelltext des \lstinline|core|-Ordners zugreifen darf, jedoch ist der Zugriffe aus dem \lstinline|core|-Ordner heraus auf den umgebenden Quelletext untersagt. Dem Ordner mangelt es an einer klaren Strukturierung, auf Grund dessen die das richtig Zuordnung und Auffinden der Geschäftslogik schwierig ist. 
+\paragraph{Der Ordner \emph{core}} ist für den Anwendungskern vorgesehen und enthält Geschäftslogik sowie grundlegende Funktionalitäten und Datenstrukturen der Anwendung. 
+Es ist vorgesehen, dass umgebender Quelletext auf den Quelltext des \lstinline|core|-Ordners zugreifen darf, jedoch ist der Zugriff aus dem \lstinline|core|-Ordner heraus auf den umgebenden Quelletext untersagt. Dem Ordner mangelt es an einer klaren Strukturierung, auf Grund deren die richtige Zuordnung und das Auffinden der Geschäftslogik schwierig sind. 
 
-\paragraph{Im Ordner components} sind sämtlichen React-Komponenten zur Erzeugung der grafischen Oberfläche enthalten. Darunter zählen Komponenten zur Erzeugung von Menüs, Dialogen oder auch Werkzeuge zu Designbearbeitung. Die Komponenten besitzen keine Verbund zum \emph{Redux-State} und rufen keine \emph{Redux-Actions} auf. Die Komponenten können bei der Verwendung mit Eigenschaften versehen werden und damit an Redux gebunden werden. Dadurch ist das Verwenden der React-Komponenten in unterschiedlichen Kontexten möglich.
+\paragraph{Im Ordner \emph{components}} sind sämtliche React-Komponenten zur Erzeugung der grafischen Oberfläche enthalten. Darunter zählen Komponenten zur Erzeugung von Menüs, Dialogen oder auch Werkzeuge zu Designbearbeitung. Die Komponenten besitzen keine Verbindung zum \emph{Redux-State} und rufen keine \emph{Redux-Actions} auf. Die Komponenten können bei der Verwendung mit Eigenschaften versehen werden und damit an Redux gebunden werden. Dadurch ist das Verwenden der React-Komponenten in unterschiedlichen Kontexten möglich.
 
-\paragraph{Der Ordner containers} enthält Komponenten (Container-Komponenten), welche die \emph{ReactJS}-Komponenten aus dem Ordner \lstinline|{components| mit den \emph{Redux-State} sowie \emph{Redux-Actions} verbindet. Somit verbinden die Container-Komponenten die grafische Oberfläche der Anwendung mit Redux.
+\paragraph{Der Ordner \emph{containers}} enthält Komponenten (Container-Komponenten), welche die \emph{ReactJS}-Komponenten aus dem Ordner \lstinline|{components| mit den \emph{Redux-State} sowie \emph{Redux-Actions} verbindet. Somit verbinden die Container-Komponenten die grafische Oberfläche der Anwendung mit Redux.
 
 % Ein Beispiel hierfür ist der \emph{Container} \lstinline|LoginDialog.tsx|, welcher das Anmeldeformular für die Kundenanmeldung erzeugt. Dieser nutzt Formularelemente und Schaltflächen aus dem \emph{components}-Ordner zur Erzeugung der grafischen Oberfläche. Für die Prüfung, ob der Kunden erfolgreich angemeldet ist, greift der Dialog auf die Kundendaten zu, die im \emph{Redux-State} verwaltet werden. Über eine \emph{Redux-Action} wird die Anmeldung durchgeführt, welche vom \emph{Container} aufgerufen wird. Dadurch das die grafischen Formularelement und Schaltflächen nicht an den Anwendungszustand gebunden sind, konnten sie z.B. auch in einem Dialog zur Kundenregistrierung verwendet werden.
 
 
-\paragraph{Die Ordner reducers, action und stores} beziehen sich auf Redux und enthalten die Redux-Reducer, die Redux-Actions sowie den Redux-State. Der Redux-States ist auf mehrere Dateien innerhalb des Ordners \lstinline|stores| aufgeteilt. Die Dateien beziehen sich auf unterschiedlich Teile der Anwendung. Beispielsweise wird der Zustand der grafischen Oberfläche in der Datei \lstinline|guiState.ts| verwaltet und der Zustand des Projektes, welches gestaltet wird, in der Datei \lstinline|productState.ts|. 
+\paragraph{Die Ordner \emph{reducers}, \emph{action} und \emph{stores}} beziehen sich auf Redux und enthalten die Redux-Reducer, die Redux-Actions sowie den Redux-State. Der Redux-States ist auf mehrere Dateien innerhalb des Ordners \lstinline|stores| aufgeteilt. Die Dateien beziehen sich auf unterschiedliche Teile der Anwendung. Beispielsweise wird der Zustand der grafischen Oberfläche in der Datei \lstinline|guiState.ts| verwaltet und der Zustand des Designs, welches gestaltet wird, in der Datei \lstinline|productState.ts| verwaltet. 
 
-\paragraph{Der Ordner services} enthält Quelletext zur Kommunikation mit der FreeDesign-API sowie eine Komponenten zur Kommunikation mit der Zwischenablage des Betriebssystems. Über die Komponenten für die Zwischenablage wir das Kopieren und Einfügen von Texten beim Bearbeiten eines Designs ermöglicht.
+\paragraph{Der Ordner \emph{services}} enthält Quelletext zur Kommunikation mit der FreeDesign-API sowie Komponenten zur Kommunikation mit der Zwischenablage des Betriebssystems. Über die Komponenten für die Zwischenablage wir das Kopieren und Einfügen von Texten beim Bearbeiten eines Designs ermöglicht.
 
 % Für die Kommunikation mit der API von Unitedprint wird das Modul \emph{redux-axios-middleware} eingesetzt. 
 % Das Module ist eine \emph{Redux}-Middleware für die asynchrone HTTP-Kommunikation. HTTP-Anfragen werden durch den Aufruf von \emph{Redux-Actions} ausgelöst, ebenso werden \emph{Redux-Actions} nach eintreffender Antwort ausgelöst \autocite[vgl.][]{ReduxAxios}. Im Ordner \emph{services} sind die \emph{Redux-Actions} für die API-Aufrufe definiert. Desweiteren enthält der Ordner noch eine Serviceklasse zur Kommunikation mit Zwischenablage des Betriebssystems. Die Klasse ermöglicht das einfügen von Text aus der Zwischenablage in das Design, sowie das Kopier von Text aus dem Design in die Zwischenablage.
 
-\paragraph{Im Ordner utils} befinden sich nur zwei TypeScript-Dateien. Wie bereits im Architektur-Workshop festgestellt, ist die Existenz dieses Ordners fragwürdig und wird durch die Soll-Architektur aufgelöst werden.  
+\paragraph{Im Ordner utils} befinden sich nur zwei TypeScript-Dateien. Wie bereits im Architektur-Workshop festgestellt, ist die Existenz dieses Ordners fragwürdig und sollte durch die Soll-Architektur aufgelöst werden.  
 
-\paragraph{Der Ordner modules} wird ebenfalls durch die Soll-Architektur aufgelöst, da er React- und Redux-Komponenten enthält, welche in die Ordner \lstinline|components| und \lstinline|containers| integriert werden können.
+\paragraph{Der Ordner \emph{modules}} wird ebenfalls durch die Soll-Architektur aufgelöst, da er React- und Redux-Komponenten enthält, welche in die Ordner \lstinline|components| und \lstinline|containers| integriert werden können.
 
-\paragraph{Im Ordner styles} sind globale \emph{CSS}-Definition untergebracht, die das optische Erscheinungsbild der Anwendung beschreiben. Die Definitionen werden ausschließlich Komponenten im Ordner \emph{components} verwendete. 
+\paragraph{Im Ordner \emph{styles}} sind globalen \emph{CSS}-Definitionen untergebracht, die das optische Erscheinungsbild der Anwendung beschreiben. Die Definitionen werden ausschließlich Komponenten im Ordner \emph{components} verwendet. 
 
-\paragraph{Der Ordner designToSvgCLI} enthält das Kommandozeilenprogramm für die Design-SVG-Konvertierung im Integrationsprozess der Designvorlagen, welche im Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben wurde.
+\paragraph{Der Ordner \emph{designToSvgCLI}} enthält das Kommandozeilenprogramm für die Design-SVG-Konvertierung im Integrationsprozess der Designvorlagen, welche im Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben wurde.
 
 
-\paragraph{}Die TypeScript-Datei \lstinline|freedesign.tsx| ist die Startdatei des FreeDesign-Editors, über die das Programm gestartet wird. Für das Kommandozeilen-Programm zum Import des AI-Dateien, welches ebenfalls in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben wurde, ist die Datei \lstinline|draftImporterCli.ts| als Startdatei vorgesehen.
+\paragraph{}Die TypeScript-Datei \lstinline|freedesign.tsx| ist die Startdatei des FreeDesign-Editors, über die das Programm gestartet wird. Für das Kommandozeilen-Programm zum Import der AI-Dateien, welches ebenfalls in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben wurde, ist die Datei \lstinline|draftImporterCli.ts| als Startdatei vorgesehen.
 
 
 % \paragraph{Zugriffe}

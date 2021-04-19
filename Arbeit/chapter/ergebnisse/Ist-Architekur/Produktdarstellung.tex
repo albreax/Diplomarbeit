@@ -1,17 +1,17 @@
-% Status: Erstkorrektur
+% Status: Zweitkorrektur
 % Produktdarstellung.tex
 \subsection{Die Produktpräsentation}
-Die Präsentation des Produktes basiert auf dem \emph{SVG}-Format welches von der React-Komponente \lstinline|SVGPageRenderer.tsx| im Ordner \lstinline|src/components/svgRenderers/| erzeugt wird. 
-Durch Abbildung \ref{fig:Produktdarstellung} werden die Abhängigkeiten Produktdarstellung aufgezeigt. 
+Die Präsentation des Produktes basiert auf dem \emph{SVG}-Format, welches von der React-Komponente \lstinline|SVGPageRenderer.tsx| im Ordner \lstinline|src/components/svgRenderers/| erzeugt wird. 
+In der Abbildung \ref{fig:Produktdarstellung} werden die Abhängigkeiten Produktdarstellung aufgezeigt. 
 Zur Darstellung des Produktes gehören das Darstellen von Beschnittlinien, Falzlinien, Nutlinien, Bereichen die nicht bedruckbar sind, sowie Seitenbezeichnungen. 
 Diese Elemente werden durch React-Komponenten im Ordner \lstinline|src/components/svgRenderers/pageAssets| dargestellt.
-Bei einigen Produkten, Textilien oder Werbeprodukte, kann im Hintergrund eine Abbildung des Produktes dargestellt werden, welche durch die React-Komponente \lstinline|SVGProductImageRenderer.tsx| erzeugt wird. 
+Bei einigen Produkten, Textilien oder Werbeprodukten kann im Hintergrund eine Abbildung des Produktes dargestellt werden, welche durch die React-Komponente \lstinline|SVGProductImageRenderer.tsx| erzeugt wird. 
 
 Für die Produktdarstellung wird der Komponente eine Produktbeschreibung übergeben, deren Struktur durch die Datei \lstinline|src/core/entities/product/Product.ts| definiert ist.
 
-Innerhalb des FreeDesign-Editors kann die Darstellung der Produktseite, rotiert, skaliert und verschoben werden. Für diese Aufgaben ist die React-Komponente \lstinline|PagePresenter.tsx| verantwortlich. 
-Zur Berechnung der Darstellungsmöglichkeiten nutzt die Komponente mathematische Funktionen aus der Datei \lstinline|FDMath.ts| welche im Ordner \lstinline|src/core/helpers| enthalten ist. 
-Zwischen der Datei \lstinline|FDMath.ts| und \lstinline|point.ts| besteht eine zyklische Abhängigkeit. Dies durch die beiden roten Pfeile, mit je einem Kreis, dargestellt.
+Innerhalb des FreeDesign-Editors kann die Darstellung der Produktseite rotiert, skaliert und verschoben werden. Für diese Aufgaben ist die React-Komponente \lstinline|PagePresenter.tsx| verantwortlich. 
+Zur Berechnung der Darstellungsmöglichkeiten nutzt die Komponente mathematische Funktionen aus der Datei \lstinline|FDMath.ts|, welche im Ordner \lstinline|src/core/helpers| enthalten ist. 
+Zwischen der Datei \lstinline|FDMath.ts| und \lstinline|point.ts| besteht eine zyklische Abhängigkeit. Dies wird durch die beiden roten Pfeile, mit je einem Kreis, dargestellt.
 
 % Wie von Abbildung \ref{fig:Produktdarstellung} zu entnehmen ist, werden für das Erzeugen der \emph{SVG}-Struktur \emph{ReactJS}-Komponenten genutzt, die exklusiv für die Produktdarstellung erstellt wurden. Diese Komponenten finden in keinem anderem Zusammenhang Verwendung und sind eng an die Produktdarstellung gekoppelt. 
 % 
@@ -29,7 +29,7 @@ Zwischen der Datei \lstinline|FDMath.ts| und \lstinline|point.ts| besteht eine z
     \label{fig:Produktdarstellung}
 \end{figure}
 
-Für die Produktdarstellung wurden die folgende drei Bausteine identifiziert.
+Aus den Abhängigkeiten wurden für die Produktdarstellung folgende drei Bausteine identifiziert.
 \begin{multicols}{3}
     \input{chapter/ergebnisse/Ist-Architekur/Komponenten/Komponenten-Produktdarstellung.tex}
 \end{multicols}
