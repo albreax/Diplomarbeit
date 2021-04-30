@@ -1,11 +1,22 @@
 % Designbearbeitung.tex
 \subsection{Designbearbeitung}
+Der Bereich zum Bearbeiten eines Design wird innerhalb der aktuellen Architektur als \emph{Stage} bezeichnet, welche durch die Datei  
+\lstinline|src/containers/stage/Stage.tsx| umgesetzt ist. 
+Ein Darstellung der gesamten Abhängigkeiten der Designbearbeitung ist im Anhang unter \emph{D2\_Designbearbeitung.html} enthalten.
+
+% TODO: npx depcruise -- config W1_dependency - cruiser - konfiguration . json -T dot
+% src / containers / stage | dot -T svg > Designeditieren .svg
+
+
+% TODO: npx depcruise -- config W1_dependency - cruiser - konfiguration . json -T dot
+% src / designToSvgCLI | dot -T svg > SVG - Konvertierung .svg
+
 Die dritte Hauptkomponente des FreeDesign-Editors ist das bearbeiten des Designs. Hierfür stellt der Editor Eingabekomponenten zur Verfügung, welche Änderungen der Designstruktur im \emph{Redux-State} bewirken. Auf diese Änderungen reagiert die Designdarstellung und löst eine Aktualisierung aus, wodurch keine Abhängigkeiten zwischen der Darstellung des Designs und der Bearbeitung des Designs bestehen. Beide Komponenten greifen lediglich auf die selbe Designstruktur zu.  
 Die \emph{Container}-Komponente \emph{Stage.tsx} verbindet alle Komponenten, die für die Bearbeitung des Designs Notwendig sind. Hierzu gehören grafisch Komponente zur Darstellung von Auswahlrahmen, eine Texteingabe sowie Hilfswerkzeugen, wie einem Lineal oder einem Gitter. 
 Desweiteren ist sie mit dem \emph{Redux-Store} verbunden und ruft sie verschieden \emph{Redux-Actions}. 
 Mit  1260 Quelltextzeilen, 51 Funktionen und 46 Importen, handelt es sich um die komplexeste Komponente des FreeDesign-Editor und kann als eine \emph{Man-in-the-middle-Klasse} bezeichnet werden. Hierbei handelt es sich um ein Antimuster bei dem eine Klasse zu viele zuständigkeiten hat \autocite[vgl.][619]{Geirhos2015}.
 Im allgemeinen ist der Quelltext und die Abhängigkeiten für die Designbearbeitung sehr komplex und ungenügend strukturiert. 
-Ein Darstellung der gesamten Abhängigkeiten ist im Anhang unter \emph{D1\_Designbearbeitung.html} enthalten.
+Ein Darstellung der gesamten Abhängigkeiten ist im Anhang unter \emph{D2\_Designbearbeitung.html} enthalten.
 Das bearbeiten eines Designs ist die Kernfunktionalität des FreeDesign-Editor und sollte von einer Soll-Architektur aus der restlichen Anwendung als entkoppelte Komponente extrahiert werden. 
 
 

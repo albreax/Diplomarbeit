@@ -15,7 +15,8 @@ Die Abbildung \ref{fig:Designdarstellung} weißt die Abhängigkeiten der Designp
     \label{fig:Designdarstellung}
 \end{figure}
 
-Die Designpräsentation ist von einige Datenstrukturen und Funktionalen der \lstinline|core|-Komponente abhängig. 
+Die React-Komponente \lstinline|DesignPresenter.tsx| erzeugt, basierend auf eine Designstruktur welche innerhalb der Datei \lstinline|src/core/entities/FDDesign.ts| definiert ist, die SVG-Struktur zur Darstellung im Browser. Die Datei \lstinline|FDDesign.ts| enthält eine Sammlung von Schnittstellen, welche die verschieden Elemente eine Designs beschreiben.   
+Ein Darstellung der Strukturierung der Schnittstellen als Klassediagramm ist im Anhang unter \emph{D1\_FDDesign.pdf} enthalten.
 
 Folgende Bausteine wurden aus den Abhängigkeiten der Designpräsentation extrahiert.
 \begin{multicols}{2}
