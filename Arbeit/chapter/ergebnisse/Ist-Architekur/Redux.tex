@@ -1,4 +1,35 @@
 \subsection{Der globale Anwendungszustand}
+Die Struktur des Quelletext wird zentral durch die Verwendung von \emph{Redux} geprägt. Inner der Datei \lstinline|reducers/rootReducer.ts| ist die Schnittstellendefinition \lstinline|IApplicationState| enthalten, welche den Aufbau des \emph{Redux-Store} des FreeDesign-Editors beschreibt. Die Schnittstelle enthält Eigenschaften, die den globalen Zustand in Unterbereiche aufteilt. Der Aufbau wird durch Abbildung \ref{fig:IApplicationState} beschrieben. Diese Bereiche sind durch weitere Schnittstellendefinition beschrieben, die innerhalb der Typescript-Datei im Ordners \lstinline|stores| definiert sind. 
+Im Anhang ist die Tabelle T1\_Redux-State.pdf enthalten, welche die Aufgaben der Unterbereiche einordnet. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.3\textwidth]{diagrams/Ist-Architektur/IApplicationState.png}
+    \caption{Struktur der Schnittstelle \lstinline|IApplicationState| welche den \emph{Redux-State} des Freedesign-Editors beschreibt.}
+    \label{fig:IApplicationState}
+\end{figure}
+
+
+Im Anhang ist die Zip-Datei hinterlegt D1\_Redux.zip welche die Diagramme der Analyse der Redux-Struktur enthält.
+Die Datei enthält folgende drei Ordner:  
+\begin{itemize}
+    \item Der Ordner \lstinline|stores| enthält Diagramme, die die Abhängigkeiten der Typescript-Dateien unter \lstinline|stores| aufzeigen.
+    \item Der Ordner \lstinline|actions| enthält Diagramme, die die Abhängigkeiten der Typescript-Dateien unter \lstinline|actions| aufzeigen.
+    \item Der Ordner \lstinline|reducers| enthält Diagramme, die die Abhängigkeiten der Typescript-Dateien unter \lstinline|reducers| aufzeigen. 
+    \item Der Ordner \lstinline|containers| enthält Diagramme, die die Beziehung zwischen dem Order \lstinline|containers| und Redux-Ordner \lstinline|stores|, \lstinline|actions| und \lstinline|reducers| aufzeigen.
+\end{itemize}
+Alle Diagramme innerhalb der Ordner wurden mit dem Werkzeug \emph{Madge} erzeugt.
+Die Zip-Datei enthält weiterhin das Diagram \lstinline|redux.html| welches mit dem Werkzeug \emph{dependency-cruiser} erzeugt wurde.
+
+Basierend auf den Diagrammen wurde Abbildung \ref{fig:Redux} erstellt welche einen Überblick der Abhängigkeiten darstellt. Die Färbung der Beziehungspfeile dient Übersichtlichkeit des Diagrams.
+
+Die \emph{Container}-Komponenten innerhalb des Ordners \lstinline|containers| greifen auf Schnittstellendefinition innerhalb des Ordners \lstinline|stores| zu, sowie auf die Schnittstelle \lstinline|IApplicationState|. 
+Außerdem rufen sie \emph{Redux-Actions} aus dem Ordner \lstinline|actions| auf.
+
+Durch die Implementation von \emph{Redux-Actions} welche andere \emph{Redux-Actions} aufrufen, bestehen zwischen einigen  Actions Abhängigkeiten.  
+
+Jede \emph{Redux-Action} ist von einem spezifischen Typ, welche innerhalb des Ordners \lstinline|actions/types| definiert sind. Auf der Basis des Typ erzeugen die \emph{Redux-Reducer} einen neuen \emph{Redux-State}.
 
 \begin{figure}[H]
     \centering
@@ -9,58 +40,3 @@
 
 
 
-
-\begin{filecontents}{\jobname-storetable.tex}
-\newcommand{\minitab}[2][l]{\begin{tabular}{#1}#2\end{tabular}}
-    
-\begin{longtable}{l|X}
-\textbf{Schnittstelle} & \textbf{Beschreibung} \\ 
-\hline 
-
-\multirow{2}*{\minitab{IGuiState  \\ \lstinline|stores/guiState.ts|}}    & 
-Beschreibung des Zustands der grafischen Oberfläche des FreeDesign-Editors. 
-Beispiele hierfür sind die Darstellung von modalen Dialogen oder der Aufbau der Menüs. 
-
-\\
-
-\multirow{2}*{\minitab{IStageState     \\  \lstinline|stores/stageState.ts| }}      & 
-Vom Zustand der grafischen Oberfläche entkoppelt, wird durch die Schnittstellen \lstinline|IStageState| der Zustand der zentralen Oberfläche zur Produktbearbeitung (Stage) beschrieben.
-
-\\ 
-
-\multirow{2}*{\minitab{IProductState  \\   \lstinline|stores/productState.ts| }}   & 
-Die Zustandsbeschreibung des Produkts welches der Nutzer bearbeiten enthält, sowohl Information für Darstellung innherhalb des FreeDesign-Editors, als Informationen die für den Bestellprozess relevant sind.
-
-\\
-
-\multirow{2}*{\minitab{IDesignState   \\   \lstinline|stores/designState.ts| }}     & 
-Beschreibung des Designs welches der Nutzer bearbeiten. Desweiteren wird durch den Zustand eine Historie der Bearbeitungsschritte gepflegt.
-
-\\
-
-\multirow{2}*{\minitab{IApiState  \\ \lstinline|stores/apiState| }}           & 
-    Die bereits genannten Zustände, \lstinline|IProductState|, \lstinline|IDesignState|, \lstinline|IUserDesignState| und \lstinline|IUserState| werden von Werte belegt, die durch API bereitgestellt werden. Allerdings besitz der \emph{Redux-State} ein weiteres Unterobjekt, welches durch die Schnittstelle  \lstinline|IApiState| beschrieben wird und ebenfalls durch Daten der API beschrieben wird. Hierzu zählt eine Liste von Schriftarten, die innerhalb eines Designs genutzt werden können, sowie eine Liste der Bilder, die ein Kunde in seinem Design nutzt.  
-
-\\
-
-\multirow{2}*{\minitab{ICoreState   \\  \lstinline|@unitedprint/frontend-core|}} & 
-    Der Zustand \lstinline|core| wird vom Quelletext nicht genutzt und wurde mutmaßlich vergessen bei einem Refactoring zu entfernen.
-
-\\
-
-\multirow{2}*{\minitab{IUserState   \\  \lstinline|@unitedprint/frontend-core| }} & 
-    Die Struktur enthält Informationen des Nutzers, wie Kundenart oder Rechnungs- und Lieferaddresse. 
-
-\\
-
-\multirow{2}*{\minitab{ ITranslationsState \\ \lstinline|@unitedprint/frontend-core| }} & 
-    \lstinline|ITranslationsState| enthält eine Liste der Texte für die grafische Oberfläche.
-\\
-
-\multirow{2}*{\minitab{IUserDesignState \\ \lstinline|stores/userDesignState|  }}   & 
-Für das Verwalten von Metadaten eines Kundendesigns, wie der Designname unter dem ein Design gespeichert wurde oder der Zeitstempel, wann ein Design erstellt, wird durch die Schnittstelle \lstinline|IUserDesignState| beschrieben.
-\\
-
-\end{longtable}
-\end{filecontents}
-\LTXtable{\textwidth}{\jobname-storetable.tex}
