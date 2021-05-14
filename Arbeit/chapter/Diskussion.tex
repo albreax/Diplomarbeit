@@ -9,7 +9,11 @@
 %\paragraph{Kritik }
 %Eine gute Architektur zeichnet sich, basierend auf Robert C. Martin (\citeyear[S. 196 - 197]{Martin2018}), dadurch aus, dass sie keine Vorgaben über die verwendete Technologien macht und offen gebgenüber Technologieänderungen ist. 
 %Diese wird von der aktuellen Architektur auf der obersten Ordnerebene nicht erfüllt. Würde z.B. ein Technologwechsel zur Verwaltung des Anwendungszustands durchgeführt werden, würde das einen Änderung der Architektur bedeuten.
+
+Mit  1260 Quelltextzeilen, 51 Funktionen und 46 Importen, handelt es sich um die komplexeste Komponente des FreeDesign-Editor und kann als eine \emph{Man-in-the-middle-Klasse} bezeichnet werden. Hierbei handelt es sich um ein Antimuster bei dem eine Klasse zu viele zuständigkeiten hat \autocite[vgl.][619]{Geirhos2015}.
+
 %
 %Der aktuellen Architektur wurde zum Zeitpunkt ihrer Entwicklung kein Architekturmuster zugrunde gelegt, was viel Raum zu Interpretation der Architektur lässt. 
 
 % TODO: Diskussion Aufteilung der Redux-Files
+% TODO: Es war schwierig Diagramme zu erstellen, da keine klasse / interfaces
