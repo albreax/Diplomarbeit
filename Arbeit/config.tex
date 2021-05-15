@@ -114,20 +114,20 @@
 
 % table
 \usepackage{longtable}
-\usepackage{tabularx}
-\usepackage{multirow}
+\usepackage{tabularx,  multirow}
 \usepackage{ltxtable}
-
+ 
 % frame
 \usepackage{efbox,graphicx}
 \efboxsetup{linecolor=black,linewidth=.2pt}
 
 \newcounter{magicrownumbers}
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
-
+\newcommand\rownumbereset{\setcounter{magicrownumbers}{0}}
 % mute warnings
 \usepackage{silence}
 \WarningFilter{latex}{Writing or overwriting file}
+\WarningFilter{latex}{File `Diplomarbeit_Albrecht_Naumann-storetable.tex' already exists on the system.}
 %
 % PDF output
 %
