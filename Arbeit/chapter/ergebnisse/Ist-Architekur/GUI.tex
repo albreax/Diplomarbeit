@@ -1,11 +1,155 @@
 % GUI.tex
 \subsection{Grafische Oberfläche}
-Die grafische Oberfläche bindet den Baustein zum Designbearbeitung und damit auch die Bausteine Design- und Produktdarstellung ein. Um diese Bausteine herum sind verschiedenste grafische Elemente integriert, die das Bearbeiten des Design unterstützen, sowie die Produktkonfiguration. Außerdem sind Elemente zur steuern  und visualisieren von Kundendaten enthalten, wie das Speicher und Öffnen von Designentwürfen oder die Anzeige des Warenkorbs.
-Die Abhängigkeiten der grafischen Oberfläche sind sehr komplex und sind in der Darstellung \emph{D3\_Grafische\_Oberfläche.html} visualisiert. 
 
-Die grafische Oberfläche ist auch das volatilste Element des FreeDesign-Editors und unterliegt ständiger Änderungen und Erweiterungen. Basierend auf Martin (\citeyear[119]{Martin2018}) sollte der volatile Teile eines Quelltext von stabilen Teile isoliert werden. Gerade im Quelltext für die Bereitstellung der Funktionalitäten zu Verschieben, Rotieren und Skalieren von Designobjekt besteht die Gefahr, dass Änderungen der Grafischen Darstellung dem stabile Quelltext für Objekt-Transformationen beschädigt. 
-Folgende Bausteine der grafischen Oberfläche wurden identifiziert.
+Zentral verantwortlich für die Darstellung der grafischen Oberfläche sind die \emph{Container}-Komponenten im Ordner \lstinline|containers|. Wie bereits in  Abschnitt \ref{sec:overview} erwähnt, nutzt die Container für die Darstellung ReactJS-Komponenten aus dem Ordner \lstinline|components|.
+Diese Komponenten sind somit nicht and den \emph{Redux-State} gebunden und rufen keine \emph{Redux-Actions} auf.
+In Tabelle \ref{table:compMap} wird der Quelletext Bausteinen für zugeorden. Die Abhängigkeiten der sind sehr Umfangreich und lassen sich nicht sinnvoll Abbilden. Sie
+folgende jedoch stets dem selben Muster, welche durch die Abbildungen \ref{fig:obersteOrdnerebene} und \ref{fig:Redux} dargestellt wird.
 
-\begin{multicols}{2}    
-    \input{chapter/ergebnisse/Ist-Architekur/Komponenten/Komponenten-GUI.tex}
-\end{multicols}
+\begin{filecontents}[overwrite]{\jobname-con-map.tex}
+\begin{longtable}{r@{\hspace{5mm}}llX}
+\caption{Zuordnung des Quelltext der Ordner \lstinline|containers| und \lstinline|components| zu Bausteinen} \\
+\label{table:compMap}
+\rownumbereset
+& \textbf{Baustein} & \textbf{Quelltexte} \\
+\hline
+
+\hline
+\rownumber & Anwender-Menü 
+& containers/burgerMenu/* \\
+\hline
+
+\rownumber & Anwenderregistrierung 
+& containers/socialMedia/* \\
+& & containers/registerDialog/* \\
+\hline
+
+\rownumber & Bestätigungsdialog 
+& containers/confirmDialog/ \\ 
+\hline
+
+\rownumber & Bild-Upload 
+& containers/common/DragAndDropUpload.tsx \\
+& & containers/loadDesignImageDialog/* \\
+\hline 
+
+\rownumber & Bildmaskeneditor 
+& containers/imageMaskEditor/* \\
+\hline 
+
+\rownumber & Design-Migration 
+& containers/customerDesignMigration/*\\ 
+\hline 
+
+\rownumber & Designbearbeitung 
+& containers/stage/* \\
+& & components/svgRenderers/pageAssets/\\ 
+& & \>EmptyImageBox.tsx \\
+\hline
+
+\rownumber & Designdarstellung 
+& components/svgRenderers/\\ 
+& & \>SVGTextRenderer.tsx \\
+& & \>SVGImageRenderer.tsx \\
+& & \>pageAssets/BackgroundImage.tsx \\
+& & \>SVGItemRenderer.tsx \\
+& & \>SVGDefsRenderer.tsx \\
+& & \>SVGPageRenderer.tsx \\
+& & \>index.ts \\
+& & components/designPresenter/\\ 
+& & \>DesignPresenter.tsx \\
+\hline 
+
+\rownumber & Designelementauswahl 
+& containers/selectionLayer/* \\
+\hline 
+
+\rownumber & Designgalerie 
+& containers/customerDesignsGallery/\\
+\hline 
+
+\rownumber & Dialogfenster 
+& containers/modalContainer/ModalContainer.tsx \\
+\hline 
+
+\rownumber & Fotogalerie 
+& containers/photoGallery/* \\
+& & containers/customerPhotoGallery/* \\
+\hline 
+
+\rownumber & Fehlerdialog 
+& containers/crashReport/* \\
+\hline 
+
+\rownumber & Fußleiste 
+& containers/Footer.tsx \\
+\hline 
+
+\rownumber & Grafische-Oberfläche 
+& components/* \\
+& & components/controller/\\ 
+& & \>rangeInputBox/RangeInputBox.tsx \\
+\hline 
+
+\rownumber & Kalenderkonfigurator 
+& containers/calendarDialog/* \\
+\hline 
+
+\rownumber & Kopfleiste 
+& containers/Header.tsx \\
+\hline 
+
+\rownumber & Kurzinformation 
+& containers/tooltip/* \\
+\hline 
+
+\rownumber & Produktdarstellung 
+& components/pagePresenter/* \\
+& & components/svgRenderers/pageAssets/\\ 
+& & \>PageLabels.tsx \\
+& & \>GutterLines.tsx \\
+& & \>BleedLines.tsx \\
+& & \>SVGNonPrintAreaRenderer.tsx \\
+& & \>FoldLines.tsx \\
+& & components/svgRenderers/\\ 
+& & \>SVGProductImageRenderer.tsx \\
+\hline 
+
+\rownumber & Produktkonfigurator 
+& containers/checkoutBox/* \\
+\hline 
+
+\rownumber & Referenzwerkzeug 
+& containers/reference/* \\
+\hline 
+
+\rownumber & Speicherkomponente 
+& containers/changeDesignNameDialog/* \\
+\hline 
+
+\rownumber & Tastatur-Kurzbefehle 
+& containers/common/Shortcuts.tsx \\
+\hline 
+
+\rownumber & Warenkorb 
+& containers/shoppingCart/* \\
+\hline 
+
+\rownumber & Werkzeugmenü 
+& containers/menues/toolbox/* \\
+\hline 
+
+\end{longtable}
+\end{filecontents}
+\LTXtable{\linewidth}{\jobname-con-map.tex}
+
+
+% Die grafische Oberfläche bindet den Baustein zum Designbearbeitung und damit auch die Bausteine Design- und Produktdarstellung ein. Um diese Bausteine herum sind verschiedenste grafische Elemente integriert, die das Bearbeiten des Design unterstützen, sowie die Produktkonfiguration. Außerdem sind Elemente zur steuern  und visualisieren von Kundendaten enthalten, wie das Speicher und Öffnen von Designentwürfen oder die Anzeige des Warenkorbs.
+% Die Abhängigkeiten der grafischen Oberfläche sind sehr komplex und sind in der Darstellung \emph{D3\_Grafische\_Oberfläche.html} visualisiert. 
+
+% Die grafische Oberfläche ist auch das volatilste Element des FreeDesign-Editors und unterliegt ständiger Änderungen und Erweiterungen. Basierend auf Martin (\citeyear[119]{Martin2018}) sollte der volatile Teile eines Quelltext von stabilen Teile isoliert werden. Gerade im Quelltext für die Bereitstellung der Funktionalitäten zu Verschieben, Rotieren und Skalieren von Designobjekt besteht die Gefahr, dass Änderungen der Grafischen Darstellung dem stabile Quelltext für Objekt-Transformationen beschädigt. 
+% Folgende Bausteine der grafischen Oberfläche wurden identifiziert.
+
+% \begin{multicols}{2}    
+%     \input{chapter/ergebnisse/Ist-Architekur/Komponenten/Komponenten-GUI.tex}
+% \end{multicols}
