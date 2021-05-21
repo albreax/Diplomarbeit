@@ -1,6 +1,7 @@
 % Status: Zweitkorrekt
 \subsection{Analyseergebnis der obersten Ordnerebene}
 \subsubsection{Übersicht der obersten Ordnerebene}
+\label{sec:overview}
 Die Quelltextdateien, welche die Anwendungen beschreiben, sind innerhalb des Ordners \lstinline|src| organisiert. 
 % Die obersten Ordnerebene des \emph{src}-Ordner spiegelt die Architektur der Anwendung auf höchster Ebene wider.
 Abbildung \ref{fig:obersteOrdnerebene} stellt die Zusammenhänge der obersten Ordnereben innerhalb des Ordners als Abhängigkeitsgraph dar. 
@@ -11,6 +12,8 @@ Abbildung \ref{fig:obersteOrdnerebene} stellt die Zusammenhänge der obersten Or
 	\label{fig:obersteOrdnerebene}
 	\includegraphics{diagrams/Ist-Architektur/Projektuebersicht.pdf}
 \end{figure}
+
+% TODO: auf @unitedprint/frontend-core eingehen
 
 Der Abhängigkeitsgraph zeigt sämtliche Ordner die im Ordner \lstinline|src| enthalten sind, so wie die TypeScript-Dateien \lstinline|freedesign.tsx| und \lstinline|draftImporterCli.tsx|, die ebenfalls im Ordner \lstinline|src| hinterlegt sind.  
 
@@ -23,9 +26,9 @@ Enthält ein Ordner ungenutzten Quelltext, wird dies durch einen orangen Rahmen 
 \paragraph{Der Ordner \emph{core}} ist für den Anwendungskern vorgesehen und enthält Geschäftslogik sowie grundlegende Funktionalitäten und Datenstrukturen der Anwendung. 
 Es ist vorgesehen, dass umgebender Quelletext auf den Quelltext des \lstinline|core|-Ordners zugreifen darf, jedoch ist der Zugriff aus dem \lstinline|core|-Ordner heraus auf den umgebenden Quelletext untersagt. Dem Ordner mangelt es an einer klaren Strukturierung, auf Grund deren die richtige Zuordnung und das Auffinden der Geschäftslogik schwierig sind. 
 
-\paragraph{Im Ordner \emph{components}} sind sämtliche React-Komponenten zur Erzeugung der grafischen Oberfläche enthalten. Darunter zählen Komponenten zur Erzeugung von Menüs, Dialogen oder auch Werkzeuge zu Designbearbeitung. Die Komponenten besitzen keine Verbindung zum \emph{Redux-State} und rufen keine \emph{Redux-Actions} auf. Die Komponenten können bei der Verwendung mit Eigenschaften versehen werden und damit an Redux gebunden werden. Dadurch ist das Verwenden der React-Komponenten in unterschiedlichen Kontexten möglich.
+\paragraph{Im Ordner \emph{components}} sind React-Komponenten zur Erzeugung der grafischen Oberfläche enthalten. Darunter zählen Komponenten zur Erzeugung von Menüs, Dialogen oder auch Werkzeuge zu Designbearbeitung. Die Komponenten besitzen keine Verbindung zum \emph{Redux-State} und rufen keine \emph{Redux-Actions} auf. Die Komponenten können bei der Verwendung mit Eigenschaften versehen werden und damit an Redux gebunden werden. Dadurch ist das Verwenden der React-Komponenten in unterschiedlichen Kontexten möglich.
 
-\paragraph{Der Ordner \emph{containers}} enthält Komponenten (Container-Komponenten), welche die \emph{ReactJS}-Komponenten aus dem Ordner \lstinline|{components| mit den \emph{Redux-State} sowie \emph{Redux-Actions} verbindet. Somit verbinden die Container-Komponenten die grafische Oberfläche der Anwendung mit Redux.
+\paragraph{Der Ordner \emph{containers}} enthält Komponenten (Container-Komponenten), welche die \emph{ReactJS}-Komponenten aus dem Ordner \lstinline|components| mit den \emph{Redux-State} sowie \emph{Redux-Actions} verbindet. Somit verbinden die Container-Komponenten die grafische Oberfläche der Anwendung mit Redux.
 
 % Ein Beispiel hierfür ist der \emph{Container} \lstinline|LoginDialog.tsx|, welcher das Anmeldeformular für die Kundenanmeldung erzeugt. Dieser nutzt Formularelemente und Schaltflächen aus dem \emph{components}-Ordner zur Erzeugung der grafischen Oberfläche. Für die Prüfung, ob der Kunden erfolgreich angemeldet ist, greift der Dialog auf die Kundendaten zu, die im \emph{Redux-State} verwaltet werden. Über eine \emph{Redux-Action} wird die Anmeldung durchgeführt, welche vom \emph{Container} aufgerufen wird. Dadurch das die grafischen Formularelement und Schaltflächen nicht an den Anwendungszustand gebunden sind, konnten sie z.B. auch in einem Dialog zur Kundenregistrierung verwendet werden.
 

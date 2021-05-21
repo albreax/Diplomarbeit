@@ -1,5 +1,8 @@
 % Status überarbeitet
 % Status Zweitkorrekt 
+
+%TODO: Zitiere mar_02_archeology.pdf  => Instead of hiding in a “duck blind” (warum high level)
+
 \section{Analyse der statischen Ist-Architektur}
 
 \subsection{Reverse Engineering}
@@ -205,6 +208,17 @@ npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot
 
 
 \subsection{Identifikation von Bausteinen}
+
+%TODO: For instance, Ward
+% Cunningham’s Signature Survey
+% method (http://c2.com/doc/SignatureSurvey)
+% reduces each source file
+% to a single line of the punctuation.
+% It’s a surprisingly powerful way of
+% seeing a file’s structure.
+
+% TODO: Zitat: Comparison_of_Software_Architecture_Reverse_Engineering_Methods.pdf => by Bow- man et al. [3] fits into this framework: the reverse architecting starts with iden- tifying components as clusters of files.
+
 Starke und Hruschka bezeichnen die Komponenten eines Softwaresystems als Bausteine, die miteinander in Beziehungen stehen \autocite[vgl.][24]{Starke2011}. Diese Bezeichnung wird auch in der vorliegenden Diplomarbeit angewendet, um einer Verwechselung zwischen Softwarebausteinen und React-Komponenten vorzubeugen.
 
 Mit Hilfe der Abhängigkeitsgraphen wurden die Bausteine, aus denen der FreeDesign-Editor besteht, identifiziert. 
