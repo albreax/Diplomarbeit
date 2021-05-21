@@ -4,7 +4,7 @@
 \label{sec:overview}
 Die Quelltextdateien, welche die Anwendungen beschreiben, sind innerhalb des Ordners \lstinline|src| organisiert. 
 % Die obersten Ordnerebene des \emph{src}-Ordner spiegelt die Architektur der Anwendung auf höchster Ebene wider.
-Abbildung \ref{fig:obersteOrdnerebene} stellt die Zusammenhänge der obersten Ordnereben innerhalb des Ordners als Abhängigkeitsgraph dar. 
+Abbildung \ref{fig:obersteOrdnerebene} stellt die funktionalen Zusammenhänge der obersten Ordnereben innerhalb des Ordners als Abhängigkeitsgraph dar.  
 % Wird innerhalb eines Ordners Quelltext aus einem benachbarten Ordner importiert, wird dies durch eine Pfeilspitze am benachbarten Ordner gekennzeichnet. Beispielsweise importiert Quelltext innherhalb des Ordners \lstinline|designToSvgCLI| Quelltext aus dem Ordner \lstinline|core|.
 \begin{figure}[H]
 	\centering
@@ -13,7 +13,6 @@ Abbildung \ref{fig:obersteOrdnerebene} stellt die Zusammenhänge der obersten Or
 	\includegraphics{diagrams/Ist-Architektur/Projektuebersicht.pdf}
 \end{figure}
 
-% TODO: auf @unitedprint/frontend-core eingehen
 
 Der Abhängigkeitsgraph zeigt sämtliche Ordner die im Ordner \lstinline|src| enthalten sind, so wie die TypeScript-Dateien \lstinline|freedesign.tsx| und \lstinline|draftImporterCli.tsx|, die ebenfalls im Ordner \lstinline|src| hinterlegt sind.  
 
