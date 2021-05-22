@@ -1,9 +1,36 @@
-\subsection{Zusammenfassung der Ist-Architektur}
-% Auf fehlendes SOLID eingehen
+\subsection{Zusammenfassung}
+Das vorangegangene Kapitel zeigt die grundlegende Sturkur des Quelletext für den FreeDesign-Editor. 
+Es wurden ingesamt 53 Bausteine identifiziert. Die im Anhang enthaltene Tabelle T2\_Quelltextzuordnung.html enthält zu jedem Baustein die zugeordneten Quelletextbestandteile.  
+
+Der, durch das Werkzeug \emph{dependency-cruiser} erstellte, Validierungsreport, weißt 14 zyklische funktionale Abhängigkeiten auf.
+Innherhalb des Ordners \lstinline|actions| sind 11 Zyklen enthalten, die durch das Aufrufen von \emph{Redux-Actions} innerhalb anderer Actions verursacht werden. 
+Im Ordner \lstinline|components| sind zwei Zyklen endhalten und innherhalb des Ordners \lstinline|core| ist ein Zyklus enthalten.
+Der Report weißt weiterhin 17 funktionale Zugriffe auf, die durch die Konfiguration ausgeschlossen sind. 
+Die Tabelle \ref{table:not_allowed} enthält einen Überblick der nichtgestatteten Zugriffe.
+\newpage
+\begin{table}
+    \centering
+    \caption{Übersicht der nicht gestatteten Zugriffe.}
+    \begin{tabular}{c|c|c}        
+        \label{table:not_allowed}
+        Anz. & von Ordner & zu Ordner \\
+        \hline
+        2 & actions & components \\
+        1 & actions & containers \\
+        8 & components & stores \\
+        2 & components & containers \\
+        2 & reducers & components \\
+        2 & utils & components \\
+    \end{tabular}
+\end{table}    
+ 
+Das Werkzeug endeckte außerdem 36 Quelletext-Fragmente, die nicht verwendet werden. 
+Im Anhang ist die Tabelle T3\_Validierungsreport.html endhalten, die den gesamten Report, mit den betroffen Dateien aufweißt. 
+
 % Übersicht der Quelltextzuordnung im Anhang
 
 % TODO: Bausteine Clustern
-
+% TODO: Validation report
 
 % \subsection{Unit-Tests im FreeDesign-Projekt}
 % Die Entwicklung des FreeDesign-Projektes wird aktuell mit über 1300 Tests in 181 Testdateien abgesichert. 
