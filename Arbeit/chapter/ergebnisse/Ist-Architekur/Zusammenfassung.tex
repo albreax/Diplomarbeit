@@ -2,10 +2,10 @@
 Das vorangegangene Kapitel zeigt die grundlegende Sturkur des Quelletext für den FreeDesign-Editor. 
 Es wurden ingesamt 53 Bausteine identifiziert. Die im Anhang enthaltene Tabelle T2\_Quelltextzuordnung.html enthält zu jedem Baustein die zugeordneten Quelletextbestandteile.  
 
-Der, durch das Werkzeug \emph{dependency-cruiser} erstellte, Validierungsreport, weißt 14 zyklische funktionale Abhängigkeiten auf.
+Der Validierungsreport, der mit dem Werkzeug \emph{dependency-cruiser} erstellt wurde, weißt 14 zyklische funktionale Abhängigkeiten auf.
 Innherhalb des Ordners \lstinline|actions| sind 11 Zyklen enthalten, die durch das Aufrufen von \emph{Redux-Actions} innerhalb anderer Actions verursacht werden. 
 Im Ordner \lstinline|components| sind zwei Zyklen endhalten und innherhalb des Ordners \lstinline|core| ist ein Zyklus enthalten.
-Der Report weißt weiterhin 17 funktionale Zugriffe auf, die durch die Konfiguration ausgeschlossen sind. 
+Der Report weißt weiterhin 17 funktionale Zugriffe auf, die durch die Konfiguration des Werkzeugs ausgeschlossen sind. 
 Die Tabelle \ref{table:not_allowed} enthält einen Überblick der nichtgestatteten Zugriffe.
 \newpage
 \begin{table}

@@ -1,5 +1,5 @@
 \subsection{Der globale Anwendungszustand}
-Die Struktur des Quelletext wird zentral durch die Verwendung von \emph{Redux} geprägt. Inner der Datei \lstinline|reducers/rootReducer.ts| ist die Schnittstellendefinition \lstinline|IApplicationState| enthalten, welche den Aufbau des \emph{Redux-Store} des FreeDesign-Editors beschreibt. Die Schnittstelle enthält Eigenschaften, die den globalen Zustand in Unterbereiche aufteilt. Der Aufbau wird durch Abbildung \ref{fig:IApplicationState} beschrieben. Diese Bereiche sind durch weitere Schnittstellendefinition beschrieben, die innerhalb der Typescript-Datei im Ordners \lstinline|stores| definiert sind. 
+Die Struktur des Quelletext wird durch die Verwendung von \emph{Redux} geprägt. Innerhalb der Datei \lstinline|reducers/rootReducer.ts| ist die Schnittstellendefinition \lstinline|IApplicationState| enthalten, welche den Aufbau des \emph{Redux-Store} des FreeDesign-Editors beschreibt. Die Schnittstelle enthält Eigenschaften, die den globalen Zustand in Unterbereiche aufteilt (Abbildung \ref{fig:IApplicationState}). Der Aufbau dieser Bereiche sind durch weitere Schnittstellendefinitionen beschrieben, die innerhalb der Typescript-Dateien im Ordners \lstinline|stores| implementiert sind. 
 Im Anhang ist die Tabelle T1\_Redux-State.pdf enthalten, welche die Aufgaben der Unterbereiche einordnet. 
 
 
@@ -20,11 +20,11 @@ Die Datei enthält folgende drei Ordner:
     \item Der Ordner \lstinline|containers| enthält Diagramme, die die Beziehung zwischen dem Order \lstinline|containers| und Redux-Ordner \lstinline|stores|, \lstinline|actions| und \lstinline|reducers| aufzeigen.
 \end{itemize}
 Alle Diagramme innerhalb der Ordner wurden mit dem Werkzeug \emph{Madge} erzeugt.
-Die Zip-Datei enthält weiterhin das Diagram \lstinline|redux.html| welches mit dem Werkzeug \emph{dependency-cruiser} erzeugt wurde.
+Die Zip-Datei enthält weiterhin das Diagram \lstinline|redux.html| welches mit dem Werkzeug \emph{dependency-cruiser} erzeugt wurde und die funktionalen Abhängigkeiten zwischen den vier Ordnern darstellt.
 
-Basierend auf den Diagrammen wurde Abbildung \ref{fig:Redux} erstellt welche einen Überblick der Abhängigkeiten darstellt. Die Färbung der Beziehungspfeile dient Übersichtlichkeit des Diagrams.
+Basierend auf den Diagrammen wurde Abbildung \ref{fig:Redux} erstellt welches einen Überblick der Abhängigkeiten darstellt. Die Färbung der Beziehungspfeile dient Übersichtlichkeit des Diagrams und haben keine inhaltliche Aussage.
 
-Die \emph{Container}-Komponenten innerhalb des Ordners \lstinline|containers| greifen auf Schnittstellendefinition innerhalb des Ordners \lstinline|stores| zu, sowie auf die Schnittstelle \lstinline|IApplicationState|. 
+Die \emph{Container}-Komponenten im Ordner \lstinline|containers| greifen auf die Schnittstellendefinition innerhalb des Ordners \lstinline|stores| zu, sowie auf die Schnittstelle \lstinline|IApplicationState|. 
 Außerdem rufen sie \emph{Redux-Actions} aus dem Ordner \lstinline|actions| auf.
 
 Durch die Implementation von \emph{Redux-Actions} welche andere \emph{Redux-Actions} aufrufen, bestehen zwischen einigen  Actions Abhängigkeiten.  
@@ -33,7 +33,7 @@ Jede \emph{Redux-Action} ist von einem spezifischen Typ, welche innerhalb des Or
 
 \begin{figure}[H]
     \centering
-    \caption{Darstellung der Zusammenhänge zwischen den \lstinline|store| \lstinline|actions| und \lstinline|reducers|}
+    \caption{Darstellung der Zugriffe zwischen den Ordnern \lstinline|store|, \lstinline|actions| und \lstinline|reducers|.}
     \includegraphics[width=1\textwidth]{diagrams/Ist-Architektur/Redux.pdf}
     \label{fig:Redux}
 \end{figure}
