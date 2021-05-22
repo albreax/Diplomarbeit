@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>dependency-cruiser - results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            margin: 0 auto;
+            max-width: 90%;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #444;
+            padding: 0 10px;
+            background-color: #fff;
+        }
+
+        footer {
+            color: gray;
+            margin-top: 1.4em;
+            border-top: solid 1px currentColor
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        a.noiseless {
+            color: currentColor
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 4px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(128, 128, 128, 0.2);
+        }
+
+        .error {
+            color: red;
+        }
+
+        .warn {
+            color: orange;
+        }
+
+        .info {
+            color: blue;
+        }
+
+        .ok {
+            color: limegreen;
+        }
+
+        td.nowrap {
+            white-space: nowrap
+        }
+
+        svg {
+            fill: currentColor
+        }
+
+        #show-unviolated {
+            display: block
+        }
+
+        #hide-unviolated {
+            display: none
+        }
+
+        #show-all-the-rules:target #show-unviolated {
+            display: none
+        }
+
+        #show-all-the-rules:target #hide-unviolated {
+            display: block
+        }
+
+        tr.unviolated {
+            display: none
+        }
+
+        #show-all-the-rules:target tr.unviolated {
+            display: table-row;
+            color: gray;
+        }
+
+        .p__svg--inline {
+            vertical-align: top;
+            width: 1.2em;
+            height: 1.2em
+        }
+
+        .controls {
+            background-color: #fff;
+            vertical-align: bottom;
+            text-align: center
+        }
+
+        .controls:hover {
+            opacity: 1;
+        }
+
+        .controls a {
+            text-decoration: none;
+            color: gray;
+        }
+
+        .controls a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        .extra {
+            color: gray;
+        }
+    </style>
+    <style type="text/css" media="print">
+        th,
+        td {
+            border: 1px solid #444;
+        }
+
+        .controls {
+            display: none
+        }
+    </style>
+</head>
+
+<body id="show-all-the-rules">
+    <h1>Forbidden dependency check - results</h1>
+    <h2><svg class="p__svg--inline" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+            <path fill-rule="evenodd"
+                d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8h-2.5z"></path>
+        </svg> Summary</h2>
+    <p>
+        <div style="float:left;padding-right:20px">
+            <strong>370</strong> modules
+        </div>
+        <div style="float:left;padding-right:20px">
+            <strong>1146</strong> dependencies
+        </div>
+        <div style="float:left;padding-right:20px">
+            <strong>14</strong> errors
+        </div>
+        <div style="float:left;padding-right:20px">
+            <strong>60</strong> warnings
+        </div>
+        <div style="float:left;padding-right:20px">
+            <strong>0</strong> informational
+        </div>
+        &nbsp;
+    </p>
+    <table>
+        <tbody>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>severity</th>
+                    <th>rule</th>
+                    <th>#&nbsp;violations</th>
+                    <th>explanation</th>
+                </tr>
+            </thead>
+            <tr >
+                <td><span
+                        class="warn">&cross;</span></td>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-instance" id="no-orphans-definition" class="noiseless">no-orphans</a>
+                </td>
+                <td><strong>36</strong></td>
+                <td></td>
+            </tr>
+            <tr >
+                <td><span
+                        class="warn">&cross;</span></td>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-instance" id="not-in-allowed-definition" class="noiseless">not-in-allowed</a>
+                </td>
+                <td><strong>24</strong></td>
+                <td>-</td>
+            </tr>
+            <tr >
+                <td><span
+                        class="error">&cross;</span></td>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-instance" id="no-circular-definition" class="noiseless">no-circular</a>
+                </td>
+                <td><strong>14</strong></td>
+                <td></td>
+            </tr>
+            <tr class="unviolated" >
+                <td><span class="ok">&check;</span></td>
+                <td class="">error</td>
+                <td class="nowrap"><a href="#no-src-to-test-instance" id="no-src-to-test-definition" class="noiseless">no-src-to-test</a>
+                </td>
+                <td><strong>0</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="controls">
+                    <div id="show-unviolated">
+                        &downarrow; <a href="#show-all-the-rules">also show unviolated rules</a>
+                    </div>
+                    <div id="hide-unviolated">
+                        &uparrow; <a href="">hide unviolated rules</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2><svg class="p__svg--inline" viewBox="0 0 12 16" version="1.1" aria-hidden="true">
+            <path fill-rule="evenodd"
+                d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z">
+            </path>
+        </svg> All violations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>severity</th>
+                <th>rule</th>
+                <th>from</th>
+                <th>to</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/ApiActions.ts">src/actions/ApiActions.ts</a></td>
+                <td>src/actions/GuiActions.ts &rightarrow;<br/>src/actions/ApiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/ApiActions.ts">src/actions/ApiActions.ts</a></td>
+                <td>src/actions/ImageApiActions.ts &rightarrow;<br/>src/actions/GuiActions.ts &rightarrow;<br/>src/actions/ApiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/ApiActions.ts">src/actions/ApiActions.ts</a></td>
+                <td>src/actions/UserDesignActions.ts &rightarrow;<br/>src/actions/ApiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/GuiActions.ts">src/actions/GuiActions.ts</a></td>
+                <td>src/actions/ProductApiActions.ts &rightarrow;<br/>src/actions/GuiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/GuiActions.ts">src/actions/GuiActions.ts</a></td>
+                <td>src/actions/StageActions.ts &rightarrow;<br/>src/actions/GuiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/GuiActions.ts">src/actions/GuiActions.ts</a></td>
+                <td>src/actions/UserDesignActions.ts &rightarrow;<br/>src/actions/GuiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/ImageApiActions.ts">src/actions/ImageApiActions.ts</a></td>
+                <td>src/actions/StageActions.ts &rightarrow;<br/>src/actions/GuiActions.ts &rightarrow;<br/>src/actions/ApiActions.ts &rightarrow;<br/>src/actions/ImageApiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/ProductApiActions.ts">src/actions/ProductApiActions.ts</a></td>
+                <td>src/actions/ApiActions.ts &rightarrow;<br/>src/actions/GuiActions.ts &rightarrow;<br/>src/actions/ProductApiActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/StageActions.ts">src/actions/StageActions.ts</a></td>
+                <td>src/actions/UserDesignActions.ts &rightarrow;<br/>src/actions/ApiActions.ts &rightarrow;<br/>src/actions/GuiActions.ts &rightarrow;<br/>src/actions/StageActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/UserDesignActions.ts">src/actions/UserDesignActions.ts</a></td>
+                <td>src/actions/DesignActions.ts &rightarrow;<br/>src/actions/ApiActions.ts &rightarrow;<br/>src/actions/UserDesignActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/actions/UserDesignActions.ts">src/actions/UserDesignActions.ts</a></td>
+                <td>src/actions/ImageApiActions.ts &rightarrow;<br/>src/actions/GuiActions.ts &rightarrow;<br/>src/actions/UserDesignActions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/components/menus/colorMenu/ColorMenu.tsx">src/components/menus/colorMenu/ColorMenu.tsx</a></td>
+                <td>src/components/menus/colorMenu/subMenus/colorMenuSwitch/ColorMenuSwitch.tsx &rightarrow;<br/>src/components/menus/colorMenu/ColorMenu.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/components/svgRenderers/SVGItemRenderer.tsx">src/components/svgRenderers/SVGItemRenderer.tsx</a></td>
+                <td>src/components/svgRenderers/SVGImageRenderer.tsx &rightarrow;<br/>src/components/svgRenderers/SVGItemRenderer.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="error">error</td>
+                <td class="nowrap"><a href="#no-circular-definition" id="no-circular-instance"
+                        class="noiseless">no-circular</a></td>
+                <td><a href="src/core/geom/point.ts">src/core/geom/point.ts</a></td>
+                <td>src/core/helpers/FDMath.ts &rightarrow;<br/>src/core/geom/point.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/actions/types/FormActionTypes.ts">src/actions/types/FormActionTypes.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/actions/types/UserActionTypes.ts">src/actions/types/UserActionTypes.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/common/dialogBoxes/index.ts">src/components/common/dialogBoxes/index.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/common/dialogBoxes/Upload.tsx">src/components/common/dialogBoxes/Upload.tsx</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/common/dropDownList/index.ts">src/components/common/dropDownList/index.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/common/saveDialogBox/SaveDialogBox.tsx">src/components/common/saveDialogBox/SaveDialogBox.tsx</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/controller/hoverMenu/MenuOption.ts">src/components/controller/hoverMenu/MenuOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/controller/rotationBox/RotationBox.tsx">src/components/controller/rotationBox/RotationBox.tsx</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/menus/designItemMenu/DesignItemMenuInterfaces.tsx">src/components/menus/designItemMenu/DesignItemMenuInterfaces.tsx</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/components/menus/toolBox/subMenus/productConfigTools/index.ts">src/components/menus/toolBox/subMenus/productConfigTools/index.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/cli/index.ts">src/core/cli/index.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/common/Calendar.ts">src/core/common/Calendar.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/common/Gallery.ts">src/core/common/Gallery.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/common/MenuOption.ts">src/core/common/MenuOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/design/designTemplate/index.ts">src/core/design/designTemplate/index.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/design/ITextSelection.ts">src/core/design/ITextSelection.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/DateInterfaces.ts">src/core/entities/DateInterfaces.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/IFontData.ts">src/core/entities/IFontData.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/FDProductGroup.ts">src/core/entities/product/FDProductGroup.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/IAbstractProductPropertyOption.ts">src/core/entities/product/IAbstractProductPropertyOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/IDeliveryCountryOption.ts">src/core/entities/product/IDeliveryCountryOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/IDeliveryOption.ts">src/core/entities/product/IDeliveryOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/IProductProperty.ts">src/core/entities/product/IProductProperty.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/IPropertyGroupBoxOption.ts">src/core/entities/product/IPropertyGroupBoxOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/IQuantityOption.ts">src/core/entities/product/IQuantityOption.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/entities/product/PropertyGroup.ts">src/core/entities/product/PropertyGroup.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/product/IPage.ts">src/core/product/IPage.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/core/validations/RangeInputValidations.ts">src/core/validations/RangeInputValidations.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/services/clipboard/IClipboardService.ts">src/services/clipboard/IClipboardService.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/services/HttpService.ts">src/services/HttpService.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/services/IApiRequest.ts">src/services/IApiRequest.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/services/IFontService.ts">src/services/IFontService.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/stores/designState.ts">src/stores/designState.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/stores/productState.ts">src/stores/productState.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/stores/stageState.ts">src/stores/stageState.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#no-orphans-definition" id="no-orphans-instance"
+                        class="noiseless">no-orphans</a></td>
+                <td><a href="src/stores/userDesignState.ts">src/stores/userDesignState.ts</a></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/actions/EditDesignActions.ts">src/actions/EditDesignActions.ts</a></td>
+                <td>src/components/selection/svgSelectionBox/index.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/actions/ProductApiActions.ts">src/actions/ProductApiActions.ts</a></td>
+                <td>src/containers/checkoutBox/index.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/actions/StageActions.ts">src/actions/StageActions.ts</a></td>
+                <td>src/components/svgRenderers/index.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/common/dialogBoxes/Message.tsx">src/components/common/dialogBoxes/Message.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/common/dropDownList/DropDownDesignItemMenu.tsx">src/components/common/dropDownList/DropDownDesignItemMenu.tsx</a></td>
+                <td>src/containers/common/Draggable/Draggable.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/controller/itemStylingButtons/fontController/textStyleBar/TextStyleBar.tsx">src/components/controller/itemStylingButtons/fontController/textStyleBar/TextStyleBar.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/controls/Controls.tsx">src/components/controls/Controls.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/menus/colorMenu/ColorMenu.tsx">src/components/menus/colorMenu/ColorMenu.tsx</a></td>
+                <td>src/containers/common/Draggable/Draggable.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/menus/designItemMenu/DesignItemMenuComponent.tsx">src/components/menus/designItemMenu/DesignItemMenuComponent.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/menus/toolBox/subMenus/addItemTools/AddItemTools.tsx">src/components/menus/toolBox/subMenus/addItemTools/AddItemTools.tsx</a></td>
+                <td>src/stores/apiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/selection/svgSelectionBox/SvgSelectionAdorner.tsx">src/components/selection/svgSelectionBox/SvgSelectionAdorner.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/selection/svgSelectionBox/SvgSelectionBox.tsx">src/components/selection/svgSelectionBox/SvgSelectionBox.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/components/selection/svgSelectionBox/SvgSelectionRotationAnchor.tsx">src/components/selection/svgSelectionBox/SvgSelectionRotationAnchor.tsx</a></td>
+                <td>src/stores/guiState.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/reducers/guiReducer.ts">src/reducers/guiReducer.ts</a></td>
+                <td>src/components/reference/Guidelines.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/reducers/guiReducer.ts">src/reducers/guiReducer.ts</a></td>
+                <td>src/components/reference/GuidelinesCreator.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/reducers/userDesignReducer.ts">src/reducers/userDesignReducer.ts</a></td>
+                <td>src/services/designService/DesignFactory.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/reducers/userDesignReducer.ts">src/reducers/userDesignReducer.ts</a></td>
+                <td>src/services/designService/DesignInterfaces.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/PageImageRenderer.ts">src/utils/PageImageRenderer.ts</a></td>
+                <td>src/components/designPresenter/DesignPresenter.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/PageImageRenderer.ts">src/utils/PageImageRenderer.ts</a></td>
+                <td>src/components/svgRenderers/SVGPageRenderer.tsx</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/PageImageRenderer.ts">src/utils/PageImageRenderer.ts</a></td>
+                <td>src/core/color/RGBAColor.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/PageImageRenderer.ts">src/utils/PageImageRenderer.ts</a></td>
+                <td>src/core/constants/Constants.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/PageImageRenderer.ts">src/utils/PageImageRenderer.ts</a></td>
+                <td>src/core/design/FontFunctions.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/PageImageRenderer.ts">src/utils/PageImageRenderer.ts</a></td>
+                <td>src/core/entities/FDDesign.ts</td>
+
+            </tr>
+            <tr>
+                <td class="warn">warn</td>
+                <td class="nowrap"><a href="#not-in-allowed-definition" id="not-in-allowed-instance"
+                        class="noiseless">not-in-allowed</a></td>
+                <td><a href="src/utils/WebUtils.ts">src/utils/WebUtils.ts</a></td>
+                <td>src/core/geom/point.ts</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <footer>
+        <p><a href="https://github.com/sverweij/dependency-cruiser">dependency-cruiser@9.22.0</a> /
+            2021-05-22T07:53:57.529Z</p>
+    </footer>
+</body>
+
+</html>

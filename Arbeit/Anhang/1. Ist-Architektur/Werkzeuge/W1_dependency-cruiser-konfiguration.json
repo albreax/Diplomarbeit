@@ -1,59 +1,6 @@
 {
     "forbidden": [
-        {
-            "name": "access-forbidden",
-            "severity": "error",
-            "from": {
-                "path": "^src/actions"
-            },
-            "to": {
-                "path": [
-                    "^src/containers",
-                    "^src/components"
-                ]
-            }
-        },
-        {
-            "name": "access-forbidden",
-            "severity": "error",
-            "from": {
-                "path": "^src/core"
-            },
-            "to": {
-                "path": [
-                    "^src/reducers",
-                    "^src/components",
-                    "^src/actions",
-                    "^src/services"
-                ]
-            }
-        },
-        {
-            "name": "access-forbidden",
-            "severity": "error",
-            "from": {
-                "path": "^src/utils"
-            },
-            "to": {
-                "path": [
-                    "^src/core",
-                    "^src/components"
-                ]
-            }
-        },
-        {
-            "name": "access-forbidden",
-            "severity": "error",
-            "from": {
-                "path": "^src/components"
-            },
-            "to": {
-                "path": [
-                    "^src/containers",
-                    "^src/stores"
-                ]
-            }
-        },
+   
         {
             "name": "no-src-to-test",
             "severity": "error",
@@ -187,7 +134,8 @@
                     "^src/styles",
                     "^src/actions",
                     "^src/services",
-                    "^src/store"
+                    "^src/store",
+                    "^src/containers"
                 ]
             }
         },
