@@ -1,16 +1,17 @@
+% Zweitkorrektur
 \subsection{Zusammenfassung}
-Das vorangegangene Kapitel zeigt die grundlegende Sturkur des Quelletext für den FreeDesign-Editor. 
+Das vorangegangene Kapitel stellt die grundlegende Sturkur des Quelletext für den FreeDesign-Editor dar. 
 Es wurden ingesamt 53 Bausteine identifiziert. Die im Anhang enthaltene Tabelle T2\_Quelltextzuordnung.html enthält zu jedem Baustein die zugeordneten Quelletextbestandteile.  
 
-Der Validierungsreport, der mit dem Werkzeug \emph{dependency-cruiser} erstellt wurde, weißt 14 zyklische funktionale Abhängigkeiten auf.
+Der Validierungsreport, der mit dem Werkzeug \emph{dependency-cruiser} erstellt wurde, weist 14 zyklische funktionale Abhängigkeiten auf.
 Innherhalb des Ordners \lstinline|actions| sind 11 Zyklen enthalten, die durch das Aufrufen von \emph{Redux-Actions} innerhalb anderer Actions verursacht werden. 
 Im Ordner \lstinline|components| sind zwei Zyklen endhalten und innherhalb des Ordners \lstinline|core| ist ein Zyklus enthalten.
-Der Report weißt weiterhin 17 funktionale Zugriffe auf, die durch die Konfiguration des Werkzeugs ausgeschlossen sind. 
+Der Report weist weiterhin 17 funktionale Zugriffe auf, die durch die Konfiguration des Werkzeugs ausgeschlossen sind. 
 Die Tabelle \ref{table:not_allowed} enthält einen Überblick der nichtgestatteten Zugriffe.
 
 \begin{table}[H]
     \centering
-    \caption{Übersicht der nicht gestatteten Zugriffe.}
+    \caption{Übersicht der nichtgestatteten Zugriffe.}
     \begin{tabular}{c|c|c}        
         \label{table:not_allowed}
         Anz. & von Ordner & zu Ordner \\
@@ -25,7 +26,7 @@ Die Tabelle \ref{table:not_allowed} enthält einen Überblick der nichtgestattet
 \end{table}    
  
 Das Werkzeug endeckte außerdem 36 Quelletext-Fragmente, die nicht verwendet werden. 
-Im Anhang ist die Tabelle T3\_Validierungsreport.html endhalten, die den gesamten Report, mit den betroffen Dateien aufweißt. 
+Im Anhang ist die Tabelle T3\_Validierungsreport.html endhalten, die den gesamten Report mit den betroffen Dateien aufweist. 
 
 % Übersicht der Quelltextzuordnung im Anhang
 
