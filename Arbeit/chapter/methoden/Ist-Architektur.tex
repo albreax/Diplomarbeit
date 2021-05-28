@@ -20,7 +20,7 @@ Das Ziel war eine Form der Darstellung des Softwaresystems zu finden, die das Id
 \subsubsection{Das {dependency-cruiser}-Werkzeug}
 Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise ein einzelnes Werkzeug nicht alle Analyse-Aufgaben übernehmen kann \autocite[vgl.][381]{Bass2013}.  
 
-Für die Visualisierung der Ist-Architektur wurde das Werkzeug \emph{dependency-cruiser}, welches von Sander Verweij entwickelt und unter \url{https://github.com/sverweij/dependency-cruiser} veröffentlicht wurde, in der Version v9.22.0 eingesetzt. 
+Für die Visualisierung der Ist-Architektur wurde das Werkzeug \emph{dependency-cruiser}\footnote{Das Werkzeug \emph{dependency-cruiser} ist unter \url{https://github.com/sverweij/dependency-cruiser} veröffentlicht.}, welches von Sander Verweij entwickelt wurde, in der Version v9.22.0 eingesetzt. 
 Das Werkzeug untersucht das Verzeichnis, in dem der Quelltext eines TypeScript-Projektes enthalten ist und visualisiert die Struktur des Quelltextes als Abhängigkeitsgraph. Weiterhin können Regeln für die Abhängigkeiten der Komponenten angelegt werden, die durch das Werkzeug validiert, Verstöße gekennzeichnet und als Report ausgeben werden können \autocite[vgl.][]{Verweij:Dependency}. 
 
 Das \emph{dependency-cruiser}-Werkzeug ist ein Programm für die Kommandozeile, welches mit unterschiedlichen Argumenten aufgerufen werden kann \autocite[vgl.][]{Verweij:CLI}.
@@ -130,6 +130,7 @@ Bezogen auf Abbildung \ref{fig:circularB}, kann ein Änderung in A eine Änderun
 Die durch das dependency-cruiser-Werkzeug aufgedeckten Zyklen zeigten Potenzial zur Verbesserung der Ist-Architektur auf und mussten bei der Entwicklung der Strategie zur Migration von Ist- in Soll-Architektur beachtet werden.
 
 \subsubsection{Erzeugung eines Validierungsreports}
+% TODO: The autom. extraction might not be perfectly accurate but (Murphy et al. [9])
 Mit dem in Listing \ref{depcruise-report} angeben Kommando wurde, auf Basis der in der Konfigurationsdatei hinterlegten Regeln, ein Validierungsreport erstellt.
 Der Report enthält eine Liste aller Verstöße gegen die angegebenen Regeln.
 \begin{lstlisting}[language={sh}, label=depcruise-report, caption=Kommando zur Erzeugung eines Validierungsreports]
@@ -138,6 +139,12 @@ npx depcruise --config W1_dependency-cruiser-konfiguration.json -T err-html src 
 
 \subsubsection{Erzeugung der Visualisierungen}
 Durch das Nutzen verschiedener Argumente konnten unterschiedliche Darstellungen der Ist-Architektur mit unterschiedlichem Fokus erzeugt werden. 
+
+Basierend auf Hunt und Thomas (\citeyear[vgl.][23]{TN_libero_mab2}) wurde zunächst eine zusammenfassende Übersicht der Projektesstruktur erzeugt. 
+Ausgehend von dieser wurde einzelne Aspekte der Architektur analysiert und dargestellt.
+
+% Software architecture recovery based on pattern matching => S 17 - 18
+% 
 
 Zunächst wurde die Beziehung der Quelltextkomponenten auf der obersten Ordnerebene visualisiert und analysiert. 
 Hierzu wurde das Werkzeug mit dem, in Listing \ref{list:depcruise-overview} angegebenen Kommando aufgerufen.
@@ -221,7 +228,7 @@ npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot
 
 Starke und Hruschka bezeichnen die Komponenten eines Softwaresystems als Bausteine, die miteinander in Beziehungen stehen \autocite[vgl.][24]{Starke2011}. Diese Bezeichnung wird auch in der vorliegenden Diplomarbeit angewendet, um einer Verwechselung zwischen Softwarebausteinen und React-Komponenten vorzubeugen.
 
-Mit Hilfe der Abhängigkeitsgraphen wurden die Bausteine, aus denen der FreeDesign-Editor besteht, identifiziert. 
+Mit Hilfe der Abhängigkeitsgraphen und der Analyse des Quelltext wurden die Bausteine, aus denen der FreeDesign-Editor besteht, identifiziert. 
 
 Um Fragmente des Quelltextes den Bausteinen zuzuordnen, wurde ein kleines Werkzeug entwickelt, welches das Quellenverzeichnis rekursiv durchsucht. Zum einen sucht es nach Dateien mit der Bezeichnung \glqq\lstinline|_component.md|\grqq{} und zum anderen, innerhalb der Quelltextdateien, nach der Textphrase \glqq\lstinline|// @component{BAUSTEINNAME}|\grqq{}. 
 Mit Hilfe der \lstinline|_component.md|-Dateien, deren einziger Inhalt der Name eines Bausteins ist, kann der Inhalt eines bestimmten Verzeichnisses einem Baustein zugeordnet werden. Einzelne Quelltextdateien können mit der Textphrase \glqq\lstinline|// @component{BAUSTEINNAME}|\grqq{} Bausteinen zugeordnet werden. Die Textphrase kann auch mehrfach innerhalb einer Datei enthalten sein, wodurch es möglich ist, eine Datei mehreren Bausteinen zuzuordnen. 
