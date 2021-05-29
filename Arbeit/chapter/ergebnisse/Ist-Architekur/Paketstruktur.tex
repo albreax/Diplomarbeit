@@ -16,14 +16,14 @@ Abbildung \ref{fig:obersteOrdnerebene} stellt die funktionalen Zusammenhänge de
 
 Der Abhängigkeitsgraph zeigt sämtliche Ordner, die im Ordner \lstinline|src| enthalten sind, sowie die TypeScript-Dateien \lstinline|freedesign.tsx| und \lstinline|draftImporterCli.tsx|, die ebenfalls im Ordner \lstinline|src| hinterlegt sind.  
 
-Durch die Pfeile werden die Abhängigkeiten der Komponenten gekennzeichnet. Die Pfeilspitze zeigt auf den Ordner, auf dessen Inhalt Zugriffe erfolgen. Beispielsweise greift Quelletext im Ordner \lstinline|designToSvgCLI| auf Quelletext aus dem Ordner \lstinline|core| zu.
+Durch die Pfeile werden die Abhängigkeiten der Komponenten gekennzeichnet. Die Pfeilspitze zeigt auf den Ordner, auf dessen Inhalt Zugriffe erfolgen. Beispielsweise greift Quelltext im Ordner \lstinline|designToSvgCLI| auf Quelltext aus dem Ordner \lstinline|core| zu.
 Wird eine Abhängigkeit durch das \lstinline|allowed|-Array bestätigt, wird diese durch einen grünen Pfeil dargestellt. Eine Abhängigkeit die durch das \lstinline|forbidden|-Array erfasst wird, wird durch einen roten Pfeil gekennzeichnet. Wird eine Abhängigkeit durch keine der beiden Arrays erfasst, wird diese durch einen orangen Pfeil dargestellt.
 
 Enthält ein Ordner ungenutzten Quelltext, wird dies durch einen orangen Rahmen und einer orangen Bezeichnung gekennzeichnet.
 
 \subsubsection{Ordnerinhalt der obersten Ordnerebene}
 \paragraph{Der Ordner \emph{core}} ist für den Anwendungskern vorgesehen und enthält Geschäftslogik sowie grundlegende Funktionalitäten und Datenstrukturen der Anwendung. 
-Es ist vorgesehen, dass umgebender Quelletext auf den Quelltext des \lstinline|core|-Ordners zugreifen darf, jedoch ist der Zugriff aus dem \lstinline|core|-Ordner heraus auf den umgebenden Quelletext untersagt. Dem Ordner mangelt es an einer klaren Strukturierung, auf Grund deren die richtige Zuordnung und das Auffinden der Geschäftslogik schwierig sind. 
+Es ist vorgesehen, dass umgebender Quelltext auf den Quelltext des \lstinline|core|-Ordners zugreifen darf, jedoch ist der Zugriff aus dem \lstinline|core|-Ordner heraus auf den umgebenden Quelltext untersagt. Dem Ordner mangelt es an einer klaren Strukturierung, auf Grund deren die richtige Zuordnung und das Auffinden der Geschäftslogik schwierig sind. 
 
 \paragraph{Im Ordner \emph{components}} sind React-Komponenten zur Erzeugung der grafischen Oberfläche enthalten. Darunter zählen Komponenten zur Erzeugung von Menüs, Dialogen oder auch Werkzeugen zu Designbearbeitung. Die Komponenten besitzen keine Verbindung zum \emph{Redux-State} und rufen keine \emph{Redux-Actions} auf. Die Komponenten können bei der Verwendung mit Eigenschaften versehen werden und damit an Redux gebunden werden. Dadurch ist das Verwenden der React-Komponenten in unterschiedlichen Kontexten möglich.
 
@@ -34,7 +34,7 @@ Es ist vorgesehen, dass umgebender Quelletext auf den Quelltext des \lstinline|c
 
 \paragraph{Die Ordner \emph{reducers}, \emph{action} und \emph{stores}} beziehen sich auf Redux und enthalten die Redux-Reducer, die Redux-Actions sowie den Redux-State. Der Redux-States ist auf mehrere Dateien innerhalb des Ordners \lstinline|stores| aufgeteilt. Die Dateien beziehen sich auf unterschiedliche Teile der Anwendung. Beispielsweise wird der Zustand der grafischen Oberfläche in der Datei \lstinline|guiState.ts| verwaltet und der Zustand des Designs, welches gestaltet wird, in der Datei \lstinline|productState.ts| verwaltet. 
 
-\paragraph{Der Ordner \emph{services}} enthält, zusätzlich zu den Redux-Actions \lstinline|ApiActions.ts| im Ordner \lstinline|actions|,  Quelletext zur Kommunikation mit der Unitedprint-API. Außerdem endhält er Quelletext zur Kommunikation mit der Zwischenablage des Betriebssystems, wodurch das Kopieren und Einfügen von Texten beim Bearbeiten eines Designs ermöglicht wird.
+\paragraph{Der Ordner \emph{services}} enthält, zusätzlich zu den Redux-Actions \lstinline|ApiActions.ts| im Ordner \lstinline|actions|,  Quelltext zur Kommunikation mit der Unitedprint-API. Außerdem endhält er Quelltext zur Kommunikation mit der Zwischenablage des Betriebssystems, wodurch das Kopieren und Einfügen von Texten beim Bearbeiten eines Designs ermöglicht wird.
 
 % Für die Kommunikation mit der API von Unitedprint wird das Modul \emph{redux-axios-middleware} eingesetzt. 
 % Das Module ist eine \emph{Redux}-Middleware für die asynchrone HTTP-Kommunikation. HTTP-Anfragen werden durch den Aufruf von \emph{Redux-Actions} ausgelöst, ebenso werden \emph{Redux-Actions} nach eintreffender Antwort ausgelöst \autocite[vgl.][]{ReduxAxios}. Im Ordner \emph{services} sind die \emph{Redux-Actions} für die API-Aufrufe definiert. Desweiteren enthält der Ordner noch eine Serviceklasse zur Kommunikation mit Zwischenablage des Betriebssystems. Die Klasse ermöglicht das einfügen von Text aus der Zwischenablage in das Design, sowie das Kopier von Text aus dem Design in die Zwischenablage.
