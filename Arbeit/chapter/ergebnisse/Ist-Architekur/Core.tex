@@ -1,7 +1,61 @@
 \subsection{Der core-Ordner}
 Die Abbildung \ref{fig:core-sturktur} bietet eine Übersicht des Ordnerinhaltes und der inneren Abhängigkeiten.
 Dem Anhang ist das Diagram D2\_Core.html beigefügt, welches eine detailliertere Darstellung der Abhängigkeit enthält.
-Die Tabelle \ref{table:coreMap} kategorisiert den Quelletext des Ordners in Bausteine.
+%Die Tabelle \ref{table:coreMap} kategorisiert den Quelltext des Ordners in Bausteine.
+
+\paragraph{Im Ordner \emph{api}} ist lediglich einen Sammlung der API-Endpunkte enthalten.
+
+\paragraph{Der Ordner \emph{cache}} enthält eine Klasse namens \emph{Cache} zum erstellen eines Cache-Objekts. 
+
+\paragraph{Der Inhalt des Ordners \emph{calendar}} wird nur für das Produkt Kalender genutzt und implementiert die Funktionalität des Generieren eines Kalendariums im SVG-Format. Das so erzeugte Kalendarium wird in den Designs der Kalender verwendet.
+
+\paragraph{Innheralb des Ordners \emph{cli}} befindet sich Quelltext für die Kommandozeilenprogramme die Integration der Designvorlagen. Dieser setzt Funktionalitäten zur Kommunikation im mit dem Dateisystem um sowie Funktionen zum Erzeugen und Parsen von XML-Strukturen.
+
+\paragraph{Der Ordner \emph{color}} enthält TypeScript-Klassen zur Beschreibung von RGB- und HSB-Farben sowie Farbverläufen. Außerdem sind Funktionen zum Konvertieren und Klonen der Farbklassen hinterlegt. 
+
+\paragraph{Im Ordner \emph{common}} sind zwei Datenstruktur für die grafische Oberfläche und eine technische Hilffunktion hinterlegt. Außerdem ist ein Klasse integriert, über die ermittelt werden in welchem Browser der FreeDesign-Editor ausgeführt wird.
+
+\paragraph{Der Ordner \emph{constants}} enthält eine Sammlung von Konstanten, die an verschiedenen Stellen des Projekts genutzt werden. Beispiel hierfür sind die minimale und maximale Zoomstufe für die Produktdarstellung. 
+
+\paragraph{Im Ordner \emph{cookies}} sind zwei Funktionen zum Schreiben in Cookie-Speicher und zum Lesen aus Cookie-Speicher des Browsers implementiert.\footnote{Die Webseite \url{https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies} enthält weiterführende Informationen zur Cookie-Speicher der Browser.}  
+
+\paragraph{Der Ordner \emph{design}} enthält Funktionalitäten zur Verarbeitung der internen Designstruktur.
+Die Funktionalitätenlassen sich wie folgt kategorisieren:
+\begin{itemize}
+    \item Serialisierung und Deserialisierung des Designstruktur
+    \item Migration alter Designstrukturen
+    \item Erzeugung und Transformation von Designobjekten
+\end{itemize}
+
+\paragraph{Innerhalb des Ordners \emph{entities}} ist sind Datenstruktur zur Beschreibung des Produktes und des Designs hinterlegt sowie eine Schnittstellen zur Beschreibung eines Schriftstiels.  
+
+\paragraph{Im Ordner \emph{forms}} sind Funktionen und Datenstrukturen zur Verarbeitung von Formular, wie dem Login- oder dem Registrierungsformular hinterlegt.
+
+\paragraph{Im Ordner \emph{geom}} befinden sich Datenstrukturen zur Beschreibung geometrischer Formen sowie mathematische Funktionen aus dem Bereich der Geometrie.
+
+\paragraph{Der Ordner \emph{helpers}} enthält verschiedene, thematisch nicht zusammenhängende Inhalte:
+\begin{itemize}
+    \item Eine Funktion zur Kalkulation von Tooltip-Positionen auf der grafischen Oberfläche.
+    \item Zwei Algorithmen zum Klonen von Objektinstanzen.
+    \item Eine Implementation des \emph{de Casteljau}-Algorithmus. Dieser durch Kasper Fischer beschrieben Algorithmus, berechnet rekursiv ein Polygon basierend auf einer Bèzierkurve.\footnote{Der Algorithmus basiert auf folgender Veröffentlichung \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.162&rep=rep1&type=pdf}}
+    \item Einer Sammlung von Hilffunktionen zur Verarbeitung von Arrays.
+    \item Einer Sammlung von mathematischen Funktionen.
+    \item Einer Sammlung technischer Hilffunktionen.
+    \item Einer Sammlung von Funktionen zur Konvertierung verschieden Maßeinheit, wie Millemeter, Pixel und Zoll.
+    \item Einer Hilffunktion zur Rotationstransformation von Designobjekten.
+\end{itemize}
+
+\paragraph{Der Ordner \emph{image}} enthält Funktionen zur Verarbeitung von Pixelgrafiken.  
+
+\paragraph{Der Ordner \emph{local}} enthält eine Sammlung von Textschlüsselkonstanten, über die lokalisierte Texte für grafische Oberfläche abgerufen werden können.  
+
+\paragraph{Im Ordner \emph{parsing}} sind Algorithmen zum Parsen von XML- und SVG-Strukturen enthalten.
+
+\paragraph{Der Ordner \emph{product}} enthält Funktionalitäten sowie eine Datenstruktur für die Produktkonfiguration.   
+
+\paragraph{Im Ordner \emph{url}} befinden sich Funktionen zum Auswerten und Schreiben von URL-Parametern.
+
+\paragraph{Innerhalb des Ordners \emph{validation}} sind Funktionen zur Validierung von Nutzeingaben hinterlegt.
 
 \begin{figure}[H]
     \centering
@@ -10,155 +64,155 @@ Die Tabelle \ref{table:coreMap} kategorisiert den Quelletext des Ordners in Baus
     \label{fig:core-sturktur}
 \end{figure}
 
-\begin{filecontents}[overwrite]{\jobname-core-map.tex}
-\begin{longtable}{r@{\hspace{3mm}}lX}
-    \caption{Die Kategorisierung des Quelletexts innerhalb \lstinline|core| in Bausteine} \\
-    \label{table:coreMap}
-    \rownumbereset
-    & \textbf{Baustein} & \textbf{Quelltext} \\
-    \hline
+% \begin{filecontents}[overwrite]{\jobname-core-map.tex}
+% \begin{longtable}{r@{\hspace{3mm}}lX}
+%     \caption{Die Kategorisierung des Quelltexts innerhalb \lstinline|core| in Bausteine} \\
+%     \label{table:coreMap}
+%     \rownumbereset
+%     & \textbf{Baustein} & \textbf{Quelltext} \\
+%     \hline
 
-    \hline
-    \rownumber & API-Kommunikation & api/* \\
-    \hline 
+%     \hline
+%     \rownumber & API-Kommunikation & api/* \\
+%     \hline 
 
-    \rownumber & Anwenderregistrierung 
-    & forms/* \\
-    \hline 
+%     \rownumber & Anwenderregistrierung 
+%     & forms/* \\
+%     \hline 
 
-    \rownumber & Bildverarbeitung 
-    & image/* \\
-    \hline 
+%     \rownumber & Bildverarbeitung 
+%     & image/* \\
+%     \hline 
 
-    \rownumber & Cache 
-    & cache/Cache.ts \\
-    \hline 
+%     \rownumber & Cache 
+%     & cache/Cache.ts \\
+%     \hline 
 
-    \rownumber & Cookie-Verarbeitung 
-    & cookies/handler.ts \\
-    \hline 
+%     \rownumber & Cookie-Verarbeitung 
+%     & cookies/handler.ts \\
+%     \hline 
 
-    \rownumber & Design-Migration 
-    & design/DesignCompatibility.ts \\
-    \hline 
+%     \rownumber & Design-Migration 
+%     & design/DesignCompatibility.ts \\
+%     \hline 
 
-    \rownumber & Design-Parser 
-    & design/designParser/* \\
-    \hline 
+%     \rownumber & Design-Parser 
+%     & design/designParser/* \\
+%     \hline 
 
-    \rownumber & Design-Serialisierung 
-    & design/DesignSerializer.ts \\
-    \hline 
+%     \rownumber & Design-Serialisierung 
+%     & design/DesignSerializer.ts \\
+%     \hline 
 
-    \rownumber & Designbearbeitung 
-    & design/ITextSelection.ts \\
-    & & design/index.ts \\
-    & & helpers/RotationRaster.ts \\
-    \hline
+%     \rownumber & Designbearbeitung 
+%     & design/ITextSelection.ts \\
+%     & & design/index.ts \\
+%     & & helpers/RotationRaster.ts \\
+%     \hline
 
-    \rownumber & Designobjekt-Transformation
-    & design/transformation/* \\
-    & & design/DesignItemFunctions.ts \\
-    \hline 
+%     \rownumber & Designobjekt-Transformation
+%     & design/transformation/* \\
+%     & & design/DesignItemFunctions.ts \\
+%     \hline 
 
-    \rownumber & Designobjekterzeugung 
-    & design/DesignItemBuilder.ts \\
-    \hline 
+%     \rownumber & Designobjekterzeugung 
+%     & design/DesignItemBuilder.ts \\
+%     \hline 
 
-    \rownumber & Designstruktur 
-    & design/DesignIterator.ts \\
-    & & entities/FDDesign.ts \\
-    \hline 
+%     \rownumber & Designstruktur 
+%     & design/DesignIterator.ts \\
+%     & & entities/FDDesign.ts \\
+%     \hline 
 
-    \rownumber & Farbstruktur 
-    & color/* \\
-    & & validations/ColorValidations.ts \\
-    \hline 
+%     \rownumber & Farbstruktur 
+%     & color/* \\
+%     & & validations/ColorValidations.ts \\
+%     \hline 
 
-    \rownumber & Formularverarbeitung 
-    & forms/FormParser.ts \\
-    \hline 
+%     \rownumber & Formularverarbeitung 
+%     & forms/FormParser.ts \\
+%     \hline 
 
-    \rownumber & Fotogalerie 
-    & common/Gallery.ts \\
-    \hline 
+%     \rownumber & Fotogalerie 
+%     & common/Gallery.ts \\
+%     \hline 
 
-    \rownumber & Grafische-Oberfläche 
-    & validations/\\ 
-    & & common/MenuOption.ts \\
-    & & common/\\ 
-    \hline 
+%     \rownumber & Grafische-Oberfläche 
+%     & validations/\\ 
+%     & & common/MenuOption.ts \\
+%     & & common/\\ 
+%     \hline 
 
-    \rownumber & JavaScript-Erweiterung 
-    & common/index.ts \\
-    & & common/UserAgent.ts \\
-    & & helpers/Clone.ts \\
-    & & helpers/FDArrayHelper.ts \\
-    & & helpers/index.ts \\
+%     \rownumber & JavaScript-Erweiterung 
+%     & common/index.ts \\
+%     & & common/UserAgent.ts \\
+%     & & helpers/Clone.ts \\
+%     & & helpers/FDArrayHelper.ts \\
+%     & & helpers/index.ts \\
 
-    \hline 
-    \rownumber & Kalendariumserzeuger 
-    & calendar/* \\
-    & & common/Calendar.ts \\
-    \hline 
+%     \hline 
+%     \rownumber & Kalendariumserzeuger 
+%     & calendar/* \\
+%     & & common/Calendar.ts \\
+%     \hline 
 
-    \rownumber & Kalenderkonfigurator 
-    & entities/DateInterfaces.ts \\
-    \hline 
+%     \rownumber & Kalenderkonfigurator 
+%     & entities/DateInterfaces.ts \\
+%     \hline 
 
-    \rownumber & Kurzinformation 
-    & helpers/CalculateTooltipPos.ts \\
+%     \rownumber & Kurzinformation 
+%     & helpers/CalculateTooltipPos.ts \\
 
 
-    \rownumber & Mathematik 
-    & geom/* \\
-    & & helpers/FDMath.ts \\
-    & & helpers/deCasteljau.ts \\
-    \hline 
+%     \rownumber & Mathematik 
+%     & geom/* \\
+%     & & helpers/FDMath.ts \\
+%     & & helpers/deCasteljau.ts \\
+%     \hline 
 
-    \rownumber & Maßeinheit-Konverter 
-    & helpers/MeasureUtils.ts \\
-    \hline 
+%     \rownumber & Maßeinheit-Konverter 
+%     & helpers/MeasureUtils.ts \\
+%     \hline 
 
-    \rownumber & Produktstruktur 
-    & product/* \\
-    & & entities/product/* \\
-    \hline 
+%     \rownumber & Produktstruktur 
+%     & product/* \\
+%     & & entities/product/* \\
+%     \hline 
 
-    \rownumber & SVG-Konverter 
-    & design/DesignSvgCreator.ts \\
-    \hline 
+%     \rownumber & SVG-Konverter 
+%     & design/DesignSvgCreator.ts \\
+%     \hline 
 
-    \rownumber & SVG-Parser 
-    & parsing/svgParsing.ts \\
-    \hline 
+%     \rownumber & SVG-Parser 
+%     & parsing/svgParsing.ts \\
+%     \hline 
 
-    \rownumber & Schriftverarbeitung 
-    & design/FontFunctions.ts \\
-    & & entities/IFontData.ts \\
-    \hline 
+%     \rownumber & Schriftverarbeitung 
+%     & design/FontFunctions.ts \\
+%     & & entities/IFontData.ts \\
+%     \hline 
 
-    \rownumber & Speicherkomponente 
-    & validations/\\ 
-    \hline 
+%     \rownumber & Speicherkomponente 
+%     & validations/\\ 
+%     \hline 
 
-    \rownumber & Textschlüsselsammlung 
-    & local/index.ts \\
-    \hline 
+%     \rownumber & Textschlüsselsammlung 
+%     & local/index.ts \\
+%     \hline 
 
-    \rownumber & URL-Verarbeitung 
-    & url/* \\
-    \hline 
+%     \rownumber & URL-Verarbeitung 
+%     & url/* \\
+%     \hline 
 
-    \rownumber & Vorlagekonverter 
-    & design/designTemplate/* \\
-    & & cli/* \\
-    \hline 
+%     \rownumber & Vorlagekonverter 
+%     & design/designTemplate/* \\
+%     & & cli/* \\
+%     \hline 
 
-    \rownumber & XML-Parser 
-    & parsing/xmlParsing.ts \\
-    \hline 
+%     \rownumber & XML-Parser 
+%     & parsing/xmlParsing.ts \\
+%     \hline 
 
-\end{longtable}
-\end{filecontents}
-\LTXtable{\linewidth}{\jobname-core-map.tex}
+% \end{longtable}
+% \end{filecontents}
+% \LTXtable{\linewidth}{\jobname-core-map.tex}
