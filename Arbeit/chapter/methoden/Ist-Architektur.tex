@@ -12,7 +12,7 @@ Dies wird als \emph{Reverse Engineering} bezeichnet und hat, laut der Definition
     \item Die Darstellung des Softwaresystem in einer abstrakten Form. 
     \item Die Identifikation der Komponenten eines Softwaresystems und ihre Beziehungen untereinander. 
 \end{itemize}
-Das Reverse-Engineering der Ist-Architektur de FreeDesign-Editor bezieht sich auf den Projektzustand vom 11. Januar 2020. 
+Das Reverse-Engineering der Ist-Architektur des FreeDesign-Editor bezieht sich auf den Projektzustand vom 11. Januar 2020. 
 
 \subsection{Darstellung des Softwaresystems}
 Das Ziel war eine Form der Darstellung des Softwaresystems zu finden, die das Identifikation der Komponenten und ihrer statischen Zusammenhänge unterstützt.
@@ -137,79 +137,40 @@ Der Report enthält eine Liste aller Verstöße gegen die angegebenen Regeln.
 npx depcruise --config W1_dependency-cruiser-konfiguration.json -T err-html src -f Validierungsreport.html
 \end{lstlisting}
 
-\subsubsection{Erzeugung der Visualisierungen}
+\subsubsection{Erzeugung abstrakter Modelle}
 Durch das Nutzen verschiedener Argumente konnten unterschiedliche Darstellungen der Ist-Architektur mit unterschiedlichem Fokus erzeugt werden. 
 
-Basierend auf Hunt und Thomas (\citeyear[vgl.][23]{TN_libero_mab2}) wurde zunächst eine zusammenfassende Übersicht der Projektesstruktur erzeugt. 
-Ausgehend von dieser wurde einzelne Aspekte der Architektur analysiert und dargestellt.
+Basierend auf Hunt und Thomas (\citeyear[vgl.][23]{Hunt2002}) wurde zunächst eine zusammenfassende Übersicht der Projektesstruktur mit den Beziehungen der obersten Ordnerstruktur erzeugt. 
+Ausgehend von dieser Darstellung wurden einzelne Aspekte der Architektur analysiert und dargestellt.
 
-% Software architecture recovery based on pattern matching => S 17 - 18
-% 
+Hierfür wurde die, durch Monroy et al. (\citeyear[vgl.][]{Monroy2018}) beschriebene, Methode zur Wiederherstellung von Softwarearchitektur (SAReM) genutzt. Diese Teilt die Analyse in vier Phasen, die in Tabelle \ref{table:SAReM} zusammengefasst sind.
+% \begin{table}[
+%     \centering
+%     \caption{Zusammenfassung der SAReM-Phasen.}
+%     \label{table:SAReM}
+%     \begin{tabularx}{\columnwidth}{l|X}
+%         1. Anfangsphase & In der Anfangsphase wird das Problem spezifiziert, die Machbarkeit der Analyse verifiziert und die Analysearbeit geplant. \\
+%         \hline
+        
+%         2. Phase der Datenextraktion & Während der Phase der Datenextraktion werden, auf einer niedrigen und damit konkreten Ebenen, Elemente und ihre Beziehungen identifiziert, aus denen das System besteht. Das Ergebnis der Phase sind detailreiche Modelle auf einer niedrigen Ebene. \\
+%         \hline
 
-Zunächst wurde die Beziehung der Quelltextkomponenten auf der obersten Ordnerebene visualisiert und analysiert. 
-Hierzu wurde das Werkzeug mit dem, in Listing \ref{list:depcruise-overview} angegebenen Kommando aufgerufen.
+%         3. Phase der Wissensorganisation &  Innherhalb dieser Phase werden die, in Phase 2 entstanden 
+%         Modelle, in abstrakte Modelle einer hohen Ebene konvertiert.\\
+%         \hline
 
-\begin{lstlisting}[language={sh}, label=list:depcruise-overview, caption=Kommando zur Erzeugung der Visualisierung der obersten Ordnerebene]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json -T archi src | dot -T svg > Projektuebersicht.svg
-\end{lstlisting}
+%         4. Phase der Informationssuche & In der letzten Phase wird das Ergebnis präsentiert und eingeordnet. \\
 
-Für das Argument \lstinline|--output-type|, welches den Typen der Ausgabe angibt, wurde die Kurzform  \lstinline|-T| genutzt. Mit Hilfe des Typen \lstinline|archi| kann eine zusammenfassende Übersicht der Abhängigkeiten von Quelltext erstellt werden \autocite[vgl.][]{Verweij:Options}.
+%     \end{tabularx}
+% \end{table}  
 
-Die Visualisierung sämtlicher Abhängigkeiten der Software ergibt einen sehr umfangreichen und unübersichtlichen Graphen. Daher wurden mehrere Graphen erzeugt, die sich auf die Hauptaufgaben der Software beziehen:
-\paragraph{Die Produktpräsentation} gehört zu den wichtigsten Aufgaben des FreeDesign-Editors. 
-Sie ist als React-Komponente umgesetzt und der dafür verantwortliche Quelltext ist im Ordner 
-\lstinline|src/components/pagePresenter| enthalten. Mit dem unter Listing \ref{depcruise-page-presenter} angegebenen Kommando konnten die Abhängigkeiten der Produktpräsentation visualisiert werden. 
-\begin{lstlisting}[language={sh}, label=depcruise-page-presenter, caption=Erzeugung der Visualisierung der Abhängigkeiten für die Produktpräsentation]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot
-  src/components/pagePresenter | dot -T svg > Produktpraesentation.svg
-\end{lstlisting}
+\begin{enumerate}
+    \item Mit Hilfe von bereits vorhandenen Kentnissen  und verschiedenen Visualisierungen durch das \emph{dependency-cruiser}-Werkzeug wurden die Komponenten aus denen das System besteht, sowie ihre Zusammenhänge identifiziert. Weiterhin wurden Informationen durch die Analyse des Quelltextes extrahiert. 
+    \item Aus den detaillierten Modellen und Informationen wurden abstraktere Modelle erzeugt.
+    \item Im Anschluss wurde der Inhalt der abstrakteren Modelle eingeordnet.
+\end{enumerate}
 
-\paragraph{Die Designpräsentation} gehört ebenfalls zu den zentralen Aufgaben des FreeDesign-Editors und ist, wie die Produktpräsentation, als React-Komponente implementiert. Die Designpräsentation ist entkoppelt von der Produktpräsentation und wird dieser lediglich als Kindelement übergeben, wodurch das Design innerhalb der Produktpräsentation dargestellt werden kann.
-Der für die Designpräsentation verantwortliche Quelltext ist im Ordner \lstinline|src/components/pagePresenter| hinterlegt. Die Abhängigkeiten der Designpräsentation wurden durch das, in Listing \ref{list:depcruise-design-presenter} angegebene, Kommando visualisiert.
-\begin{lstlisting}[language={sh}, label=list:depcruise-design-presenter, caption=Erzeugung der Visualisierung der Abhängigkeiten für die Designpräsentation]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot 
-  src/components/designPresenter | dot -T svg > Designpraesentation.svg
-\end{lstlisting}
-
-\paragraph{Das Editieren von Designs} ist die Kernaufgabe des FreeDesign-Editors. 
-An dieser Funktionalität sind sehr viele Quelltextkomponenten des Editors beteiligt, die ausgehend vom Redux-Container \lstinline|Stage.tsx| zusammenarbeiten. Die Datei \lstinline|Stage.tsx| ist im Ordner \lstinline|src/containers/stage| hinterlegt, deren Abhängigkeiten durch das folgende, in Listing \ref{list:depcruise-design-edit} angegebene, Kommando visualisiert wurden.
-\begin{lstlisting}[language={sh}, label=list:depcruise-design-edit, caption=Visualisierung der Abhängigkeiten für den Quelletext zum Editieren des Designs]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot  
-  src/containers/stage | dot -T svg > Designeditieren.svg      
-\end{lstlisting}
-Da der Graph der Abhängigkeiten sehr umfangreich ist, wurde eine weitere kompakte Darstellung erzeugt (Listing \ref{list:depcruise-design-edit-compact}). Hierzu wurde das Argument \lstinline|--collapse| angewandt, welches einen Graphen der beteiligten Ordner erzeugt \autocite[vgl.][]{Verweij:CLI}. 
-
-Der so erzeugte Graph bot einen wesentlich verbesserten Überblick der Beziehungen zwischen den beteiligten Komponenten.
-
-\begin{lstlisting}[language={sh}, label=list:depcruise-design-edit-compact, caption=Kommando für eine kompakte Visualisierung der Abhängigkeiten von \lstinline|Stage.tsx|]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json --collapse 
-  ".*/" -T dot src/containers/stage | dot -T svg > 
-  Designeditieren-kompakt.svg
-\end{lstlisting}
-
-\paragraph{Die grafische Oberfläche} des FreeDesign-Editors
-enthält, neben dem Redux-Container \lstinline|Stage.tsx|, eine Reihe weitere Elemente. Eine Übersicht der Elemente und der Abhängigkeiten wurden mit dem, in Listing \ref{depcruise-gui} angeben, Kommando erzeugen. Da sich der FreeDesign-Editor aus Redux-Container-Elementen zusammensetzt, die auf React-Komponenten, den Redux-State und Redux-Actions zugreifen, konnte die Analyse basierend auf dem Ordner \lstinline|src/containers| erfolgen. Da auch diese Visualisierung zu umfangreich sein würde, wurde ebenfalls \lstinline|--collapse| genutzt. Es wurde auch der Redux-Container Stage mit dem Argument \lstinline|--do-not-follow| ausblendet, da dessen Abhängigkeit bereits mit der vorangegangenen Visualisierung dokumentiert wurde.
-
-\begin{lstlisting}[language={sh}, label=depcruise-gui, caption=Visualisierung der Zusammenhänge der grafischen Elemente des Editors]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json 
-  --do-not-follow "^src/containers/stage" --collapse ".*/" -T dot 
-  src/containers | dot -T svg  > 
-  Grafische-Oberflaeche.svg
-\end{lstlisting}
-
-\paragraph{Das Konvertieren von Adobe-Illustrator-Dateien} in die FreeDesign-Designstruktur, welches als Kommandozeilenprogramm für den in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben Integrationsprozess bereitgestellt wird, ist ebenfalls ein Teil des FreeDesign-Projektes. 
-Das Kommandozeilenprogramm wird durch die Datei \lstinline|src/draftImporterCli.ts| umgesetzt, deren Abhängigkeiten durch das, in Listing \ref{list:depcruise-draft-import} angegebene, Kommando visualisiert werden konnten.
-\begin{lstlisting}[language={sh}, label=list:depcruise-draft-import, caption=Visualisierung der Abhängigkeiten des Programms zum Import der AI-Dateien]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot 
-  src/draftImporterCli.ts | dot -T svg > AI-Import.svg
-\end{lstlisting}
-
-\paragraph{Das Konvertieren von der FreeDesign-Designstruktur in SVG-Dateien} als Voraussetzung für das Erstellen der Vorschaubilder ist ebenfalls ein Teil des, in Abschnitt \ref{sect:Integrationsprozess_Designvorlagen} beschrieben, Integrationsprozesses.  
-Das Kommandozeilenprogramm für diesen Schritt wurde im Ordner \lstinline|src/designToSvgCLI| umgesetzt. Die Abhängigkeiten wurden mit dem, in Listing \ref{list:depcruise-design-to-svg} angegebene, Kommando visualisiert.
-\begin{lstlisting}[language={sh}, label=list:depcruise-design-to-svg, caption=Visualisierung des Kommandozeilenprogramms designToSvgCLI]
-npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot 
-  src/designToSvgCLI | dot -T svg > SVG-Konvertierung.svg
-\end{lstlisting}
+Die in der Diplomarbeit enthaltenen Ergebnisse sind Modelle einer sehr hohen Abstraktionsebene, um den Rahmen der Diplomarbeit einzuhalten.
 
 % Das Werkzeug dependency-cruiser unter einer MIT-Linzenz zu Verfügung gestellt, welche eine kostenfreien Nutzung garantiert \autocite[vgl.][]{Verweij:License}. 
 
@@ -226,14 +187,17 @@ npx depcruise --config W1_dependency-cruiser-konfiguration.json -T dot
 
 % TODO: Zitat: Comparison_of_Software_Architecture_Reverse_Engineering_Methods.pdf => by Bow- man et al. [3] fits into this framework: the reverse architecting starts with iden- tifying components as clusters of files.
 
-Starke und Hruschka bezeichnen die Komponenten eines Softwaresystems als Bausteine, die miteinander in Beziehungen stehen \autocite[vgl.][24]{Starke2011}. Diese Bezeichnung wird auch in der vorliegenden Diplomarbeit angewendet, um einer Verwechselung zwischen Softwarebausteinen und React-Komponenten vorzubeugen.
+% TODO: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.472.2568&rep=rep1&type=pdf
 
-Mit Hilfe der Abhängigkeitsgraphen und der Analyse des Quelltext wurden die Bausteine, aus denen der FreeDesign-Editor besteht, identifiziert. 
+Starke und Hruschka bezeichnen die Komponenten eines Softwaresystems als Bausteine, die miteinander in Beziehungen stehen \autocite[vgl.][24]{Starke2011}. Diese Bezeichnung wird auch in der vorliegenden Diplomarbeit angewendet, um einer Verwechselung zwischen Softwarebausteinen und React-Komponenten vorzubeugen.
+Es stellte sich die Frage, aus welchen Bausteinen der FreeDesign-Editor besteht.  
+
+Mit Hilfe der Abhängigkeitsgraphen, die mit dem \emph{dependency-cruiser}-Werkzeug erzeugt wurden, und der Analyse des Quelltextes wurden Bausteine, aus denen der FreeDesign-Editor besteht, identifiziert. 
 
 Um Fragmente des Quelltextes den Bausteinen zuzuordnen, wurde ein kleines Werkzeug entwickelt, welches das Quellenverzeichnis rekursiv durchsucht. Zum einen sucht es nach Dateien mit der Bezeichnung \glqq\lstinline|_component.md|\grqq{} und zum anderen, innerhalb der Quelltextdateien, nach der Textphrase \glqq\lstinline|// @component{BAUSTEINNAME}|\grqq{}. 
 Mit Hilfe der \lstinline|_component.md|-Dateien, deren einziger Inhalt der Name eines Bausteins ist, kann der Inhalt eines bestimmten Verzeichnisses einem Baustein zugeordnet werden. Einzelne Quelltextdateien können mit der Textphrase \glqq\lstinline|// @component{BAUSTEINNAME}|\grqq{} Bausteinen zugeordnet werden. Die Textphrase kann auch mehrfach innerhalb einer Datei enthalten sein, wodurch es möglich ist, eine Datei mehreren Bausteinen zuzuordnen. 
 
 Das Ergebnis der Analyse ist eine tabellarische Zuordnung von Bausteinen zu Quelltext-Fragmenten in Form einer HTML-Datei. 
-Der Entwurf der Soll-Architektur konnte somit auf der Auflistung der Bausteine basieren. Die Zuordnung der Quelletext-Fragmente der aktuellen Implementation half dabei die Beziehungen zwischen den Bausteinen zu ordnen und eine Mirgrationsstrategie zu entwerfen.
+Der Entwurf der Soll-Architektur konnte somit auf der Auflistung der Bausteine basieren. Die Zuordnung der Quelltext-Fragmente der aktuellen Implementation half dabei die Beziehungen zwischen den Bausteinen zu ordnen und eine Mirgrationsstrategie zu entwerfen.
 
 Das Werkzeug ist im Anhang unter \emph{W2\_Komponentenzuordnung} enthalten.
