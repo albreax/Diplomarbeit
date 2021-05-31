@@ -12,15 +12,47 @@ Dies wird als \emph{Reverse Engineering} bezeichnet und hat, laut der Definition
     \item Die Darstellung des Softwaresystem in einer abstrakten Form. 
     \item Die Identifikation der Komponenten eines Softwaresystems und ihre Beziehungen untereinander. 
 \end{itemize}
-Das Reverse-Engineering der Ist-Architektur des FreeDesign-Editor bezieht sich auf den Projektzustand vom 11. Januar 2020. 
 
-\subsection{Darstellung des Softwaresystems}
-Das Ziel war eine Form der Darstellung des Softwaresystems zu finden, die das Identifikation der Komponenten und ihrer statischen Zusammenhänge unterstützt.
 
-\subsubsection{Das {dependency-cruiser}-Werkzeug}
+\subsection{Analyse Methode}
+Für das Reverse Engineering der Ist-Architektur des FreeDesign-Editors wurde die, durch Monroy et al. (\citeyear[vgl.][]{Monroy2018}) beschriebene, Methode zur Wiederherstellung von Softwarearchitektur (SAReM) genutzt. Diese teilt die Analyse in vier Phasen, die in Tabelle \ref{table:SAReM} zusammengefasst sind.
+\begin{table}[H]
+    \centering
+    \caption{Zusammenfassung der SAReM-Phasen.}
+    \label{table:SAReM}
+    \begin{tabularx}{\columnwidth}{l|X}
+        1. Anfangsphase & In der Anfangsphase wird das Problem spezifiziert, die Machbarkeit der Analyse verifiziert und die Analysearbeit geplant. \\
+        \hline
+        
+        2. Phase der Datenextraktion & Während der Phase der Datenextraktion werden Elemente und ihre Beziehungen, aus denen das System besteht, auf niedrigen und damit detaillierten Ebenen identifiziert. Das Ergebnis der Phase sind konkrete Modelle in einer hohen Auflösung. \\
+        \hline
+
+        3. Phase der Wissensorganisation &  Innherhalb dieser Phase werden die in Phase 2 entstanden 
+        Modelle in abstrakte Modelle einer hohen Ebene konvertiert.\\
+        \hline
+
+        4. Phase der Informationssuche & In der letzten Phase wird das Ergebnis präsentiert und eingeordnet. \\
+
+    \end{tabularx}
+\end{table}  
+
+In der erste Phase wurde festgelegt, in welchen Schritten das Projekt analysiert werden sollte. 
+Es wurde geplant, wie das Analyse-Werkzeug konfiguriert werden soll, was unter Abschnitt \ref{dependency-cruiser} beschrieben wird. 
+
+Da in der Diplomarbeit nur die statische Architektur von Interesse ist, wurde auch nur diese in der zweite Phase analysiert. 
+Basierend auf Hunt und Thomas (\citeyear[vgl.][23]{Hunt2002}) wurde zunächst eine zusammenfassende Übersicht der Projektesstruktur mit den Beziehungen der obersten Ordnerstruktur erzeugt. 
+Ausgehend von dieser Darstellung wurden einzelne Aspekte der Architektur analysiert und dargestellt.
+
+In der dritten Phase wurden, wie von der Methode vorgesehen, abstrakte Modelle der Architektur erzeugt und deren Inhalt in der vierten Phase eingeordnet.
+
+
+Die Analyse bezieht sich auf den Projektzustand vom 11. Januar 2020. 
+
+\subsection{Das {dependency-cruiser}-Werkzeug}
+\label{dependency-cruiser}
 Das Reverse Engineering kann durch den Einsatz von Analyse-Werkzeugen unterstützt werden, wobei üblicherweise ein einzelnes Werkzeug nicht alle Analyse-Aufgaben übernehmen kann \autocite[vgl.][381]{Bass2013}.  
 
-Für die Visualisierung der Ist-Architektur wurde das Werkzeug \emph{dependency-cruiser}\footnote{Das Werkzeug \emph{dependency-cruiser} ist unter \url{https://github.com/sverweij/dependency-cruiser} veröffentlicht.}, welches von Sander Verweij entwickelt wurde, in der Version v9.22.0 eingesetzt. 
+Für die Analysen in der Phase 2 wurde das Werkzeug \emph{dependency-cruiser}\footnote{Das Werkzeug \emph{dependency-cruiser} ist unter \url{https://github.com/sverweij/dependency-cruiser} veröffentlicht.}, welches von Sander Verweij entwickelt wurde, in der Version v9.22.0 eingesetzt. 
 Das Werkzeug untersucht das Verzeichnis, in dem der Quelltext eines TypeScript-Projektes enthalten ist und visualisiert die Struktur des Quelltextes als Abhängigkeitsgraph. Weiterhin können Regeln für die Abhängigkeiten der Komponenten angelegt werden, die durch das Werkzeug validiert, Verstöße gekennzeichnet und als Report ausgeben werden können \autocite[vgl.][]{Verweij:Dependency}. 
 
 Das \emph{dependency-cruiser}-Werkzeug ist ein Programm für die Kommandozeile, welches mit unterschiedlichen Argumenten aufgerufen werden kann \autocite[vgl.][]{Verweij:CLI}.
@@ -137,40 +169,6 @@ Der Report enthält eine Liste aller Verstöße gegen die angegebenen Regeln.
 npx depcruise --config W1_dependency-cruiser-konfiguration.json -T err-html src -f Validierungsreport.html
 \end{lstlisting}
 
-\subsubsection{Erzeugung abstrakter Modelle}
-Durch das Nutzen verschiedener Argumente konnten unterschiedliche Darstellungen der Ist-Architektur mit unterschiedlichem Fokus erzeugt werden. 
-
-Basierend auf Hunt und Thomas (\citeyear[vgl.][23]{Hunt2002}) wurde zunächst eine zusammenfassende Übersicht der Projektesstruktur mit den Beziehungen der obersten Ordnerstruktur erzeugt. 
-Ausgehend von dieser Darstellung wurden einzelne Aspekte der Architektur analysiert und dargestellt.
-
-Hierfür wurde die, durch Monroy et al. (\citeyear[vgl.][]{Monroy2018}) beschriebene, Methode zur Wiederherstellung von Softwarearchitektur (SAReM) genutzt. Diese Teilt die Analyse in vier Phasen, die in Tabelle \ref{table:SAReM} zusammengefasst sind.
-% \begin{table}[
-%     \centering
-%     \caption{Zusammenfassung der SAReM-Phasen.}
-%     \label{table:SAReM}
-%     \begin{tabularx}{\columnwidth}{l|X}
-%         1. Anfangsphase & In der Anfangsphase wird das Problem spezifiziert, die Machbarkeit der Analyse verifiziert und die Analysearbeit geplant. \\
-%         \hline
-        
-%         2. Phase der Datenextraktion & Während der Phase der Datenextraktion werden, auf einer niedrigen und damit konkreten Ebenen, Elemente und ihre Beziehungen identifiziert, aus denen das System besteht. Das Ergebnis der Phase sind detailreiche Modelle auf einer niedrigen Ebene. \\
-%         \hline
-
-%         3. Phase der Wissensorganisation &  Innherhalb dieser Phase werden die, in Phase 2 entstanden 
-%         Modelle, in abstrakte Modelle einer hohen Ebene konvertiert.\\
-%         \hline
-
-%         4. Phase der Informationssuche & In der letzten Phase wird das Ergebnis präsentiert und eingeordnet. \\
-
-%     \end{tabularx}
-% \end{table}  
-
-\begin{enumerate}
-    \item Mit Hilfe von bereits vorhandenen Kentnissen  und verschiedenen Visualisierungen durch das \emph{dependency-cruiser}-Werkzeug wurden die Komponenten aus denen das System besteht, sowie ihre Zusammenhänge identifiziert. Weiterhin wurden Informationen durch die Analyse des Quelltextes extrahiert. 
-    \item Aus den detaillierten Modellen und Informationen wurden abstraktere Modelle erzeugt.
-    \item Im Anschluss wurde der Inhalt der abstrakteren Modelle eingeordnet.
-\end{enumerate}
-
-Die in der Diplomarbeit enthaltenen Ergebnisse sind Modelle einer sehr hohen Abstraktionsebene, um den Rahmen der Diplomarbeit einzuhalten.
 
 % Das Werkzeug dependency-cruiser unter einer MIT-Linzenz zu Verfügung gestellt, welche eine kostenfreien Nutzung garantiert \autocite[vgl.][]{Verweij:License}. 
 
