@@ -1,35 +1,7 @@
 % Soll-Architektur.tex
 \section{Soll-Architektur}
-\subsection{Taxonomie der Programmnamen}
-Die Namen der Programme die durch das FreeDesign-Projekt erstellt werden, folgen einem spezifischen Namensschema. Dieses setzt sich aus einem Programmnamen und einem Postfix, welches die Zielplattform angibt, zusammen. Der Programmnamen sollte möglichst aussagekräftig sein und besteht aus Kleinbuchstaben. Tabelle \ref{table:postfix} enthält Postfix-Möglichkeiten für die aktuell bekannten Zielplattformen.
 
-\begin{table}[H]
-    \centering
-    \caption{Auflistung der Postfix-Möglichkeiten für die Programmnamen}
-    \label{table:postfix}
-    \begin{tabular}{r|l}
-        \textbf{Prefix} & \textbf{Zielplattform} \\
-        \hline
-        \lstinline|web| & Internetbrowser \\
-        \lstinline|cli| & Kommandozeile \\
-        \lstinline|ios| & IOS \\
-        \lstinline|android| & Android 
-    \end{tabular}
-\end{table}
-
-Diese Konvention führt zu den, in Tabelle \ref{table:Programmnamen} angegebenen, Namensänderungen: 
-\begin{table}[H]
-    \centering
-    \caption{Änderungen der Bezeichnungen der Programme}
-    \label{table:Programmnamen}
-    \begin{tabular}{r|l}
-        \textbf{alte Bezeichnung} & \textbf{neue Bezeichnung} \\
-        \hline
-        \lstinline|freedesign| & \lstinline|freedesign-web| \\
-        \lstinline|draftImporterCli| & \lstinline|ai-design-converter-cli| \\
-        \lstinline|designToSvgCLI| & \lstinline|fd-design-to-svg-converter-cli| 
-    \end{tabular}
-\end{table}
+\input{chapter/ergebnisse/Soll-Architektur/TaxonomieProgrammnamen.tex}
 
 \subsection{nichtfunktionalen Anforderungen}
 \begin{table}[H]
