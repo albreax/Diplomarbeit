@@ -1,7 +1,80 @@
 % Soll-Architektur.tex
 \section{Soll-Architektur}
-\subsection{nichtfunktionalen Anforderungen}
+\subsection{Taxonomie der Programmnamen}
+Die Namen der Programme die durch das FreeDesign-Projekt erstellt werden, folgen einem spezifischen Namensschema. Dieses setzt sich aus einem Programmnamen und einem Postfix, welches die Zielplattform angibt, zusammen. Der Programmnamen sollte möglichst aussagekräftig sein und besteht aus Kleinbuchstaben. Tabelle \ref{table:postfix} enthält Postfix-Möglichkeiten für die aktuell bekannten Zielplattformen.
 
+\begin{table}[H]
+    \centering
+    \caption{Auflistung der Postfix-Möglichkeiten für die Programmnamen}
+    \label{table:postfix}
+    \begin{tabular}{r|l}
+        \textbf{Prefix} & \textbf{Zielplattform} \\
+        \hline
+        \lstinline|web| & Internetbrowser \\
+        \lstinline|cli| & Kommandozeile \\
+        \lstinline|ios| & IOS \\
+        \lstinline|android| & Android 
+    \end{tabular}
+\end{table}
+
+Durch diese Konvention ergibt sich folgende Änderung der Namengebung: 
+\begin{table}[H]
+    \centering
+    \caption{Änderungen der Bezeichnungen der Programme}
+    \label{table:Programmnamen}
+    \begin{tabular}{r|l}
+        \textbf{alte Bezeichnung} & \textbf{neue Bezeichnung} \\
+        \hline
+        \lstinline|freedesign| & \lstinline|freedesign-web| \\
+        \lstinline|draftImporterCli| & \lstinline|ai-design-converter-cli| \\
+        \lstinline|designToSvgCLI| & \lstinline|fd-design-to-svg-converter-cli| 
+    \end{tabular}
+\end{table}
+
+\subsection{nichtfunktionalen Anforderungen}
+\begin{table}[H]
+    \centering
+    \caption{nichtfunktionale Anforderungen an die Architektur des FreeDesign-Projekt}. 
+    \label{table:nfqa}
+    \begin{tabularx}{\columnwidth}{c|X}
+    \textbf{Merkmal} & \textbf{Teilmerkmale} \\
+    \hline
+    \hline
+    \textbf{funktionale Eignung} & 
+        funktionale Vollständigkeit {$\circ$} funktionale Korrektheit {$\circ$} funktionale Angemessenheit 
+    \\
+    \hline
+    \textbf{Leistungseffizienz}  & 
+        \begin{itemize}
+            \item 
+        \end{itemize}
+        Zeitverhalten {$\circ$} Ressourcenauslastung {$\circ$} Kapazität
+    \\
+    \hline
+    \textbf{Kompatibilität}  & 
+        Koexistenz {$\circ$} Interoperabilität
+    \\
+    \hline
+    \textbf{Benutzbarkeit}  & 
+        Angemessenheit {$\circ$} Erkennbarkeit {$\circ$} Erlernbarkeit {$\circ$} Bedienbarkeit {$\circ$} Schutz vor Anwenderfehlern {$\circ$} Ästhetik der Benutzeroberfläche {$\circ$} Barrierefreiheit
+    \\
+    \hline
+    \textbf{Zuverlässigkeit}  & 
+        Laufzeit {$\circ$} Verfügbarkeit {$\circ$} Fehlertoleranz {$\circ$} Wiederherstellbarkeit
+    \\
+    \hline
+    \textbf{Sicherheit}  & 
+        Vertraulichkeit {$\circ$} Integrität {$\circ$} Unabstreitbarkeit {$\circ$} Rechenschaftspflicht {$\circ$} Authentizität 
+    \\
+    \hline
+    \textbf{Wartbarkeit}  & 
+        Modularität {$\circ$} Wiederverwendbarkeit {$\circ$} Analysierbarkeit {$\circ$} Modifizierbarkeit {$\circ$} Testbarkeit
+    \\
+    \hline
+    \textbf{Portabilität} & 
+        Anpassungsfähigkeit {$\circ$} Installationsmöglichkeiten {$\circ$} \newline Austauschbarkeit
+\end{tabularx}
+\end{table}
 
 \subsection{technische Anforderungen}
 % \subsection{Anforderungen an die Soll-Architektur} % Softwarearchitektur S. 108 - 
