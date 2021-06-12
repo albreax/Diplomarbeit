@@ -1,3 +1,60 @@
 \section{Entwurf der Soll-Architektur}
-% Komponenten aus Ist-Architektur in volatile und stabile Komponenten unterscheiden => Clean Architecture	 
-% Zugriffsregeln
+
+\subsection{Voraussetzungen für den Entwurf}
+Vor dem Entwurf einer Softwarearchitektur findet eine Anforderungsanalyse statt, in welcher funktionale, nichtfunktionale sowie technische Anforderungen an ein Softwaresystem spezifiziert werden. Desweiteren geht dem Architekturentwurf die Erstellung eines fachlichen Modells vorraus, welches zu den Anforderungen passt. \autocite[vgl.][S. 58 - 59]{Posch2007}
+
+Basierend auf Vogel et al. (\citeyear[vgl.][S. 113 - 114]{Vogel2009}) beschreiben die funktionalen Anforderungen alle Funktionalitäten, die ein Softwaresystem erfüllen soll. Nichtfunktionale Anforderung hingegen sind Qualitätsmerkmale die von einem Softwaresystem für dessen Akzeptanz erwartet werden. 
+
+Ein Beispiel für eine funktionale Anforderung ist, dass der FreeDesign-Editor die Funktionalität des schrittweisen Widerrufens einer Designbearbeitung anbieten muss. 
+Für die Definition einer nichtfunktionalen Anforderung hingegen ist ein Beispiel, die Forderung nach einer verzögerungsarmen Antwortzeit während der Designbearbeitung.
+Durch eine technische Anforderung kann zum Beispiel festgelegt werden, durch welches technische Konzept das Widerrufen von Bearbeitungsschritten umgesetzt werden muss. 
+
+Für die initiale Entwicklung des FreeDesign-Editors und der Kommandozeilenprogramme sowie für Erweiterungs- und Änderungsprojekte wurden stets die funktionalen Anforderungen beschrieben. Diese sind im unternehmensinternen Dokumentationssystem hinterlegt. 
+Die nichtfunktionalen und technischen Voraussetzungen wurden im Rahmen dieser Diplomarbeit spezifiziert. 
+
+Als Grundlage für die Spezifikation diente der Standard ISO/IEC 25010:2011 \emph{Systems and software engineering —
+Systems and software Quality
+Requirements and Evaluation
+(SQuaRE)}. Die Tabelle \ref{table:SQuaRE} zeigt das Modell der Produktqualität, welches der Standard beschreibt \autocite[vgl.][S. 10]{ISO25010}. 
+\begin{table}[H]
+    \centering
+    \caption{Das Modell der Produktqualität nach ISO/IEC 25010:2011 \autocite[vgl.][S. 10]{ISO25010}}. 
+    \label{table:SQuaRE}
+    \begin{tabularx}{\columnwidth}{c|X}
+    \textbf{Merkmal} & \textbf{Teilmerkmale} \\
+    \hline
+    \hline
+    \textbf{funktionale Eignung} & 
+        funktionale Vollständigkeit {$\circ$} funktionale Korrektheit {$\circ$} funktionale Angemessenheit 
+    \\
+    \hline
+    \textbf{Leistungseffizienz}  & 
+        Zeitverhalten {$\circ$} Ressourcenauslastung {$\circ$} Kapazität
+    \\
+    \hline
+    \textbf{Kompatibilität}  & 
+        Koexistenz {$\circ$} Interoperabilität
+    \\
+    \hline
+    \textbf{Benutzbarkeit}  & 
+        Angemessenheit {$\circ$} Erkennbarkeit {$\circ$} Erlernbarkeit {$\circ$} Bedienbarkeit {$\circ$} Schutz vor Anwenderfehlern {$\circ$} Ästhetik der Benutzeroberfläche {$\circ$} Barrierefreiheit
+    \\
+    \hline
+    \textbf{Zuverlässigkeit}  & 
+        Laufzeit {$\circ$} Verfügbarkeit {$\circ$} Fehlertoleranz {$\circ$} Wiederherstellbarkeit
+    \\
+    \hline
+    \textbf{Sicherheit}  & 
+        Vertraulichkeit {$\circ$} Integrität {$\circ$} Unabstreitbarkeit {$\circ$} Rechenschaftspflicht {$\circ$} Authentizität 
+    \\
+    \hline
+    \textbf{Wartbarkeit}  & 
+        Modularität {$\circ$} Wiederverwendbarkeit {$\circ$} Analysierbarkeit {$\circ$} Modifizierbarkeit {$\circ$} Testbarkeit
+    \\
+    \hline
+    \textbf{Portabilität} & 
+        Anpassungsfähigkeit {$\circ$} Installationsmöglichkeiten {$\circ$} \newline Austauschbarkeit
+\end{tabularx}
+\end{table}
+
+\subsection{Auswahl des Vorgehens}
