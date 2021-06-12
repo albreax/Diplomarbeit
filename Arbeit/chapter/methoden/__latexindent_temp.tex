@@ -1,0 +1,57 @@
+\section{Entwurf der Soll-Architektur}
+
+\subsection{Voraussetzungen für den Entwurf}
+Vor dem Entwurf einer Softwarearchitektur findet eine Anforderungsanalyse statt, in welcher funktionale, nichtfunktionale sowie technische Anforderungen an ein Softwaresystem spezifiziert werden. Desweiteren geht dem Architekturentwurf die Erstellung eines fachlichen Modells vorraus, welches zu den Anforderungen passt. \autocite[vgl.][S. 58 \centerdot 59]{Posch2007}
+
+Basierend auf Vogel et al. (\citeyear[vgl.][S. 113 \centerdot 114]{Vogel2009}) beschreiben die funktionalen Anforderungen alle Funktionalitäten, die ein Softwaresystem erfüllen soll. Nichtfunktionale Anforderung hingegen sind Qualitätsmerkmale die von einem Softwaresystem für dessen Akzeptanz erwartet werden. 
+
+Ein Beispiel für eine funktionale Anforderung ist, dass der FreeDesign-Editor die Funktionalität des schrittweisen Widerrufens einer Designbearbeitung anbieten muss. 
+Für die Definition einer nichtfunktionalen Anforderung hingegen ist ein Beispiel, die Forderung nach einer verzögerungsarmen Antwortzeit während der Designbearbeitung.
+Durch eine technische Anforderung kann zum Beispiel festgelegt werden, durch welches technische Konzept das Widerrufen von Bearbeitungsschritten umgesetzt werden muss. 
+
+Für die initiale Entwicklung des FreeDesign-Editors und der Kommandozeilenprogramme sowie für Erweiterungs- und Änderungsprojekte wurden stets die funktionalen Anforderungen beschrieben. Diese sind im unternehmensinternen Dokumentationssystem hinterlegt. 
+Die nichtfunktionalen und technischen Voraussetzungen wurden im Rahmen dieser Diplomarbeit spezifiziert. 
+
+Als Grundlage für die Spezifikation diente der Standard ISO/IEC 25010:2011 \emph{Systems and software engineering —
+Systems and software Quality
+Requirements and Evaluation
+(SQuaRE)}. 
+\begin{table}[H]
+    \centering
+    \caption{Auflistung der Qualitätsanforderungen nach ISO/IEC 25010:2011 } 
+    \label{table:SQuaRE}
+    
+    \begin{tabularx}{\columnwidth}{r|X}
+    \hline
+    \textbf{funktionale Eignung} & funktionale Vollständigkeit \centerdot funktionale Korrektheit \centerdot funktionale Angemessenheit 
+    \\
+    \hline
+    \textbf{Leistungseffizienz}  & Zeitverhalten \centerdot Ressourcenauslastung \centerdot Kapazität
+    \\
+    \hline
+    \textbf{Kompatibilität}  & 
+        Koexistenz \centerdot Interoperabilität
+    \\
+    \hline
+    \textbf{Benutzbarkeit}  & 
+        Angemessenheit \centerdot Erkennbarkeit \centerdot Erlernbarkeit \centerdot Bedienbarkeit \centerdot Schutz vor Anwenderfehlern \centerdot Ästhetik der Benutzeroberfläche \centerdot Barrierefreiheit
+    \\
+    \hline
+    \textbf{Zuverlässigkeit}  & 
+        Laufzeit \centerdot Verfügbarkeit \centerdot Fehlertoleranz \centerdot Wiederherstellbarkeit
+    \\
+    \hline
+    \textbf{Sicherheit}  & 
+        Vertraulichkeit \centerdot Integrität \centerdot Unabstreitbarkeit \centerdot Rechenschaftspflicht \centerdot Authentizität 
+    \\
+    \hline
+    \textbf{Wartbarkeit}  & 
+        Modularität \centerdot Wiederverwendbarkeit \centerdot Analysierbarkeit \centerdot Modifizierbarkeit \centerdot Testbarkeit
+    \\
+    \hline
+    \textbf{Portabilität} & 
+        Anpassungsfähigkeit \centerdot Installationsmöglichkeiten \centerdot \newline Austauschbarkeit
+\end{tabularx}
+\end{table}
+
+\subsection{Auswahl des Vorgehens}
