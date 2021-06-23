@@ -5,15 +5,15 @@ Vor dem Entwurf einer Softwarearchitektur findet eine Anforderungsanalyse statt,
 
 Basierend auf Vogel et al. (\citeyear[vgl.][S. 113 - 114]{Vogel2009}) beschreiben die funktionalen Anforderungen alle Funktionalitäten, die ein Softwaresystem erfüllen soll. Nichtfunktionale Anforderung hingegen sind Qualitätsmerkmale die von einem Softwaresystem für dessen Akzeptanz erwartet werden. 
 
-Ein Beispiel für eine funktionale Anforderung ist, dass der FreeDesign-Editor die Funktionalität des schrittweisen Widerrufens einer Designbearbeitung anbieten muss. 
+Ein Beispiel für eine funktionale Anforderung ist, dass der FreeDesign-Editor die Funktionalität des schrittweisen Widerrufens von Änderungen am Design anbieten muss. 
 Für die Definition einer nichtfunktionalen Anforderung hingegen ist ein Beispiel, die Forderung nach einer verzögerungsarmen Antwortzeit während der Designbearbeitung.
 Durch eine technische Anforderung kann zum Beispiel festgelegt werden, durch welches technische Konzept das Widerrufen von Bearbeitungsschritten umgesetzt werden muss. 
 
 Für die initiale Entwicklung des FreeDesign-Editors und der Kommandozeilenprogramme sowie für Erweiterungs- und Änderungsprojekte wurden stets die funktionalen Anforderungen beschrieben. Diese sind im unternehmensinternen Dokumentationssystem hinterlegt. 
 Die nichtfunktionalen und technischen Voraussetzungen wurden im Rahmen dieser Diplomarbeit spezifiziert. 
 
-Als Grundlage für die Spezifikation diente der Standard ISO/IEC 25010:2011 \emph{Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE)}. 
-Die Tabelle \ref{table:SQuaRE} zeigt das Modell der Produktqualität, welches der Standard beschreibt \autocite[vgl.][S. 10]{ISO25010}. 
+Als Grundlage für die Spezifikation diente das Produktqualitätsmodell des Standard ISO/IEC 25010:2011 \emph{Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE)}. 
+Die Tabelle \ref{table:SQuaRE} zeigt eine Übersicht des Modell, welches der Standard beschreibt \autocite[vgl.][S. 10]{ISO25010}. 
 
 \begin{table}[H]
     \centering
@@ -55,5 +55,8 @@ Die Tabelle \ref{table:SQuaRE} zeigt das Modell der Produktqualität, welches de
         Anpassungsfähigkeit {$\circ$} Installationsmöglichkeiten {$\circ$} \newline Austauschbarkeit
 \end{tabularx}
 \end{table}
+
+\subsection{fachliches Modell}
+Das fachliche Modell vermeidet technische Annahmen und zeichnet sich durch hohe fachliche Abstraktion aus \autocite[vgl.][S. 52]{Vogel2009}.
 
 \subsection{Auswahl des Vorgehens}
