@@ -58,12 +58,25 @@
 %
 \usepackage[babel,german=guillemets]{csquotes}
 % \usepackage[style=authoryear]{biblatex}
-\usepackage[backend=biber, style=authoryear]{biblatex} %biblatex mit biber laden
+\usepackage[
+    backend=biber, 
+    style=authoryear, 
+    maxnames=2,
+    minnames=1,
+    isbn=false,
+    doi=false,
+]{biblatex} %biblatex mit biber laden
 % \ExecuteBibliographyOptions{
 %   sorting=nyt, %Sortierung Autor, Titel, Jahr
 %   bibwarn=true, %Probleme mit den Daten, die Backend betreffen anzeigen isbn=false, %keine isbn anzeigen
 %   url=false %keine url anzeigen
 % }
+
+\DefineBibliographyStrings{ngerman}{ 
+   andothers = {et\addabbrvspace al\adddot},
+   andmore   = {et\addabbrvspace al\adddot},
+}
+
 \addbibresource{literatur.bib}
 
 \usepackage[table]{xcolor}
