@@ -1,0 +1,73 @@
+\subsection{nichtfunktionalen Anforderungen}
+Die nachfolgenden Qualitätsmerkmale sind einem Teilmenge aller Qualitätsmerkmale, die von der statischen Architektur des Projektes beeinflusst werden.   
+
+\subsubsection{Leistungseffizienz}
+Von der grafischen Oberfläche des FreeDesign-Editors wird erwartet, dass sie mit der geringst möglichen Latenz auf Eingaben durch den Nutzer reagiert. Die statische Architektur sollte diese nach Möglichkeit unterstützen.
+
+\subsubsection{Kompatibilität}
+Die Anbindung der Unitedprint-API sollte partiell und vollständig Austauschbar sein. 
+
+\subsubsection{Benutzbarkeit}
+
+\subsubsection{Zuverlässigkeit}
+
+\subsubsection{Sicherheit}
+
+\subsubsection{Wartbarkeit}
+\paragraph{Änderungen der grafischen Oberfläche:}
+Die grafischen Oberfläche des FreeDesign-Editors unterliegt stetiger Änderung und Erweiterung. 
+Von diesen Änderungen sollten die Kernfunktionalitäten des Projektes bestmöglich geschützt sein. 
+
+\paragraph{Unit-Testing:}
+Die Strukturierung des Quelltextes soll das Testen mittels Unit-Test unterstützen. 
+
+\paragraph{Unabhängigkeit von FreeDesign und Kommandozeilenprogramme:}
+Um eine größtmögliche Unabhängigkeit des FreeDesign-Editors und der Kommandozeilenprogramme zu erreichen, sollte der gemeinsam genutzte Quelltext auf ein notwendiges Minimum reduziert werden.
+
+\subsubsection{Portabilität}
+Die Architektur soll die Bereitstellung des FreeDesign-Editors auf mehreren Zielplattformen ermöglichen. Neben der Bereitstellung der Anwendung als Single-Page-Application für die Internetpräsentation, wird IOS \& Android ebenfalls eine zukünftige Zielplattform sein. 
+Auf eine eventuelle Forderung nach eine nativen Anwendung des FreeDesign-Editors für Windows, macOS und Linux sollte die Architektur ebenfalls vorbereitet sein. 
+
+\subsection{technische Anforderungen}
+% \subsection{Anforderungen an die Soll-Architektur} % Softwarearchitektur S. 108 - 
+
+% \subsubsection{Funktionale Anforderungen}
+% Die Tabelle \ref{table:fa} beschreibt die funktionalen Anforderungen die das FreeDesign-Projekt bereitstellen muss. Die Anforderungen sind unterteilt in \emph{FreeDesign-Webapp}, \emph{AI-Design-Converter-CLI} sowie \emph{SVG-Page-Renderer-CLI}.
+% Der Teil \emph{FreeDesign-Webapp} bezieht auf die Webanwendung des FreeDesign-Editor und ermöglicht somit die Definition weiter grafischer Oberflächen des FreeDesign Editors. Denkbar hierfür wäre eine separate Oberflächen für native\footnote{Dies wäre durch die Nutzung von ReactNative möglich. \url{https://reactnative.dev}} Anwendung die sich an eine mobile Endgeräte richten. 
+% \begin{filecontents}[overwrite]{\jobname-fa.tex}
+%     \begin{longtable}{r@{\hspace{3mm}}lX}
+%     \caption{Auflistung funktionaler Anforderungen}\\
+%     \label{table:fa}
+%     \rownumbereset
+%     & \textbf{Anforderung} & \textbf{Beschreibung} \\
+%     \hline
+%     \hline
+%     \multicolumn{3}{l}{\textbf{FreeDesign-Webapp}} \\
+%     \hline
+%     \rownumber & Darstellung Produktseite & Die Darstellung einer Produktseite ist abhängig vom Produkt und beinhaltet das Darstellen produktspezifischer Eigenschaften. \\
+%     \rownumber & Darstellung Designs & Ein Design wird innerhalb einer ein Produktseite darzustellen. \\
+%     \rownumber & Mehrsprachigkeit & Die Texte der grafische Oberfläche müssen für eine gegebene Landesprache übersetzt sein. \\
+%     \end{longtable}
+% \end{filecontents}
+% \LTXtable{\linewidth}{\jobname-fa.tex}
+
+% \subsubsection{Nichtfunktionale Anforderungen}
+% \begin{filecontents}[overwrite]{\jobname-nfa.tex}
+%     \begin{longtable}{r@{\hspace{3mm}}lX}
+%     \caption{Auflistung der nichtfunktionalen Anforderungen}\\
+%     \label{table:fa}
+%     \rownumbereset
+%     & \textbf{Anforderung} & \textbf{Beschreibung} \\
+%     \hline
+%     \hline
+%     \multicolumn{3}{l}{\textbf{FreeDesign-Webapp}} \\
+%     \hline
+%     \rownumber & Darstellung Produktseite & Die Darstellung einer Produktseite ist abhängig vom Produkt und beinhaltet das Darstellen produktspezifischer Eigenschaften. \\
+%     \rownumber & Darstellung Designs & Ein Design wird innerhalb einer ein Produktseite darzustellen. \\
+%     \rownumber & Mehrsprachigkeit & Die Texte der grafische Oberfläche müssen für eine gegebene Landesprache übersetzt sein. \\
+%     \end{longtable}
+% \end{filecontents}
+% \LTXtable{\linewidth}{\jobname-nfa.tex}
+
+% Step 1. Anforderungen festlegen
+
