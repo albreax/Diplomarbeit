@@ -1,0 +1,6 @@
+[
+  {"key": "toolbox", "value": "ToolBox"},
+  {"key": "undo", "value": "Zurück"},
+  {"key": "redo", "value": "Vor"},
+  {"key": "productConfig", "value": "Produkt konfigurieren"}
+]
