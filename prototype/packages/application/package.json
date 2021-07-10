@@ -1,0 +1,16 @@
+{
+  "name": "@freedesign/application",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@freedesign/data": "1.0.0"
+  }
+}
