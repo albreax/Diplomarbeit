@@ -1,9 +1,10 @@
 const path = require("path");
 const { getLoader, loaderByName } = require("@craco/craco");
 
-const packages = [];
-packages.push(path.join(__dirname, "../../data"));
-packages.push(path.join(__dirname, "../../application"));
+const packages = [
+  path.join(__dirname, "../../data"),
+  path.join(__dirname, "../../application")
+];
 
 module.exports = {
   webpack: {

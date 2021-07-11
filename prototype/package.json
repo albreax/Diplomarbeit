@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start": "lerna exec --scope @freedesign/webclient start"
+    "start:freedesign": "lerna run --stream --scope @freedesign/webclient start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

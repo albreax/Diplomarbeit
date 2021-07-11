@@ -15,5 +15,5 @@ lerna bootstrap
 start developer mode of the web client
 
 ```sh
-lerna run start
+npm run start:freedesign
 ```

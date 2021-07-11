@@ -1,7 +1,7 @@
 {
   "version": "independent",
   "packages": [
-    "packages/ui/cli/**",
+    "packages/ui/cli/designToSvgConverter/**",
     "packages/ui/webClient/**",
     "packages/application/**",
     "packages/data/**"
