@@ -1,11 +1,13 @@
 {
   "name": "root",
   "private": true,
+
   "scripts": {
     "start:freedesign": "lerna run --stream --scope @freedesign/webclient start",
     "start:designToSvg": "lerna run --stream --scope @freedesign/designtosvgconverter start"
   },
   "devDependencies": {
+    "jest": "^26.6.0",
     "lerna": "^4.0.0"
   },
   "dependencies": {

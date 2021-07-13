@@ -8,4 +8,7 @@ export default class Application implements IApplication {
     return ServiceFactory.getInstance().createLocalizationService().getTranslation(key);
   };
   
+  public convertDesign(){
+    return ServiceFactory.getInstance().designConverterService().convertDesign();
+  }
 }

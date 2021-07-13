@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "index.js",
+  "main": "src/index.ts",
+  "compilerOptions": {
+    "lib": ["DOM"]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon"
@@ -11,6 +14,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@freedesign/application": "1.0.0"
+  },
   "devDependencies": {
     "nodemon": "^2.0.12",
     "ts-node": "^10.1.0",
