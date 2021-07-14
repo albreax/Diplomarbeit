@@ -2,5 +2,7 @@
   {"key": "toolbox", "value": "ToolBox"},
   {"key": "undo", "value": "Zurück"},
   {"key": "redo", "value": "Vor"},
-  {"key": "productConfig", "value": "Produkt konfigurieren"}
+  {"key": "productConfig", "value": "Produkt konfigurieren"},
+  {"key": "addRectangle", "value": "Rechteck hinzufügen"},
+  {"key": "addCircle", "value": "Kreis hinzufügen"}
 ]

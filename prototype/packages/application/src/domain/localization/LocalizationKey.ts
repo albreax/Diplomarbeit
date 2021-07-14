@@ -2,4 +2,7 @@ export type LocalizationKey =
   "toolbox" |
   "undo" |
   "redo" |
-  "productConfig";
+  "productConfig" |
+  "addRectangle" |
+  "addCircle"
+  ;
